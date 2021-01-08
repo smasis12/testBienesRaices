@@ -55,5 +55,9 @@ public class Lote extends Propiedad {
     public void propiedadesAlquiler() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public void hola(){
+        
+    }
 
 }
