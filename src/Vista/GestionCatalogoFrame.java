@@ -50,8 +50,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         MostrarVentasPorMes_GUI = new javax.swing.JPanel();
-        btnconsultarcon4 = new javax.swing.JToggleButton();
-        cbxcatcon4 = new javax.swing.JComboBox<>();
         btnMontoVentasPorMesVolver = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCasas = new javax.swing.JTable();
@@ -177,6 +175,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(850, 560));
+        setPreferredSize(new java.awt.Dimension(850, 560));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelprincipal.setMinimumSize(new java.awt.Dimension(850, 560));
@@ -279,18 +278,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         MostrarVentasPorMes_GUI.setPreferredSize(new java.awt.Dimension(850, 560));
         MostrarVentasPorMes_GUI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnconsultarcon4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnconsultarcon4.setText("CONSULTAR");
-        btnconsultarcon4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnconsultarcon4ActionPerformed(evt);
-            }
-        });
-        MostrarVentasPorMes_GUI.add(btnconsultarcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, 40));
-
-        cbxcatcon4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        MostrarVentasPorMes_GUI.add(cbxcatcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 170, 30));
-
         btnMontoVentasPorMesVolver.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnMontoVentasPorMesVolver.setText("Volver");
         btnMontoVentasPorMesVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -298,7 +285,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
                 btnMontoVentasPorMesVolverActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(btnMontoVentasPorMesVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        MostrarVentasPorMes_GUI.add(btnMontoVentasPorMesVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         tablaCasas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -311,11 +298,11 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         tablaCasas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane1.setViewportView(tablaCasas);
 
-        MostrarVentasPorMes_GUI.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 470, 270));
+        MostrarVentasPorMes_GUI.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 440, 270));
 
         btnGestionCasasLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnGestionCasasLimpiar.setText("Limpiar");
-        MostrarVentasPorMes_GUI.add(btnGestionCasasLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
+        MostrarVentasPorMes_GUI.add(btnGestionCasasLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, -1));
 
         lblTitulo1.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1256,15 +1243,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         } */
     }//GEN-LAST:event_btnGenerarVentaActionPerformed
 
-    private void btnconsultarcon4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarcon4ActionPerformed
-       /* if(txtcon4fechainicio.getText().equals("") || txtcon4fechafin.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "EL CAMPO NO PUEDE ESTAR VACIO");
-        }else{
-            consulta4 tabla_consulta4 = new consulta4();
-            tabla_consulta4.visualizar_consulta4(tablacon4adm, txtcon4fechainicio.getText(), txtcon4fechafin.getText(), cbxcatcon4.getSelectedItem().toString(),sede);
-        } */         
-    }//GEN-LAST:event_btnconsultarcon4ActionPerformed
-
     private void txtValorFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorFiscalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorFiscalActionPerformed
@@ -1274,8 +1252,8 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtModalidadActionPerformed
 
     private void btnVerCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCasasActionPerformed
-        Animacion.mover_izquierda(800, 0, 5, 7, MostrarVentasPorMes_GUI);
-        Animacion.mover_izquierda(0, -800, 5, 7, Login );
+        Animacion.mover_izquierda(800, 0, 5, 10, MostrarVentasPorMes_GUI);
+        Animacion.mover_izquierda(0, -800, 5, 10, Login );
     }//GEN-LAST:event_btnVerCasasActionPerformed
 
     private void txtAreaConstruccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaConstruccionActionPerformed
@@ -1386,12 +1364,10 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public javax.swing.JToggleButton btnVentasPorTiendaConsultar;
     private javax.swing.JButton btnVerCasas;
     private javax.swing.JButton btnVolver;
-    public javax.swing.JToggleButton btnconsultarcon4;
     public javax.swing.JComboBox<String> cboxMostrarProductosGerente;
     public javax.swing.JComboBox<String> cboxempleado;
     public javax.swing.JComboBox<String> cboxproducto;
     public javax.swing.JComboBox<String> cboxtiendacon1gerente;
-    public javax.swing.JComboBox<String> cbxcatcon4;
     public javax.swing.JComboBox<String> cbxcliente;
     public javax.swing.JComboBox<String> cbxcon2gertienda;
     public javax.swing.JComboBox<String> cbxestado;
