@@ -139,7 +139,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtAreaConstruccion1" min="-2" pref="184" max="-2" attributes="0"/>
+                              <Component id="txtAnioConstruccion" min="-2" pref="184" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="cbxEstilo" min="-2" pref="172" max="-2" attributes="0"/>
                                   <Component id="txtValorFiscal" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
@@ -222,7 +222,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtAreaConstruccion1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="txtAnioConstruccion" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="cbxProvincias" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="txtCanton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
@@ -477,12 +477,12 @@
             <Property name="text" type="java.lang.String" value="Color"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAreaConstruccion1">
+        <Component class="javax.swing.JTextField" name="txtAnioConstruccion">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAreaConstruccion1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnioConstruccionActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantidadNiveles">

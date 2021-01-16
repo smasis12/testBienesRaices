@@ -68,7 +68,7 @@ public class RegistrarNuevaCasaFrame extends javax.swing.JFrame {
         lblAreaConstruccion = new javax.swing.JLabel();
         txtDistrito = new javax.swing.JTextField();
         lblColor = new javax.swing.JLabel();
-        txtAreaConstruccion1 = new javax.swing.JTextField();
+        txtAnioConstruccion = new javax.swing.JTextField();
         txtCantidadNiveles = new javax.swing.JTextField();
         lblAñoConstruccion = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
@@ -178,10 +178,10 @@ public class RegistrarNuevaCasaFrame extends javax.swing.JFrame {
         lblColor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblColor.setText("Color");
 
-        txtAreaConstruccion1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAreaConstruccion1.addActionListener(new java.awt.event.ActionListener() {
+        txtAnioConstruccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAnioConstruccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAreaConstruccion1ActionPerformed(evt);
+                txtAnioConstruccionActionPerformed(evt);
             }
         });
 
@@ -278,7 +278,7 @@ public class RegistrarNuevaCasaFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAreaConstruccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAnioConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -341,7 +341,7 @@ public class RegistrarNuevaCasaFrame extends javax.swing.JFrame {
                     .addComponent(lblCanton))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAreaConstruccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAnioConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
@@ -403,9 +403,9 @@ public class RegistrarNuevaCasaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxEstiloActionPerformed
 
-    private void txtAreaConstruccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaConstruccion1ActionPerformed
+    private void txtAnioConstruccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioConstruccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAreaConstruccion1ActionPerformed
+    }//GEN-LAST:event_txtAnioConstruccionActionPerformed
 
     private void txtCantidadNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadNivelesActionPerformed
         // TODO add your handling code here:
@@ -479,8 +479,8 @@ public class RegistrarNuevaCasaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblUbicacion;
     private javax.swing.JLabel lblValorFiscal;
     private javax.swing.JLabel lblValorMetro2;
+    private javax.swing.JTextField txtAnioConstruccion;
     private javax.swing.JTextField txtAreaConstruccion;
-    private javax.swing.JTextField txtAreaConstruccion1;
     private javax.swing.JTextField txtAreaTerreno;
     private javax.swing.JTextField txtCantidadNiveles;
     private javax.swing.JTextField txtCanton;
