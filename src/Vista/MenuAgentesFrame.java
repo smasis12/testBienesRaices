@@ -102,7 +102,7 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGestionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionCatalogoActionPerformed
-        ConsultarAgentesFrame ventana = new ConsultarAgentesFrame();
+        GestionCatalogoFrame ventana = new GestionCatalogoFrame();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGestionCatalogoActionPerformed
