@@ -38,33 +38,33 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         lblNumFinca = new javax.swing.JLabel();
         lblAreaTerreno = new javax.swing.JLabel();
         lblValorFiscal = new javax.swing.JLabel();
-        txtNumFinca = new javax.swing.JTextField();
-        txtAreaTerreno = new javax.swing.JTextField();
-        txtValorFiscal = new javax.swing.JTextField();
-        txtModalidad = new javax.swing.JTextField();
+        txtNumFincaGestionLotes = new javax.swing.JTextField();
+        txtAreaTerrenoGestionLotes = new javax.swing.JTextField();
+        txtValorFiscalGestionLotes = new javax.swing.JTextField();
+        txtModalidadGestionLotes = new javax.swing.JTextField();
         lblValorMetro2 = new javax.swing.JLabel();
-        txtValorMetro2 = new javax.swing.JTextField();
-        btnModificar = new javax.swing.JButton();
-        btnSeleccionar = new javax.swing.JButton();
+        txtValorMetro2GestionLotes = new javax.swing.JTextField();
+        btnModificarGestionLotes = new javax.swing.JButton();
+        btnSeleccionarGestionLotes = new javax.swing.JButton();
         btnVerCasas = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        btnVolverGestionLotes = new javax.swing.JButton();
+        btnEliminarGestionLotes = new javax.swing.JButton();
         MostrarVentasPorMes_GUI = new javax.swing.JPanel();
-        btnMontoVentasPorMesVolver = new javax.swing.JToggleButton();
+        btnVolverGestionCasas = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCasas = new javax.swing.JTable();
-        btnGestionCasasLimpiar = new javax.swing.JToggleButton();
+        btnLimpiarGestionCasas = new javax.swing.JToggleButton();
         lblTitulo1 = new javax.swing.JLabel();
-        txtAreaConstruccion = new javax.swing.JTextField();
+        txtAreaConstruccionGestionCasas = new javax.swing.JTextField();
         lblAreaTerreno1 = new javax.swing.JLabel();
         lblAreaConstruccion = new javax.swing.JLabel();
         lblValorFiscal1 = new javax.swing.JLabel();
-        txtCantidadNiveles = new javax.swing.JTextField();
+        txtCantidadNivelesGestionCasas = new javax.swing.JTextField();
         lblCantNiveles = new javax.swing.JLabel();
-        txtNumFinca1 = new javax.swing.JTextField();
-        txtAreaTerreno1 = new javax.swing.JTextField();
-        txtValorMetro3 = new javax.swing.JTextField();
-        txtValorFiscal1 = new javax.swing.JTextField();
+        txtNumFincaGestionCasas = new javax.swing.JTextField();
+        txtAreaTerrenoGestionCasas = new javax.swing.JTextField();
+        txtValorMetro2GestionCasas = new javax.swing.JTextField();
+        txtValorFiscalGestionCasas = new javax.swing.JTextField();
         lblNumFinca1 = new javax.swing.JLabel();
         lblValorMetro3 = new javax.swing.JLabel();
         lblEstilo = new javax.swing.JLabel();
@@ -73,25 +73,42 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         lblAñoConstruccion = new javax.swing.JLabel();
         lblModalidad1 = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
-        txtCantidadNiveles1 = new javax.swing.JTextField();
-        txtAnioConstruccion1 = new javax.swing.JTextField();
+        txtEstiloConstruccionGestionCasas = new javax.swing.JTextField();
+        txtModalidadGestionCasas = new javax.swing.JTextField();
+        btnSeleccionarGestionCasas = new javax.swing.JToggleButton();
+        btnModificarGestionCasas = new javax.swing.JToggleButton();
+        btnEliminarGestionCasas = new javax.swing.JToggleButton();
+        btnVerApartamentos = new javax.swing.JToggleButton();
         Admin_GUI = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnAdminVolver = new javax.swing.JToggleButton();
+        btnVolverGestionApartamentos = new javax.swing.JToggleButton();
         btnAdminLimpiar1 = new javax.swing.JToggleButton();
-        btnAdminPedidoPorRango = new javax.swing.JToggleButton();
-        btnAdminMontoDeVentas = new javax.swing.JToggleButton();
-        btnAdminInsertarCompra = new javax.swing.JToggleButton();
-        jLabel2 = new javax.swing.JLabel();
-        btnAdminMontoRecaudado = new javax.swing.JToggleButton();
-        btnAdminPromCompras = new javax.swing.JToggleButton();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        tablaadmin = new javax.swing.JTable();
-        txtfechafinadmin = new javax.swing.JTextField();
-        txtfechainicioadmin = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        tablaApartamentos = new javax.swing.JTable();
+        txtAreaConstruccionGestionCasas1 = new javax.swing.JTextField();
+        lblAreaTerreno2 = new javax.swing.JLabel();
+        lblAreaConstruccion1 = new javax.swing.JLabel();
+        lblValorFiscal2 = new javax.swing.JLabel();
+        txtCantidadNivelesGestionCasas1 = new javax.swing.JTextField();
+        lblCantNiveles1 = new javax.swing.JLabel();
+        txtNumFincaGestionCasas1 = new javax.swing.JTextField();
+        txtAreaTerrenoGestionCasas1 = new javax.swing.JTextField();
+        txtValorMetro2GestionCasas1 = new javax.swing.JTextField();
+        txtValorFiscalGestionCasas1 = new javax.swing.JTextField();
+        lblNumFinca2 = new javax.swing.JLabel();
+        lblValorMetro4 = new javax.swing.JLabel();
+        lblEstilo1 = new javax.swing.JLabel();
+        txtAnioConstruccion1 = new javax.swing.JTextField();
+        lblAñoConstruccion1 = new javax.swing.JLabel();
+        lblModalidad2 = new javax.swing.JLabel();
+        txtColor1 = new javax.swing.JTextField();
+        txtEstiloConstruccionGestionCasas1 = new javax.swing.JTextField();
+        txtModalidadGestionCasas1 = new javax.swing.JTextField();
+        lblEstilo2 = new javax.swing.JLabel();
+        btnVerCentrosComerciales = new javax.swing.JToggleButton();
+        btnSeleccionarGestionApartamentos = new javax.swing.JToggleButton();
+        btnModificarGestionApartamentos = new javax.swing.JToggleButton();
+        btnEliminarGestionApartamentos = new javax.swing.JToggleButton();
         MostrarTop3Gerente_GUI = new javax.swing.JPanel();
         btnMostrarTop3Volver1 = new javax.swing.JToggleButton();
         jLabel24 = new javax.swing.JLabel();
@@ -175,7 +192,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(850, 560));
-        setPreferredSize(new java.awt.Dimension(850, 560));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelprincipal.setMinimumSize(new java.awt.Dimension(850, 560));
@@ -183,7 +199,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         panelprincipal.setPreferredSize(new java.awt.Dimension(850, 560));
         panelprincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Login.setPreferredSize(new java.awt.Dimension(770, 450));
+        Login.setPreferredSize(new java.awt.Dimension(850, 560));
         Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
@@ -201,7 +217,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(tablaLotes);
 
-        Login.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 460, 220));
+        Login.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 460, 220));
 
         lblModalidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblModalidad.setText("Modalidad");
@@ -218,41 +234,41 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         lblValorFiscal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblValorFiscal.setText("Valor Fiscal");
         Login.add(lblValorFiscal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
-        Login.add(txtNumFinca, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 150, 30));
+        Login.add(txtNumFincaGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 150, 30));
 
-        txtAreaTerreno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Login.add(txtAreaTerreno, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 150, 30));
+        txtAreaTerrenoGestionLotes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Login.add(txtAreaTerrenoGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 150, 30));
 
-        txtValorFiscal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtValorFiscal.addActionListener(new java.awt.event.ActionListener() {
+        txtValorFiscalGestionLotes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtValorFiscalGestionLotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorFiscalActionPerformed(evt);
+                txtValorFiscalGestionLotesActionPerformed(evt);
             }
         });
-        Login.add(txtValorFiscal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 150, 30));
+        Login.add(txtValorFiscalGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 150, 30));
 
-        txtModalidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtModalidad.addActionListener(new java.awt.event.ActionListener() {
+        txtModalidadGestionLotes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtModalidadGestionLotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtModalidadActionPerformed(evt);
+                txtModalidadGestionLotesActionPerformed(evt);
             }
         });
-        Login.add(txtModalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 150, 30));
+        Login.add(txtModalidadGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 150, 30));
 
         lblValorMetro2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblValorMetro2.setText("Valor por metro cuadrado");
         Login.add(lblValorMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
 
-        txtValorMetro2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Login.add(txtValorMetro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 80, 30));
+        txtValorMetro2GestionLotes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Login.add(txtValorMetro2GestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 80, 30));
 
-        btnModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnModificar.setText("Modificar");
-        Login.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, 30));
+        btnModificarGestionLotes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnModificarGestionLotes.setText("Modificar");
+        Login.add(btnModificarGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, 30));
 
-        btnSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSeleccionar.setText("Seleccionar");
-        Login.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, 30));
+        btnSeleccionarGestionLotes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSeleccionarGestionLotes.setText("Seleccionar");
+        Login.add(btnSeleccionarGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, 30));
 
         btnVerCasas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnVerCasas.setText("Ver Casas");
@@ -263,13 +279,18 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         });
         Login.add(btnVerCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 370, 100, 30));
 
-        btnVolver.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnVolver.setText("Volver");
-        Login.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 90, 30));
+        btnVolverGestionLotes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnVolverGestionLotes.setText("Volver");
+        btnVolverGestionLotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverGestionLotesActionPerformed(evt);
+            }
+        });
+        Login.add(btnVolverGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 90, 30));
 
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        Login.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 100, 30));
+        btnEliminarGestionLotes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminarGestionLotes.setText("Eliminar");
+        Login.add(btnEliminarGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 100, 30));
 
         panelprincipal.add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 560));
         Login.getAccessibleContext().setAccessibleName("");
@@ -278,14 +299,14 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         MostrarVentasPorMes_GUI.setPreferredSize(new java.awt.Dimension(850, 560));
         MostrarVentasPorMes_GUI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnMontoVentasPorMesVolver.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnMontoVentasPorMesVolver.setText("Volver");
-        btnMontoVentasPorMesVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnVolverGestionCasas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnVolverGestionCasas.setText("Volver");
+        btnVolverGestionCasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMontoVentasPorMesVolverActionPerformed(evt);
+                btnVolverGestionCasasActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(btnMontoVentasPorMesVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        MostrarVentasPorMes_GUI.add(btnVolverGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         tablaCasas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -300,22 +321,22 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
 
         MostrarVentasPorMes_GUI.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 440, 270));
 
-        btnGestionCasasLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnGestionCasasLimpiar.setText("Limpiar");
-        MostrarVentasPorMes_GUI.add(btnGestionCasasLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, -1));
+        btnLimpiarGestionCasas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnLimpiarGestionCasas.setText("Limpiar");
+        MostrarVentasPorMes_GUI.add(btnLimpiarGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, -1));
 
         lblTitulo1.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo1.setText("Gestion de Casas");
         MostrarVentasPorMes_GUI.add(lblTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 200, 40));
 
-        txtAreaConstruccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAreaConstruccion.addActionListener(new java.awt.event.ActionListener() {
+        txtAreaConstruccionGestionCasas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAreaConstruccionGestionCasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAreaConstruccionActionPerformed(evt);
+                txtAreaConstruccionGestionCasasActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(txtAreaConstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 120, -1));
+        MostrarVentasPorMes_GUI.add(txtAreaConstruccionGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 120, -1));
 
         lblAreaTerreno1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblAreaTerreno1.setText("Area del terreno");
@@ -329,38 +350,38 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         lblValorFiscal1.setText("Valor Fiscal");
         MostrarVentasPorMes_GUI.add(lblValorFiscal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, -1, -1));
 
-        txtCantidadNiveles.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidadNiveles.addActionListener(new java.awt.event.ActionListener() {
+        txtCantidadNivelesGestionCasas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantidadNivelesGestionCasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCantidadNivelesActionPerformed(evt);
+                txtCantidadNivelesGestionCasasActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(txtCantidadNiveles, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 120, -1));
+        MostrarVentasPorMes_GUI.add(txtCantidadNivelesGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 120, -1));
 
         lblCantNiveles.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCantNiveles.setText("Cantidad de Niveles");
         MostrarVentasPorMes_GUI.add(lblCantNiveles, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
 
-        txtNumFinca1.addActionListener(new java.awt.event.ActionListener() {
+        txtNumFincaGestionCasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumFinca1ActionPerformed(evt);
+                txtNumFincaGestionCasasActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(txtNumFinca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 120, -1));
+        MostrarVentasPorMes_GUI.add(txtNumFincaGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 120, -1));
 
-        txtAreaTerreno1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        MostrarVentasPorMes_GUI.add(txtAreaTerreno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
+        txtAreaTerrenoGestionCasas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        MostrarVentasPorMes_GUI.add(txtAreaTerrenoGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
 
-        txtValorMetro3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        MostrarVentasPorMes_GUI.add(txtValorMetro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 120, -1));
+        txtValorMetro2GestionCasas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        MostrarVentasPorMes_GUI.add(txtValorMetro2GestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 120, -1));
 
-        txtValorFiscal1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtValorFiscal1.addActionListener(new java.awt.event.ActionListener() {
+        txtValorFiscalGestionCasas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtValorFiscalGestionCasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorFiscal1ActionPerformed(evt);
+                txtValorFiscalGestionCasasActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(txtValorFiscal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 120, -1));
+        MostrarVentasPorMes_GUI.add(txtValorFiscalGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 120, -1));
 
         lblNumFinca1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNumFinca1.setText("Numero de Finca");
@@ -402,21 +423,42 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         });
         MostrarVentasPorMes_GUI.add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 120, -1));
 
-        txtCantidadNiveles1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidadNiveles1.addActionListener(new java.awt.event.ActionListener() {
+        txtEstiloConstruccionGestionCasas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEstiloConstruccionGestionCasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCantidadNiveles1ActionPerformed(evt);
+                txtEstiloConstruccionGestionCasasActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(txtCantidadNiveles1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 120, -1));
+        MostrarVentasPorMes_GUI.add(txtEstiloConstruccionGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 120, -1));
 
-        txtAnioConstruccion1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAnioConstruccion1.addActionListener(new java.awt.event.ActionListener() {
+        txtModalidadGestionCasas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtModalidadGestionCasas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnioConstruccion1ActionPerformed(evt);
+                txtModalidadGestionCasasActionPerformed(evt);
             }
         });
-        MostrarVentasPorMes_GUI.add(txtAnioConstruccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 120, -1));
+        MostrarVentasPorMes_GUI.add(txtModalidadGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 120, -1));
+
+        btnSeleccionarGestionCasas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSeleccionarGestionCasas.setText("Seleccionar");
+        MostrarVentasPorMes_GUI.add(btnSeleccionarGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+
+        btnModificarGestionCasas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnModificarGestionCasas.setText("Modificar");
+        MostrarVentasPorMes_GUI.add(btnModificarGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+
+        btnEliminarGestionCasas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnEliminarGestionCasas.setText("Eliminar");
+        MostrarVentasPorMes_GUI.add(btnEliminarGestionCasas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
+
+        btnVerApartamentos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnVerApartamentos.setText("Ver Apartamentos");
+        btnVerApartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerApartamentosActionPerformed(evt);
+            }
+        });
+        MostrarVentasPorMes_GUI.add(btnVerApartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, -1, -1));
 
         panelprincipal.add(MostrarVentasPorMes_GUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(-800, 0, 850, 560));
 
@@ -425,78 +467,25 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         Admin_GUI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("Administrador");
-        Admin_GUI.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
+        jLabel1.setText("Gestion de Apartamentos");
+        Admin_GUI.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, -1));
 
-        btnAdminVolver.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnAdminVolver.setText("Volver");
-        btnAdminVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnVolverGestionApartamentos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnVolverGestionApartamentos.setText("Volver");
+        btnVolverGestionApartamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminVolverActionPerformed(evt);
+                btnVolverGestionApartamentosActionPerformed(evt);
             }
         });
-        Admin_GUI.add(btnAdminVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        Admin_GUI.add(btnVolverGestionApartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        btnAdminLimpiar1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        btnAdminLimpiar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAdminLimpiar1.setText("Limpiar");
-        Admin_GUI.add(btnAdminLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        Admin_GUI.add(btnAdminLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
-        btnAdminPedidoPorRango.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnAdminPedidoPorRango.setText("Pedidos por rango de fecha");
-        btnAdminPedidoPorRango.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminPedidoPorRangoActionPerformed(evt);
-            }
-        });
-        Admin_GUI.add(btnAdminPedidoPorRango, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, -1, -1));
-
-        btnAdminMontoDeVentas.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnAdminMontoDeVentas.setText("Monto de ventas por mes");
-        btnAdminMontoDeVentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminMontoDeVentasActionPerformed(evt);
-            }
-        });
-        Admin_GUI.add(btnAdminMontoDeVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, -1, -1));
-
-        btnAdminInsertarCompra.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnAdminInsertarCompra.setText("Insertar nueva venta");
-        btnAdminInsertarCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminInsertarCompraActionPerformed(evt);
-            }
-        });
-        Admin_GUI.add(btnAdminInsertarCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel2.setText("Otras consultas:");
-        Admin_GUI.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
-
-        btnAdminMontoRecaudado.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnAdminMontoRecaudado.setText("Monto recaudado");
-        btnAdminMontoRecaudado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminMontoRecaudadoActionPerformed(evt);
-            }
-        });
-        Admin_GUI.add(btnAdminMontoRecaudado, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, -1));
-
-        btnAdminPromCompras.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnAdminPromCompras.setText("Promedio de compras por cliente");
-        btnAdminPromCompras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminPromComprasActionPerformed(evt);
-            }
-        });
-        Admin_GUI.add(btnAdminPromCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel3.setText("Hasta");
-        Admin_GUI.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, -1, -1));
-
-        tablaadmin.setModel(new javax.swing.table.DefaultTableModel(
+        tablaApartamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -504,20 +493,155 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
 
             }
         ));
-        tablaadmin.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane6.setViewportView(tablaadmin);
+        tablaApartamentos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane6.setViewportView(tablaApartamentos);
 
-        Admin_GUI.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 570, 200));
-        Admin_GUI.add(txtfechafinadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 80, -1));
-        Admin_GUI.add(txtfechainicioadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 80, -1));
+        Admin_GUI.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 450, 250));
 
-        jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel30.setText("Consultas:");
-        Admin_GUI.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
+        txtAreaConstruccionGestionCasas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAreaConstruccionGestionCasas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAreaConstruccionGestionCasas1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtAreaConstruccionGestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 120, -1));
 
-        jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel31.setText("Desde");
-        Admin_GUI.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, 10));
+        lblAreaTerreno2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAreaTerreno2.setText("Area del terreno");
+        Admin_GUI.add(lblAreaTerreno2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
+
+        lblAreaConstruccion1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAreaConstruccion1.setText("Area de Construccion");
+        Admin_GUI.add(lblAreaConstruccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+
+        lblValorFiscal2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblValorFiscal2.setText("Valor Fiscal");
+        Admin_GUI.add(lblValorFiscal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, -1, -1));
+
+        txtCantidadNivelesGestionCasas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantidadNivelesGestionCasas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadNivelesGestionCasas1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtCantidadNivelesGestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 120, -1));
+
+        lblCantNiveles1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCantNiveles1.setText("Altura");
+        Admin_GUI.add(lblCantNiveles1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
+
+        txtNumFincaGestionCasas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumFincaGestionCasas1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtNumFincaGestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 120, -1));
+
+        txtAreaTerrenoGestionCasas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Admin_GUI.add(txtAreaTerrenoGestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
+
+        txtValorMetro2GestionCasas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Admin_GUI.add(txtValorMetro2GestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 120, -1));
+
+        txtValorFiscalGestionCasas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtValorFiscalGestionCasas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorFiscalGestionCasas1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtValorFiscalGestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 120, -1));
+
+        lblNumFinca2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNumFinca2.setText("Numero de Finca");
+        Admin_GUI.add(lblNumFinca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
+
+        lblValorMetro4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblValorMetro4.setText("Valor por metro cuadrado");
+        Admin_GUI.add(lblValorMetro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
+
+        lblEstilo1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEstilo1.setText("Estilo Construccion");
+        Admin_GUI.add(lblEstilo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, -1, -1));
+
+        txtAnioConstruccion1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAnioConstruccion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAnioConstruccion1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtAnioConstruccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, 120, -1));
+
+        lblAñoConstruccion1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAñoConstruccion1.setText("Espacios Parqueo");
+        Admin_GUI.add(lblAñoConstruccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
+
+        lblModalidad2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblModalidad2.setText("Modalidad");
+        Admin_GUI.add(lblModalidad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, -1, -1));
+
+        txtColor1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtColor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtColor1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtColor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 120, -1));
+
+        txtEstiloConstruccionGestionCasas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEstiloConstruccionGestionCasas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEstiloConstruccionGestionCasas1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtEstiloConstruccionGestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 120, -1));
+
+        txtModalidadGestionCasas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtModalidadGestionCasas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModalidadGestionCasas1ActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(txtModalidadGestionCasas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 120, -1));
+
+        lblEstilo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEstilo2.setText("Piscina");
+        Admin_GUI.add(lblEstilo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, -1));
+
+        btnVerCentrosComerciales.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnVerCentrosComerciales.setText("Ver Centros Comerciales");
+        btnVerCentrosComerciales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerCentrosComercialesActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(btnVerCentrosComerciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
+
+        btnSeleccionarGestionApartamentos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSeleccionarGestionApartamentos.setText("Seleccionar");
+        btnSeleccionarGestionApartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarGestionApartamentosActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(btnSeleccionarGestionApartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+
+        btnModificarGestionApartamentos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnModificarGestionApartamentos.setText("Modificar");
+        btnModificarGestionApartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarGestionApartamentosActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(btnModificarGestionApartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
+
+        btnEliminarGestionApartamentos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnEliminarGestionApartamentos.setText("Eliminar");
+        btnEliminarGestionApartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarGestionApartamentosActionPerformed(evt);
+            }
+        });
+        Admin_GUI.add(btnEliminarGestionApartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, -1));
 
         panelprincipal.add(Admin_GUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(-800, 11, 850, 560));
 
@@ -917,26 +1041,11 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAdminVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminVolverActionPerformed
-            Animacion.mover_izquierda(800, 0, 5, 7, Login);
-            Animacion.mover_izquierda(0, -800, 5, 7, Admin_GUI); 
+    private void btnVolverGestionApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverGestionApartamentosActionPerformed
+            Animacion.mover_derecha(0, 800, 5, 7, Admin_GUI);
+            Animacion.mover_derecha(-800, 0, 5, 7, MostrarVentasPorMes_GUI);
             cboxempleado.removeAllItems();
-    }//GEN-LAST:event_btnAdminVolverActionPerformed
-
-    private void btnAdminPedidoPorRangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminPedidoPorRangoActionPerformed
-         Animacion.mover_derecha(0, 800, 5, 7, Admin_GUI);
-         Animacion.mover_derecha(-800, 0, 5, 7, PedidoPorRangoFechas_GUI);
-    }//GEN-LAST:event_btnAdminPedidoPorRangoActionPerformed
-
-    private void btnAdminMontoDeVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminMontoDeVentasActionPerformed
-        Animacion.mover_derecha(0, 800, 5, 7, Admin_GUI);
-        Animacion.mover_derecha(-800, 0, 5, 7, MostrarVentasPorMes_GUI);
-    }//GEN-LAST:event_btnAdminMontoDeVentasActionPerformed
-
-    private void btnAdminInsertarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminInsertarCompraActionPerformed
-        Animacion.mover_derecha(0, 800, 5, 7, Admin_GUI);
-        Animacion.mover_derecha(-800, 0, 5, 7, InsertarVentaGUI);      
-    }//GEN-LAST:event_btnAdminInsertarCompraActionPerformed
+    }//GEN-LAST:event_btnVolverGestionApartamentosActionPerformed
 
     private void btnGerenteVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenteVolverActionPerformed
         Animacion.mover_izquierda(0, -800, 5, 7, Gerente_GUI);
@@ -1131,7 +1240,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     }
     
     public void limpiar_tablaadmin(){
-        tablaadmin.removeAll();
+        tablaApartamentos.removeAll();
     }
 
     private void btnPedidoPorRangoFechaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoPorRangoFechaConsultarActionPerformed
@@ -1149,26 +1258,10 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         Animacion.mover_izquierda(0, -800, 5, 7, MostrarTop3Gerente_GUI);   
     }//GEN-LAST:event_btnMostrarTop3Volver1ActionPerformed
 
-    private void btnMontoVentasPorMesVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMontoVentasPorMesVolverActionPerformed
-        Animacion.mover_izquierda(800, 0, 5, 7, Admin_GUI);
-        Animacion.mover_izquierda(0, -800, 5, 7, MostrarVentasPorMes_GUI);
-    }//GEN-LAST:event_btnMontoVentasPorMesVolverActionPerformed
-
-    private void btnAdminMontoRecaudadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminMontoRecaudadoActionPerformed
-      /* limpiar_tablaadmin();          
-       consulta1 tabla_consulta1 = new consulta1();
-       tabla_consulta1.visualizar_consulta1(tablaadmin,sede);  */            
-    }//GEN-LAST:event_btnAdminMontoRecaudadoActionPerformed
-
-    private void btnAdminPromComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminPromComprasActionPerformed
-      /* limpiar_tablaadmin();
-       if(txtfechainicioadmin.getText().equals("") || txtfechafinadmin.getText().equals("")){
-           JOptionPane.showMessageDialog(null, "EL CAMPO NO PUEDE ESTAR VACIO");
-       }else{                
-           consulta3 tabla_consulta3 = new consulta3();
-           tabla_consulta3.visualizar_consulta3(tablaadmin,txtfechainicioadmin.getText(),txtfechafinadmin.getText(),sede);       
-       } */
-    }//GEN-LAST:event_btnAdminPromComprasActionPerformed
+    private void btnVolverGestionCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverGestionCasasActionPerformed
+        Animacion.mover_derecha(0, 800, 5, 7, MostrarVentasPorMes_GUI);
+        Animacion.mover_derecha(-800, 0, 5, 7, Login);
+    }//GEN-LAST:event_btnVolverGestionCasasActionPerformed
 
     private void btnMostrarTop3ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTop3ConsultarActionPerformed
        /*if(txttopfechainicio.getText().equals("") || txttopfechafin.getText().equals("")){
@@ -1243,34 +1336,34 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         } */
     }//GEN-LAST:event_btnGenerarVentaActionPerformed
 
-    private void txtValorFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorFiscalActionPerformed
+    private void txtValorFiscalGestionLotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorFiscalGestionLotesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorFiscalActionPerformed
+    }//GEN-LAST:event_txtValorFiscalGestionLotesActionPerformed
 
-    private void txtModalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModalidadActionPerformed
+    private void txtModalidadGestionLotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModalidadGestionLotesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtModalidadActionPerformed
+    }//GEN-LAST:event_txtModalidadGestionLotesActionPerformed
 
     private void btnVerCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCasasActionPerformed
         Animacion.mover_izquierda(800, 0, 5, 10, MostrarVentasPorMes_GUI);
         Animacion.mover_izquierda(0, -800, 5, 10, Login );
     }//GEN-LAST:event_btnVerCasasActionPerformed
 
-    private void txtAreaConstruccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaConstruccionActionPerformed
+    private void txtAreaConstruccionGestionCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaConstruccionGestionCasasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAreaConstruccionActionPerformed
+    }//GEN-LAST:event_txtAreaConstruccionGestionCasasActionPerformed
 
-    private void txtCantidadNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadNivelesActionPerformed
+    private void txtCantidadNivelesGestionCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadNivelesGestionCasasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidadNivelesActionPerformed
+    }//GEN-LAST:event_txtCantidadNivelesGestionCasasActionPerformed
 
-    private void txtNumFinca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFinca1ActionPerformed
+    private void txtNumFincaGestionCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFincaGestionCasasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumFinca1ActionPerformed
+    }//GEN-LAST:event_txtNumFincaGestionCasasActionPerformed
 
-    private void txtValorFiscal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorFiscal1ActionPerformed
+    private void txtValorFiscalGestionCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorFiscalGestionCasasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorFiscal1ActionPerformed
+    }//GEN-LAST:event_txtValorFiscalGestionCasasActionPerformed
 
     private void txtAnioConstruccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioConstruccionActionPerformed
         // TODO add your handling code here:
@@ -1280,13 +1373,72 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtColorActionPerformed
 
-    private void txtCantidadNiveles1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadNiveles1ActionPerformed
+    private void txtEstiloConstruccionGestionCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstiloConstruccionGestionCasasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidadNiveles1ActionPerformed
+    }//GEN-LAST:event_txtEstiloConstruccionGestionCasasActionPerformed
+
+    private void txtModalidadGestionCasasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModalidadGestionCasasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModalidadGestionCasasActionPerformed
+
+    private void btnVerApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerApartamentosActionPerformed
+        Animacion.mover_izquierda(800, 0, 5, 10, Admin_GUI);
+        Animacion.mover_izquierda(0, -800, 5, 10, MostrarVentasPorMes_GUI );
+    }//GEN-LAST:event_btnVerApartamentosActionPerformed
+
+    private void btnVolverGestionLotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverGestionLotesActionPerformed
+        MenuAgentesFrame ventana = new MenuAgentesFrame();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverGestionLotesActionPerformed
+
+    private void txtAreaConstruccionGestionCasas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaConstruccionGestionCasas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAreaConstruccionGestionCasas1ActionPerformed
+
+    private void txtCantidadNivelesGestionCasas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadNivelesGestionCasas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadNivelesGestionCasas1ActionPerformed
+
+    private void txtNumFincaGestionCasas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFincaGestionCasas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumFincaGestionCasas1ActionPerformed
+
+    private void txtValorFiscalGestionCasas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorFiscalGestionCasas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorFiscalGestionCasas1ActionPerformed
 
     private void txtAnioConstruccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioConstruccion1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnioConstruccion1ActionPerformed
+
+    private void txtColor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtColor1ActionPerformed
+
+    private void txtEstiloConstruccionGestionCasas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstiloConstruccionGestionCasas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEstiloConstruccionGestionCasas1ActionPerformed
+
+    private void txtModalidadGestionCasas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModalidadGestionCasas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModalidadGestionCasas1ActionPerformed
+
+    private void btnVerCentrosComercialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCentrosComercialesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerCentrosComercialesActionPerformed
+
+    private void btnSeleccionarGestionApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarGestionApartamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeleccionarGestionApartamentosActionPerformed
+
+    private void btnModificarGestionApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarGestionApartamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarGestionApartamentosActionPerformed
+
+    private void btnEliminarGestionApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarGestionApartamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarGestionApartamentosActionPerformed
 
     /**
      * 
@@ -1335,23 +1487,20 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private javax.swing.JPanel MostrarVentasPorProductoGerente_GUI;
     private javax.swing.JPanel MostrarVentasPorTiendaGerente_GUI;
     private javax.swing.JPanel PedidoPorRangoFechas_GUI;
-    public javax.swing.JToggleButton btnAdminInsertarCompra;
     public javax.swing.JToggleButton btnAdminLimpiar1;
-    public javax.swing.JToggleButton btnAdminMontoDeVentas;
-    public javax.swing.JToggleButton btnAdminMontoRecaudado;
-    public javax.swing.JToggleButton btnAdminPedidoPorRango;
-    public javax.swing.JToggleButton btnAdminPromCompras;
-    public javax.swing.JToggleButton btnAdminVolver;
-    private javax.swing.JButton btnEliminar;
+    public javax.swing.JToggleButton btnEliminarGestionApartamentos;
+    public javax.swing.JToggleButton btnEliminarGestionCasas;
+    private javax.swing.JButton btnEliminarGestionLotes;
     public javax.swing.JToggleButton btnGenerarVenta;
     public javax.swing.JToggleButton btnGerenteMostrarTop3Clientes;
     public javax.swing.JToggleButton btnGerenteMostrarVentas;
     public javax.swing.JToggleButton btnGerenteMostrarVentasPorProducto;
     public javax.swing.JToggleButton btnGerenteVolver;
-    public javax.swing.JToggleButton btnGestionCasasLimpiar;
     public javax.swing.JToggleButton btnInsertarVentanaVolver;
-    private javax.swing.JButton btnModificar;
-    public javax.swing.JToggleButton btnMontoVentasPorMesVolver;
+    public javax.swing.JToggleButton btnLimpiarGestionCasas;
+    public javax.swing.JToggleButton btnModificarGestionApartamentos;
+    public javax.swing.JToggleButton btnModificarGestionCasas;
+    private javax.swing.JButton btnModificarGestionLotes;
     public javax.swing.JToggleButton btnMostrarTop3Consultar;
     public javax.swing.JToggleButton btnMostrarTop3Volver1;
     public javax.swing.JToggleButton btnMostrarVentasPorProductoConsultar;
@@ -1360,10 +1509,16 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public javax.swing.JToggleButton btnPedidoPorRangoFechaConsultar;
     public javax.swing.JToggleButton btnPedidoPorRangoFechasVolver;
     public javax.swing.JToggleButton btnPedidoPorRangoLimpiar1;
-    private javax.swing.JButton btnSeleccionar;
+    public javax.swing.JToggleButton btnSeleccionarGestionApartamentos;
+    public javax.swing.JToggleButton btnSeleccionarGestionCasas;
+    private javax.swing.JButton btnSeleccionarGestionLotes;
     public javax.swing.JToggleButton btnVentasPorTiendaConsultar;
+    public javax.swing.JToggleButton btnVerApartamentos;
     private javax.swing.JButton btnVerCasas;
-    private javax.swing.JButton btnVolver;
+    public javax.swing.JToggleButton btnVerCentrosComerciales;
+    public javax.swing.JToggleButton btnVolverGestionApartamentos;
+    public javax.swing.JToggleButton btnVolverGestionCasas;
+    private javax.swing.JButton btnVolverGestionLotes;
     public javax.swing.JComboBox<String> cboxMostrarProductosGerente;
     public javax.swing.JComboBox<String> cboxempleado;
     public javax.swing.JComboBox<String> cboxproducto;
@@ -1381,7 +1536,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1389,9 +1543,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel36;
@@ -1413,45 +1564,65 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel lblAreaConstruccion;
+    private javax.swing.JLabel lblAreaConstruccion1;
     private javax.swing.JLabel lblAreaTerreno;
     private javax.swing.JLabel lblAreaTerreno1;
+    private javax.swing.JLabel lblAreaTerreno2;
     private javax.swing.JLabel lblAñoConstruccion;
+    private javax.swing.JLabel lblAñoConstruccion1;
     private javax.swing.JLabel lblCantNiveles;
+    private javax.swing.JLabel lblCantNiveles1;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblEstilo;
+    private javax.swing.JLabel lblEstilo1;
+    private javax.swing.JLabel lblEstilo2;
     private javax.swing.JLabel lblModalidad;
     private javax.swing.JLabel lblModalidad1;
+    private javax.swing.JLabel lblModalidad2;
     private javax.swing.JLabel lblNumFinca;
     private javax.swing.JLabel lblNumFinca1;
+    private javax.swing.JLabel lblNumFinca2;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblValorFiscal;
     private javax.swing.JLabel lblValorFiscal1;
+    private javax.swing.JLabel lblValorFiscal2;
     private javax.swing.JLabel lblValorMetro2;
     private javax.swing.JLabel lblValorMetro3;
+    private javax.swing.JLabel lblValorMetro4;
     private javax.swing.JPanel panelprincipal;
+    private javax.swing.JTable tablaApartamentos;
     private javax.swing.JTable tablaCasas;
     private javax.swing.JTable tablaLotes;
-    private javax.swing.JTable tablaadmin;
     private javax.swing.JTable tablacon1gerente;
     private javax.swing.JTable tablacon2ger;
     private javax.swing.JTable tablaconsulta2;
     private javax.swing.JTable tablatop3clientes;
     private javax.swing.JTextField txtAnioConstruccion;
     private javax.swing.JTextField txtAnioConstruccion1;
-    private javax.swing.JTextField txtAreaConstruccion;
-    private javax.swing.JTextField txtAreaTerreno;
-    private javax.swing.JTextField txtAreaTerreno1;
-    private javax.swing.JTextField txtCantidadNiveles;
-    private javax.swing.JTextField txtCantidadNiveles1;
+    private javax.swing.JTextField txtAreaConstruccionGestionCasas;
+    private javax.swing.JTextField txtAreaConstruccionGestionCasas1;
+    private javax.swing.JTextField txtAreaTerrenoGestionCasas;
+    private javax.swing.JTextField txtAreaTerrenoGestionCasas1;
+    private javax.swing.JTextField txtAreaTerrenoGestionLotes;
+    private javax.swing.JTextField txtCantidadNivelesGestionCasas;
+    private javax.swing.JTextField txtCantidadNivelesGestionCasas1;
     private javax.swing.JTextField txtColor;
-    private javax.swing.JTextField txtModalidad;
-    private javax.swing.JTextField txtNumFinca;
-    private javax.swing.JTextField txtNumFinca1;
-    private javax.swing.JTextField txtValorFiscal;
-    private javax.swing.JTextField txtValorFiscal1;
-    private javax.swing.JTextField txtValorMetro2;
-    private javax.swing.JTextField txtValorMetro3;
+    private javax.swing.JTextField txtColor1;
+    private javax.swing.JTextField txtEstiloConstruccionGestionCasas;
+    private javax.swing.JTextField txtEstiloConstruccionGestionCasas1;
+    private javax.swing.JTextField txtModalidadGestionCasas;
+    private javax.swing.JTextField txtModalidadGestionCasas1;
+    private javax.swing.JTextField txtModalidadGestionLotes;
+    private javax.swing.JTextField txtNumFincaGestionCasas;
+    private javax.swing.JTextField txtNumFincaGestionCasas1;
+    private javax.swing.JTextField txtNumFincaGestionLotes;
+    private javax.swing.JTextField txtValorFiscalGestionCasas;
+    private javax.swing.JTextField txtValorFiscalGestionCasas1;
+    private javax.swing.JTextField txtValorFiscalGestionLotes;
+    private javax.swing.JTextField txtValorMetro2GestionCasas;
+    private javax.swing.JTextField txtValorMetro2GestionCasas1;
+    private javax.swing.JTextField txtValorMetro2GestionLotes;
     public javax.swing.JTextField txtcantidad1;
     public javax.swing.JTextField txtcon1gerentefin;
     public javax.swing.JTextField txtcon1gerenteinicio;
@@ -1460,9 +1631,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtdescuentoinsertar;
     public javax.swing.JTextField txtfechaenvioinsertar;
     public javax.swing.JTextField txtfechafin;
-    private javax.swing.JTextField txtfechafinadmin;
     public javax.swing.JTextField txtfechainicio;
-    private javax.swing.JTextField txtfechainicioadmin;
     public javax.swing.JTextField txtfechaordeninsertar;
     private javax.swing.JTextField txtiditeminsertar;
     private javax.swing.JTextField txtprecioventainsertar;
