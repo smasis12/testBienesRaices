@@ -24,6 +24,7 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
         btnConsultaClientesInteresados = new javax.swing.JButton();
         btnRegistroBienInmueble = new javax.swing.JButton();
         btnFinSesion = new javax.swing.JButton();
+        btnConsultaAvanzada = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,29 +59,35 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
             }
         });
 
+        btnConsultaAvanzada.setText("Busqueda Avanzada");
+        btnConsultaAvanzada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaAvanzadaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnRegistroBienInmueble, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGestionCatalogo)
-                .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFinSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(btnConsultaClientesInteresados, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(lblTitulo)))
+                .addGap(98, 98, 98)
+                .addComponent(lblTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegistroBienInmueble, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                    .addComponent(btnConsultaAvanzada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnConsultaClientesInteresados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionCatalogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,9 +98,11 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGestionCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegistroBienInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(btnConsultaClientesInteresados, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConsultaClientesInteresados, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnFinSesion)
                 .addContainerGap())
         );
@@ -108,7 +117,7 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionCatalogoActionPerformed
 
     private void btnConsultaClientesInteresadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClientesInteresadosActionPerformed
-        ConsultarClientesFrame ventana = new ConsultarClientesFrame();
+        ConsultarClientesInteresadosFrame ventana = new ConsultarClientesInteresadosFrame();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnConsultaClientesInteresadosActionPerformed
@@ -125,6 +134,12 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
         this.dispose();
         JOptionPane.showMessageDialog(null, "Se ha cerrado la sesion");
     }//GEN-LAST:event_btnFinSesionActionPerformed
+
+    private void btnConsultaAvanzadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaAvanzadaActionPerformed
+        BusquedaAvanzadaFrame ventana = new BusquedaAvanzadaFrame();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnConsultaAvanzadaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +180,7 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnConsultaAvanzada;
     public javax.swing.JButton btnConsultaClientesInteresados;
     private javax.swing.JButton btnFinSesion;
     public javax.swing.JButton btnGestionCatalogo;

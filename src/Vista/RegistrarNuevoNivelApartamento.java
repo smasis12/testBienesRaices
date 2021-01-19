@@ -18,6 +18,8 @@ public class RegistrarNuevoNivelApartamento extends javax.swing.JFrame {
      */
     public RegistrarNuevoNivelApartamento() {
         initComponents();
+        
+        txtNumFinca.setEditable(false);
     }
 
     /**
@@ -30,13 +32,17 @@ public class RegistrarNuevoNivelApartamento extends javax.swing.JFrame {
 
         lblTitulo = new javax.swing.JLabel();
         txtNumFinca = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaNiveles = new javax.swing.JTable();
         lblTitulo1 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnFinalizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        lblCantResidencias = new javax.swing.JLabel();
+        lblTipoNivel = new javax.swing.JLabel();
+        lblTamñoAreasC = new javax.swing.JLabel();
+        txtCantidadResidencias = new javax.swing.JTextField();
+        txtTipoNivel = new javax.swing.JTextField();
+        txtAreasComunes = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,18 +51,8 @@ public class RegistrarNuevoNivelApartamento extends javax.swing.JFrame {
 
         txtNumFinca.setToolTipText("");
 
-        tablaNiveles.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tablaNiveles);
-
         lblTitulo1.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        lblTitulo1.setText("Niveles del complejo");
+        lblTitulo1.setText("Agregar Niveles al Apartamento");
 
         btnEliminar.setText("Eliminar Nivel");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +82,21 @@ public class RegistrarNuevoNivelApartamento extends javax.swing.JFrame {
             }
         });
 
+        lblCantResidencias.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        lblCantResidencias.setText("Cantidad de Residencias");
+
+        lblTipoNivel.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        lblTipoNivel.setText("Tipo de Nivel");
+
+        lblTamñoAreasC.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        lblTamñoAreasC.setText("Tamaño de Area Destinada a Zonas Comunes");
+
+        txtCantidadResidencias.setToolTipText("");
+
+        txtTipoNivel.setToolTipText("");
+
+        txtAreasComunes.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,30 +104,41 @@ public class RegistrarNuevoNivelApartamento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblTitulo)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(341, 341, 341)
-                                .addComponent(lblTitulo1)))
-                        .addGap(0, 320, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(lblTitulo)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 482, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(585, Short.MAX_VALUE)
+                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCantResidencias))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTipoNivel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTamñoAreasC)))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTipoNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCantidadResidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAreasComunes, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblTitulo1)
+                .addGap(270, 270, 270))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(44, 44, 44)
@@ -130,11 +152,21 @@ public class RegistrarNuevoNivelApartamento extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitulo)
                     .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(lblTitulo1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCantResidencias)
+                    .addComponent(txtCantidadResidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoNivel)
+                    .addComponent(txtTipoNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTamñoAreasC)
+                    .addComponent(txtAreasComunes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,10 +241,14 @@ public class RegistrarNuevoNivelApartamento extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnFinalizar;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCantResidencias;
+    private javax.swing.JLabel lblTamñoAreasC;
+    private javax.swing.JLabel lblTipoNivel;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTitulo1;
-    private javax.swing.JTable tablaNiveles;
+    private javax.swing.JTextField txtAreasComunes;
+    private javax.swing.JTextField txtCantidadResidencias;
     private javax.swing.JTextField txtNumFinca;
+    private javax.swing.JTextField txtTipoNivel;
     // End of variables declaration//GEN-END:variables
 }
