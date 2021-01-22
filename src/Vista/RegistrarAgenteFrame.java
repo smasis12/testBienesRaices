@@ -178,8 +178,12 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
         ControladorAgente agente = new ControladorAgente();
         //String idt= txtId.getText();
          
-        String nombreAgente = txtNombre.getText();
-        agente.generarQr(nombreAgente);
+        String nombre = txtNombre.getText();
+        String id= txtId.getText();
+        String apellido= txtApellido.getText();
+        String correo= txtCorreo.getText();
+        String tel= txtNumTelefono.getText();        
+        agente.generarQr(id, nombre, apellido, correo, tel);
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
