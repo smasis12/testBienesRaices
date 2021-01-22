@@ -1,6 +1,7 @@
 
 package Vista;
 
+import controlador.ControladorAgente;
 /**
  *
  * @author USUARIO
@@ -57,6 +58,14 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
         lblCorreo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCorreo.setText("Correo Electrónico");
 
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+
+        txtId.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
         lblAviso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblAviso.setText("*La contraseña será enviada por el correo electrónico ingresado para su registro*");
 
@@ -70,6 +79,11 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
 
         btnRegistrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,6 +172,20 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        //Generando codigo QR
+        ControladorAgente agente = new ControladorAgente();
+        //String idt= txtId.getText();
+         
+        String nombreAgente = txtNombre.getText();
+        agente.generarQr(nombreAgente);
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments
