@@ -22,7 +22,7 @@ public class ConsultaBienesRaices {
         
         String sql = "INSERT INTO Usuario(correo,telefono,clave) values(?,?,?); INSERT INTO UsuarioAgente(id,nombre,apellido,correo) values(?,?,?,?)";
         
-        
+        //aa
         try{
         
                 ps= con.prepareStatement(sql);
