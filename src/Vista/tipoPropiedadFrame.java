@@ -52,6 +52,11 @@ public class tipoPropiedadFrame extends javax.swing.JFrame {
         });
 
         cbxTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cbxTipoPropiedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxTipoPropiedadActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Seleccione el tipo de propiedad que desea registrar");
@@ -104,6 +109,40 @@ public class tipoPropiedadFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cbxTipoPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoPropiedadActionPerformed
+        // TODO add your handling code here:
+        int selection = cbxTipoPropiedad.getSelectedIndex();
+            switch (selection) {
+                case 0:
+                   break;
+                case 1:
+                    RegistrarNuevoLoteFrame ventLote = new RegistrarNuevoLoteFrame();
+                    ventLote.setVisible(true);
+                    this.dispose();
+                    break;
+                case 2: 
+                    RegistrarNuevaCasaFrame ventCasa= new RegistrarNuevaCasaFrame();
+                    ventCasa.setVisible(true);
+                    this.dispose();
+                    break;
+                case 3:
+                    RegistrarNuevoApartamento ventAp = new RegistrarNuevoApartamento();
+                    ventAp.setVisible(true);
+                    this.dispose();
+                    break;
+                case 4:
+                    RegistrarNuevoCentroComercial ventC = new RegistrarNuevoCentroComercial();
+                    ventC.setVisible(true);
+                    this.dispose();
+                    break;    
+                    
+                                   
+                default:
+                    break;
+            }
+     
+    }//GEN-LAST:event_cbxTipoPropiedadActionPerformed
 
     /**
      * @param args the command line arguments
