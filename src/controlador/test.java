@@ -11,4 +11,6 @@ package controlador;
  */
 public class test {
     
+    String yo;
+    
 }
