@@ -261,6 +261,11 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
 
         btnSeleccionarGestionLotes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSeleccionarGestionLotes.setText("Seleccionar");
+        btnSeleccionarGestionLotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarGestionLotesActionPerformed(evt);
+            }
+        });
         GestionLotes.add(btnSeleccionarGestionLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, 30));
 
         btnVerCasas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1439,6 +1444,10 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         Animacion.mover_izquierda(0, -800, 5, 7, PedidoPorRangoFechas_GUI);
     }//GEN-LAST:event_btnPedidoPorRangoFechasVolverActionPerformed
 
+    private void btnSeleccionarGestionLotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarGestionLotesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeleccionarGestionLotesActionPerformed
+
     /**
      * 
      * @param args the command line arguments
@@ -1497,9 +1506,9 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public javax.swing.JToggleButton btnMostrarVentasPorProductoConsultar;
     public javax.swing.JToggleButton btnMostrarVentasPorTiendaVolver;
     public javax.swing.JToggleButton btnMostrarVentasPorTiendaVolver1;
-    private javax.swing.JToggleButton btnPedidoPorRangoFechaConsultar;
-    private javax.swing.JToggleButton btnPedidoPorRangoFechasVolver;
-    private javax.swing.JToggleButton btnPedidoPorRangoLimpiar1;
+    public javax.swing.JToggleButton btnPedidoPorRangoFechaConsultar;
+    public javax.swing.JToggleButton btnPedidoPorRangoFechasVolver;
+    public javax.swing.JToggleButton btnPedidoPorRangoLimpiar1;
     public javax.swing.JToggleButton btnRegresarGestionCC;
     public javax.swing.JToggleButton btnSeleccionarGestionApartamentos;
     public javax.swing.JToggleButton btnSeleccionarGestionCC;
@@ -1627,7 +1636,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public javax.swing.JTextField txtcon1gerenteinicio;
     public javax.swing.JTextField txtcon2gerfin;
     public javax.swing.JTextField txtcon2gerinicio;
-    private javax.swing.JTextField txtfechafin;
-    private javax.swing.JTextField txtfechainicio;
+    public javax.swing.JTextField txtfechafin;
+    public javax.swing.JTextField txtfechainicio;
     // End of variables declaration//GEN-END:variables
 }
