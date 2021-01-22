@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import sun.applet.Main;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Conexion {
                     "Error de Conexion", JOptionPane.ERROR_MESSAGE);
         }
 
-        String url = "jdbc:sqlserver://DESKTOP-UONB6NP\\SQLEXPRESS:1433;databaseName=propiedades;user=dhemiannr;password=contrasena";
+        String url = "jdbc:sqlserver://DESKTOP-N2DB42H\\ADMIN\\SQLEXPRESS:1433;databaseName=propiedades;user=admin;password=123";
         try {
             con = DriverManager.getConnection(url);
         } catch (SQLException e) {
@@ -33,4 +34,5 @@ public class Conexion {
         }
         return con;
     }
+    
 }
