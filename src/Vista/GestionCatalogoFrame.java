@@ -181,39 +181,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaconsulta2 = new javax.swing.JTable();
         btnPedidoPorRangoLimpiar1 = new javax.swing.JToggleButton();
-        Gerente_GUI = new javax.swing.JPanel();
-        btnGerenteVolver = new javax.swing.JToggleButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        btnGerenteMostrarVentas = new javax.swing.JToggleButton();
-        btnGerenteMostrarVentasPorProducto = new javax.swing.JToggleButton();
-        btnGerenteMostrarTop3Clientes = new javax.swing.JToggleButton();
-        InsertarVentaGUI = new javax.swing.JPanel();
-        btnInsertarVentanaVolver = new javax.swing.JToggleButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        cbxcliente = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        txtfechaenvioinsertar = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        cboxproducto = new javax.swing.JComboBox<>();
-        cboxempleado = new javax.swing.JComboBox<>();
-        btnGenerarVenta = new javax.swing.JToggleButton();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        txtcantidad1 = new javax.swing.JTextField();
-        txtfechaordeninsertar = new javax.swing.JTextField();
-        txtrequireddateinsertar = new javax.swing.JTextField();
-        cbxestado = new javax.swing.JComboBox<>();
-        txtdescuentoinsertar = new javax.swing.JTextField();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        txtprecioventainsertar = new javax.swing.JTextField();
-        txtiditeminsertar = new javax.swing.JTextField();
-        jLabel40 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(850, 560));
@@ -1079,151 +1046,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
 
         panelprincipal.add(PedidoPorRangoFechas_GUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(-800, 0, -1, -1));
 
-        Gerente_GUI.setMinimumSize(new java.awt.Dimension(850, 560));
-        Gerente_GUI.setPreferredSize(new java.awt.Dimension(850, 560));
-        Gerente_GUI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnGerenteVolver.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnGerenteVolver.setText("Volver");
-        btnGerenteVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGerenteVolverActionPerformed(evt);
-            }
-        });
-        Gerente_GUI.add(btnGerenteVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel4.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel4.setText("Gerente");
-        Gerente_GUI.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel5.setText("Consultas:");
-        Gerente_GUI.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
-
-        btnGerenteMostrarVentas.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnGerenteMostrarVentas.setText("Mostrar ventas por tienda");
-        btnGerenteMostrarVentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGerenteMostrarVentasActionPerformed(evt);
-            }
-        });
-        Gerente_GUI.add(btnGerenteMostrarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 180, -1));
-
-        btnGerenteMostrarVentasPorProducto.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnGerenteMostrarVentasPorProducto.setText("Mostrar ventas por producto");
-        btnGerenteMostrarVentasPorProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGerenteMostrarVentasPorProductoActionPerformed(evt);
-            }
-        });
-        Gerente_GUI.add(btnGerenteMostrarVentasPorProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 180, -1));
-
-        btnGerenteMostrarTop3Clientes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnGerenteMostrarTop3Clientes.setText("Mostrar el top 3 de clientes");
-        btnGerenteMostrarTop3Clientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGerenteMostrarTop3ClientesActionPerformed(evt);
-            }
-        });
-        Gerente_GUI.add(btnGerenteMostrarTop3Clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 180, -1));
-
-        panelprincipal.add(Gerente_GUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(-800, 1, -1, -1));
-
-        InsertarVentaGUI.setMinimumSize(new java.awt.Dimension(850, 560));
-        InsertarVentaGUI.setPreferredSize(new java.awt.Dimension(850, 560));
-        InsertarVentaGUI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnInsertarVentanaVolver.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnInsertarVentanaVolver.setText("Volver");
-        btnInsertarVentanaVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertarVentanaVolverActionPerformed(evt);
-            }
-        });
-        InsertarVentaGUI.add(btnInsertarVentanaVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel6.setText("Insertar nueva venta");
-        InsertarVentaGUI.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel7.setText("Cliente");
-        InsertarVentaGUI.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        cbxcliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        InsertarVentaGUI.add(cbxcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 130, -1));
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel8.setText("Cantidad");
-        InsertarVentaGUI.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
-        InsertarVentaGUI.add(txtfechaenvioinsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 90, 30));
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setText("Id Item");
-        InsertarVentaGUI.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
-
-        cboxproducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        InsertarVentaGUI.add(cboxproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 250, -1));
-
-        cboxempleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        InsertarVentaGUI.add(cboxempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 250, -1));
-
-        btnGenerarVenta.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnGenerarVenta.setText("Generar venta");
-        btnGenerarVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerarVentaActionPerformed(evt);
-            }
-        });
-        InsertarVentaGUI.add(btnGenerarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 160, -1));
-
-        jLabel32.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel32.setText("Seleccione empleado");
-        InsertarVentaGUI.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel10.setText("Seleccione el producto");
-        InsertarVentaGUI.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel33.setText("Fecha de envio");
-        InsertarVentaGUI.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
-
-        jLabel36.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel36.setText("Fecha de la orden");
-        InsertarVentaGUI.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-
-        jLabel37.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel37.setText("Required date");
-        InsertarVentaGUI.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-        InsertarVentaGUI.add(txtcantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 30));
-        InsertarVentaGUI.add(txtfechaordeninsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 90, 30));
-        InsertarVentaGUI.add(txtrequireddateinsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 90, 30));
-
-        cbxestado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cbxestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Processing", "Rejected", "Completed" }));
-        InsertarVentaGUI.add(cbxestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 90, -1));
-        InsertarVentaGUI.add(txtdescuentoinsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 60, 30));
-
-        jLabel38.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel38.setText("Estado de la orden ");
-        InsertarVentaGUI.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
-
-        jLabel39.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel39.setText("Precio Venta");
-        InsertarVentaGUI.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
-        InsertarVentaGUI.add(txtprecioventainsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 60, 30));
-        InsertarVentaGUI.add(txtiditeminsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 60, 30));
-
-        jLabel40.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel40.setText("Descuento");
-        InsertarVentaGUI.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
-
-        panelprincipal.add(InsertarVentaGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(-800, 0, -1, -1));
-
         getContentPane().add(panelprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 850, 430));
 
         pack();
@@ -1232,46 +1054,15 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private void btnVolverGestionApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverGestionApartamentosActionPerformed
             Animacion.mover_derecha(0, 800, 5, 7, GestionApartamentos);
             Animacion.mover_derecha(-800, 0, 5, 7, GestionCasas);
-            cboxempleado.removeAllItems();
     }//GEN-LAST:event_btnVolverGestionApartamentosActionPerformed
 
-    private void btnGerenteVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenteVolverActionPerformed
-        Animacion.mover_izquierda(0, -800, 5, 7, Gerente_GUI);
-        Animacion.mover_izquierda(800, 0, 5, 7, GestionLotes);
-    }//GEN-LAST:event_btnGerenteVolverActionPerformed
-
-    private void btnGerenteMostrarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenteMostrarVentasActionPerformed
-        Animacion.mover_derecha(0, 800, 5, 7, Gerente_GUI);
-        Animacion.mover_derecha(-800, 0, 5, 7, MostrarVentasPorTiendaGerente_GUI);
-    }//GEN-LAST:event_btnGerenteMostrarVentasActionPerformed
-
-    private void btnGerenteMostrarVentasPorProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenteMostrarVentasPorProductoActionPerformed
-        Animacion.mover_derecha(0, 800, 5, 7, Gerente_GUI);
-        Animacion.mover_derecha(-800, 0, 5, 7, MostrarVentasPorProductoGerente_GUI);
-    }//GEN-LAST:event_btnGerenteMostrarVentasPorProductoActionPerformed
-
-    private void btnGerenteMostrarTop3ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenteMostrarTop3ClientesActionPerformed
-        Animacion.mover_derecha(0, 800, 5, 7, Gerente_GUI);
-        Animacion.mover_derecha(-800, 0, 5, 7, GestionCentrosComerciales);     
-    }//GEN-LAST:event_btnGerenteMostrarTop3ClientesActionPerformed
-
-    private void btnInsertarVentanaVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarVentanaVolverActionPerformed
-        Animacion.mover_izquierda(800, 0, 5, 7, GestionApartamentos);
-        Animacion.mover_izquierda(0, -800, 5, 7, InsertarVentaGUI);  
-    }//GEN-LAST:event_btnInsertarVentanaVolverActionPerformed
-
-    private void btnPedidoPorRangoFechasVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoPorRangoFechasVolverActionPerformed
-       Animacion.mover_izquierda(800, 0, 5, 7, GestionApartamentos);
-       Animacion.mover_izquierda(0, -800, 5, 7, PedidoPorRangoFechas_GUI);
-    }//GEN-LAST:event_btnPedidoPorRangoFechasVolverActionPerformed
-
     private void btnMostrarVentasPorTiendaVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarVentasPorTiendaVolverActionPerformed
-        Animacion.mover_izquierda(800, 0, 5, 7, Gerente_GUI);
+        Animacion.mover_izquierda(800, 0, 5, 7, GestionLotes);
         Animacion.mover_izquierda(0, -800, 5, 7, MostrarVentasPorTiendaGerente_GUI);
     }//GEN-LAST:event_btnMostrarVentasPorTiendaVolverActionPerformed
 
     private void btnMostrarVentasPorTiendaVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarVentasPorTiendaVolver1ActionPerformed
-        Animacion.mover_izquierda(800, 0, 5, 7, Gerente_GUI);
+        Animacion.mover_izquierda(800, 0, 5, 7, GestionCasas);
         Animacion.mover_izquierda(0, -800, 5, 7, MostrarVentasPorProductoGerente_GUI);
     }//GEN-LAST:event_btnMostrarVentasPorTiendaVolver1ActionPerformed
 
@@ -1431,16 +1222,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         tablaApartamentos.removeAll();
     }
 
-    private void btnPedidoPorRangoFechaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoPorRangoFechaConsultarActionPerformed
-      /* limpiar_tablaconsulta2();
-       if(txtfechainicio.getText().equals("") || txtfechafin.getText().equals("")){
-           JOptionPane.showMessageDialog(null, "EL CAMPO NO PUEDE ESTAR VACIO");
-       }else{                
-           consulta2 tabla_consulta2 = new consulta2();
-           tabla_consulta2.visualizar_consulta2(tablaconsulta2,txtfechainicio.getText(),txtfechafin.getText(),sede);       
-       }  */      
-    }//GEN-LAST:event_btnPedidoPorRangoFechaConsultarActionPerformed
-
     private void btnVolverGestionCentrosComercialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverGestionCentrosComercialesActionPerformed
         Animacion.mover_derecha(0, 800, 5, 7, GestionCentrosComerciales);
         Animacion.mover_derecha(-800, 0, 5, 7, GestionApartamentos); 
@@ -1475,45 +1256,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
             tabla_consulta2_gerente.visualizar_consulta2(tablacon2ger, txtcon2gerinicio.getText(), txtcon2gerfin.getText(), cbxcon2gertienda.getSelectedItem().toString(),cboxMostrarProductosGerente.getSelectedItem().toString());
         }  */     
     }//GEN-LAST:event_btnMostrarVentasPorProductoConsultarActionPerformed
-
-    private void btnGenerarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarVentaActionPerformed
-        /*try {  
-            int idProducto = obtener_id_producto(cboxproducto.getSelectedItem().toString());
-            int idCliente = obtener_id_cliente(cbxcliente.getSelectedItem().toString(),sede);
-            int idEmpleado = obtener_id_empleado(cboxempleado.getSelectedItem().toString());
-            int cantidad = Integer.parseInt(txtcantidad1.getText());
-            String fechaOrden = txtfechaordeninsertar.getText().toString();
-            String fechaEnvio = txtfechaenvioinsertar.getText().toString();
-            String requiredDate = txtrequireddateinsertar.getText().toString();
-            String estadoOrden = cbxestado.getSelectedItem().toString();
-            float precioVenta = Float.parseFloat(txtprecioventainsertar.getText());
-            float descuento = Float.parseFloat(txtdescuentoinsertar.getText());
-            int idItem = Integer.parseInt(txtiditeminsertar.getText());
-            int estadoOrdenId = 0;
-            if(estadoOrden.equals("Pending")){ estadoOrdenId = 1;}
-            if(estadoOrden.equals("Processing")){estadoOrdenId = 2;}
-            if(estadoOrden.equals("Rejected")){estadoOrdenId = 3;}
-            if(estadoOrden.equals("Completed")){estadoOrdenId= 4;}
-            int idTienda = 0;
-            if(sede.equals("Sede California")){idTienda = 1; }
-            if(sede.equals("Sede Texas")){idTienda = 3 ;} 
-                        
-            InsercionTienda insertTienda = new InsercionTienda();
-            //InsercionCentral insertCentral = new InsercionCentral();
-              
-            if(insertTienda.insertarOrden(idCliente, estadoOrdenId, fechaOrden,requiredDate,fechaEnvio,idTienda,idEmpleado,sede)==true){
-                insertTienda.insertarDetalleOrden(idItem,idProducto,cantidad,precioVenta,descuento,sede);                
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "NO SE PUDO REALIZAR LA INSERCION");
-            }           
-            //insertCentral.insertarOrden(idCliente, estadoOrdenId, fechaOrden, requiredDate, fechaEnvio, idTienda, idEmpleado);
-            //insertCentral.insertarDetalleOrden(idItem, idProducto, cantidad, precioVenta, descuento);
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(GestionCatalogoFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } */
-    }//GEN-LAST:event_btnGenerarVentaActionPerformed
 
     private void txtValorFiscalGestionLotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorFiscalGestionLotesActionPerformed
         // TODO add your handling code here:
@@ -1682,6 +1424,21 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarGestionCCActionPerformed
 
+    private void btnPedidoPorRangoFechaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoPorRangoFechaConsultarActionPerformed
+        /* limpiar_tablaconsulta2();
+        if(txtfechainicio.getText().equals("") || txtfechafin.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "EL CAMPO NO PUEDE ESTAR VACIO");
+        }else{
+            consulta2 tabla_consulta2 = new consulta2();
+            tabla_consulta2.visualizar_consulta2(tablaconsulta2,txtfechainicio.getText(),txtfechafin.getText(),sede);
+        }  */
+    }//GEN-LAST:event_btnPedidoPorRangoFechaConsultarActionPerformed
+
+    private void btnPedidoPorRangoFechasVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoPorRangoFechasVolverActionPerformed
+        Animacion.mover_izquierda(800, 0, 5, 7, GestionApartamentos);
+        Animacion.mover_izquierda(0, -800, 5, 7, PedidoPorRangoFechas_GUI);
+    }//GEN-LAST:event_btnPedidoPorRangoFechasVolverActionPerformed
+
     /**
      * 
      * @param args the command line arguments
@@ -1720,12 +1477,10 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Gerente_GUI;
     private javax.swing.JPanel GestionApartamentos;
     private javax.swing.JPanel GestionCasas;
     private javax.swing.JPanel GestionCentrosComerciales;
     private javax.swing.JPanel GestionLotes;
-    private javax.swing.JPanel InsertarVentaGUI;
     private javax.swing.JPanel MostrarVentasPorProductoGerente_GUI;
     private javax.swing.JPanel MostrarVentasPorTiendaGerente_GUI;
     private javax.swing.JPanel PedidoPorRangoFechas_GUI;
@@ -1734,12 +1489,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public javax.swing.JToggleButton btnEliminarGestionCC;
     public javax.swing.JToggleButton btnEliminarGestionCasas;
     private javax.swing.JButton btnEliminarGestionLotes;
-    public javax.swing.JToggleButton btnGenerarVenta;
-    public javax.swing.JToggleButton btnGerenteMostrarTop3Clientes;
-    public javax.swing.JToggleButton btnGerenteMostrarVentas;
-    public javax.swing.JToggleButton btnGerenteMostrarVentasPorProducto;
-    public javax.swing.JToggleButton btnGerenteVolver;
-    public javax.swing.JToggleButton btnInsertarVentanaVolver;
     public javax.swing.JToggleButton btnLimpiarGestionCasas;
     public javax.swing.JToggleButton btnModificarGestionApartamentos;
     public javax.swing.JToggleButton btnModificarGestionCC;
@@ -1748,9 +1497,9 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public javax.swing.JToggleButton btnMostrarVentasPorProductoConsultar;
     public javax.swing.JToggleButton btnMostrarVentasPorTiendaVolver;
     public javax.swing.JToggleButton btnMostrarVentasPorTiendaVolver1;
-    public javax.swing.JToggleButton btnPedidoPorRangoFechaConsultar;
-    public javax.swing.JToggleButton btnPedidoPorRangoFechasVolver;
-    public javax.swing.JToggleButton btnPedidoPorRangoLimpiar1;
+    private javax.swing.JToggleButton btnPedidoPorRangoFechaConsultar;
+    private javax.swing.JToggleButton btnPedidoPorRangoFechasVolver;
+    private javax.swing.JToggleButton btnPedidoPorRangoLimpiar1;
     public javax.swing.JToggleButton btnRegresarGestionCC;
     public javax.swing.JToggleButton btnSeleccionarGestionApartamentos;
     public javax.swing.JToggleButton btnSeleccionarGestionCC;
@@ -1765,14 +1514,9 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public javax.swing.JToggleButton btnVolverGestionCentrosComerciales;
     private javax.swing.JButton btnVolverGestionLotes;
     public javax.swing.JComboBox<String> cboxMostrarProductosGerente;
-    public javax.swing.JComboBox<String> cboxempleado;
-    public javax.swing.JComboBox<String> cboxproducto;
     public javax.swing.JComboBox<String> cboxtiendacon1gerente;
-    public javax.swing.JComboBox<String> cbxcliente;
     public javax.swing.JComboBox<String> cbxcon2gertienda;
-    public javax.swing.JComboBox<String> cbxestado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1785,19 +1529,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1892,18 +1623,11 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtValorMetro2GestionCasas;
     private javax.swing.JTextField txtValorMetro2GestionCasas1;
     private javax.swing.JTextField txtValorMetro2GestionLotes;
-    public javax.swing.JTextField txtcantidad1;
     public javax.swing.JTextField txtcon1gerentefin;
     public javax.swing.JTextField txtcon1gerenteinicio;
     public javax.swing.JTextField txtcon2gerfin;
     public javax.swing.JTextField txtcon2gerinicio;
-    private javax.swing.JTextField txtdescuentoinsertar;
-    public javax.swing.JTextField txtfechaenvioinsertar;
-    public javax.swing.JTextField txtfechafin;
-    public javax.swing.JTextField txtfechainicio;
-    public javax.swing.JTextField txtfechaordeninsertar;
-    private javax.swing.JTextField txtiditeminsertar;
-    private javax.swing.JTextField txtprecioventainsertar;
-    public javax.swing.JTextField txtrequireddateinsertar;
+    private javax.swing.JTextField txtfechafin;
+    private javax.swing.JTextField txtfechainicio;
     // End of variables declaration//GEN-END:variables
 }
