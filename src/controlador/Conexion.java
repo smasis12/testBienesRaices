@@ -26,6 +26,7 @@ public class Conexion {
         }
 
         String url = "jdbc:sqlserver://DESKTOP-N2DB42H\\ADMIN\\SQLEXPRESS:1433;databaseName=propiedades;user=admin;password=123";
+        //string
         try {
             con = DriverManager.getConnection(url);
         } catch (SQLException e) {
