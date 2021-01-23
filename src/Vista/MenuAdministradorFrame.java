@@ -1,5 +1,10 @@
 package Vista;
 
+import Modelo.Agente;
+import Modelo.ConsultaBienesRaices;
+import static controlador.Conexion.getConexion;
+import controlador.ControladorAgente;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 
@@ -125,8 +130,16 @@ public class MenuAdministradorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultaClientesActionPerformed
 
     private void btnRegistroAgentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroAgentesActionPerformed
-        RegistrarAgenteFrame ventana = new RegistrarAgenteFrame();
-        ventana.setVisible(true);
+       Agente agente= new Agente();
+       ConsultaBienesRaices consultas = new ConsultaBienesRaices();
+       RegistrarAgenteFrame frmRegistrar= new RegistrarAgenteFrame();
+       
+       
+       ControladorAgente ctrl = new ControladorAgente(agente, consultas, frmRegistrar);
+       ctrl.Iniciar();
+       frmRegistrar.setVisible(true);
+       
+       
         this.dispose();
     }//GEN-LAST:event_btnRegistroAgentesActionPerformed
 
