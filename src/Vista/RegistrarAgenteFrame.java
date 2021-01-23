@@ -174,7 +174,7 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        Generando codigo QR
+       // Generando codigo QR
         ControladorAgente agente = new ControladorAgente();
         String idt= txtId.getText();
          
