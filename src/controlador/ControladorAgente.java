@@ -5,6 +5,9 @@
  */
 package controlador;
 
+import Modelo.Agente;
+import Modelo.ConsultaBienesRaices;
+import Vista.RegistrarAgenteFrame;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,16 +17,52 @@ import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 
 import controlador.Conexion;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-/**
- *
- * @author Sara
- */
-public class ControladorAgente {
+public class ControladorAgente implements ActionListener {
+
+    private Agente agente;
+    private ConsultaBienesRaices consultas;
+    private RegistrarAgenteFrame frmRegistrar;
+
+    public ControladorAgente() {
+
+    }
+
+    public ControladorAgente(Agente agente, ConsultaBienesRaices consultas, RegistrarAgenteFrame frmRegistrar) {
+        this.agente = agente;
+        this.consultas = consultas;
+        this.frmRegistrar = frmRegistrar;
+        this.frmRegistrar.btnRegistrar.addActionListener(this);
+    }
+
+    public void Iniciar() {
+
+        frmRegistrar.setTitle("Agente");
+        frmRegistrar.setLocationRelativeTo(null);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == frmRegistrar.btnRegistrar) {
+            agente.setCorreo(frmRegistrar.txtCorreo.getText());
+            agente.setApellido(frmRegistrar.txtApellido.getText());
+            agente.setNombre(frmRegistrar.txtNombre.getText());
+            agente.setTelefono(Integer.parseInt((frmRegistrar.txtNumTelefono.getText())));
+            agente.setId(Integer.parseInt((frmRegistrar.txtId.getText())));
+
+            if (consultas.registrarAgente(agente)) {
+                JOptionPane.showMessageDialog(null, "Registro Guardado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Registro Fallido");
+            }
+        }
+    }
 
     public void generarQr(String id, String nombre, String ap, String correo, String tel) {
 
@@ -42,8 +81,9 @@ public class ControladorAgente {
             System.out.println(e);
         }
     }
-
-    //Para Busqueda Avanzada por Precios
+    
+    
+        //Para Busqueda Avanzada por Precios
     public void visualizarBusquedaPrecios(JTable tabla, String precioDesde, String PrecioHasta) {
         Conexion conec1 = new Conexion();
 
@@ -190,7 +230,7 @@ public class ControladorAgente {
                 tabla.setModel(dt);
                 tabla.setRowHeight(60);
                 columnModel = tabla.getColumnModel();
-                /*for (int i = 0; i < 5; i++) {
+            /*for (int i = 0; i < 5; i++) {
                     columnModel.getColumn(i).setPreferredWidth(400);
                 }
                 break; */

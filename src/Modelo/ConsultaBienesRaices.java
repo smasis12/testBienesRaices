@@ -20,7 +20,7 @@ public class ConsultaBienesRaices {
         PreparedStatement ps= null;
         Connection con = getConexion();
         
-        String sql = "INSERT INTO Usuario(correo,telefono,clave) values(?,?,?); INSERT INTO UsuarioAgente(id,nombre,apellido,correo) values(?,?,?,?)";
+        String sql = "INSERT INTO Usuario(correo,telefono,clave) values(?,?,?) ; INSERT INTO UsuarioAgente(id,nombre,apellido,correo) values(?,?,?,?)";
         
         //aa
         try{
@@ -28,11 +28,13 @@ public class ConsultaBienesRaices {
                 ps= con.prepareStatement(sql);
                 ps.setString(1, ag.getCorreo());
                 ps.setInt(2, ag.getTelefono());
-                ps.setString(3, ag.getClave());
+                ps.setString(3, "fasdfa");
                 ps.setInt(4, ag.getId());
                 ps.setString(5, ag.getNombre());
                 ps.setString(6, ag.getApellido());
                 ps.setString(7, ag.getCorreo());
+                ps.execute();
+                
                 return true;
         }
         
@@ -42,7 +44,7 @@ public class ConsultaBienesRaices {
         }
         
         
-        
+    
         
     }
 }

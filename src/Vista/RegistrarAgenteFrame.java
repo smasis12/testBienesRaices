@@ -174,9 +174,9 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        //Generando codigo QR
+       // Generando codigo QR
         ControladorAgente agente = new ControladorAgente();
-        //String idt= txtId.getText();
+        String idt= txtId.getText();
          
         String nombre = txtNombre.getText();
         String id= txtId.getText();
@@ -227,7 +227,7 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrar;
+    public javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblAviso;
@@ -236,10 +236,10 @@ public class RegistrarAgenteFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumTelefono;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNumTelefono;
+    public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtId;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtNumTelefono;
     // End of variables declaration//GEN-END:variables
 }
