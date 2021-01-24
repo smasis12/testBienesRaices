@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import controlador.ControladorAgente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USUARIO
@@ -16,10 +19,10 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
      */
     public BusquedaAvanzadaFrame() {
         initComponents();
-        
+
         cbxModalidad.addItem("Venta");
         cbxModalidad.addItem("Alquiler");
-        
+
         cbxProvincias.addItem("San Jose");
         cbxProvincias.addItem("Cartago");
         cbxProvincias.addItem("Alajuela");
@@ -27,12 +30,16 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
         cbxProvincias.addItem("Puntarenas");
         cbxProvincias.addItem("Guanacaste");
         cbxProvincias.addItem("Limon");
-        
+
         cbxTipoPropiedad.addItem("Lote");
         cbxTipoPropiedad.addItem("Casa");
         cbxTipoPropiedad.addItem("Apartamento");
         cbxTipoPropiedad.addItem("Centro Comercial");
         cbxTipoPropiedad.addItem("Todos");
+    }
+    
+    public void limpiarTabla(){
+        tablaConsultas.removeAll();
     }
 
     /**
@@ -48,20 +55,20 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
         lblPrecio = new javax.swing.JLabel();
         lblModalidadPropiedad = new javax.swing.JLabel();
         lblProvincia = new javax.swing.JLabel();
-        cbxTipoPropiedad = new javax.swing.JComboBox<>();
         cbxModalidad = new javax.swing.JComboBox<>();
         lblPrecioDesde = new javax.swing.JLabel();
         lblPrecioHasta = new javax.swing.JLabel();
         txtPrecioDesde = new javax.swing.JTextField();
         txtPrecioHasta = new javax.swing.JTextField();
-        cbxProvincias = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaConsultas = new javax.swing.JTable();
         btnBuscar1 = new javax.swing.JButton();
-        btnBuscar2 = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnBuscar3 = new javax.swing.JButton();
+        cbxTipoPropiedad = new javax.swing.JComboBox<>();
+        cbxProvincias = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,11 +127,11 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBuscar2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBuscar2.setText("limpiar");
-        btnBuscar2.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnLimpiar.setText("limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar2ActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
 
@@ -144,6 +151,10 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
             }
         });
 
+        cbxTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+
+        cbxProvincias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,19 +171,18 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
                                     .addComponent(lblTipoPropiedad))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbxTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(3, 3, 3)
+                                    .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbxTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(249, 249, 249)
+                                .addGap(395, 395, 395)
                                 .addComponent(lblPrecioDesde))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(189, 189, 189)
+                                .addGap(335, 335, 335)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblProvincia)
                                     .addComponent(lblPrecio))))
-                        .addGap(37, 37, 37)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtPrecioDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,10 +190,10 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
                                 .addComponent(lblPrecioHasta)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPrecioHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(81, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29))))
                     .addGroup(layout.createSequentialGroup()
@@ -192,7 +202,7 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnBuscar2)
+                                .addComponent(btnLimpiar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnBuscar3)
                                 .addGap(35, 35, 35)
@@ -220,12 +230,12 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
                                     .addComponent(lblPrecioHasta)
                                     .addComponent(txtPrecioDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPrecioHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(25, 25, 25)
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblProvincia)
-                                .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblModalidadPropiedad)
                                 .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -237,9 +247,9 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar1)
-                    .addComponent(btnBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnVolver)
                 .addContainerGap())
         );
@@ -252,16 +262,35 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrecioHastaActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+
+        if (txtPrecioHasta.getText().equals("") == false || txtPrecioDesde.getText().equals("") == false) {
+            controlador.ControladorAgente tabla_consulta1_agente = new ControladorAgente();
+            tabla_consulta1_agente.visualizarBusquedaPrecios(tablaConsultas, txtPrecioDesde.getText(), txtPrecioHasta.getText() /*idTienda*/);
+        } else {
+            //JOptionPane.showMessageDialog(null, "Ingrese los precios de forma completa");
+        
+            if (cbxProvincias.getSelectedIndex() != 0) {
+            ControladorAgente tabla_consultaProvincia_agente = new ControladorAgente();
+            tabla_consultaProvincia_agente.visualizarBusquedaProvincia(tablaConsultas, cbxProvincias.getSelectedIndex());
+        } else {
+                if (cbxTipoPropiedad.getSelectedIndex() != 0){
+                    ControladorAgente tabla_consultaTipoPropiedad_agente = new ControladorAgente();
+                    tabla_consultaTipoPropiedad_agente.visualizarBusquedaTipoPropiedad(tablaConsultas, cbxTipoPropiedad.getSelectedIndex());
+                    
+                }
+            }
+        }
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
-    private void btnBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar2ActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiarTabla();
+        
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
@@ -280,7 +309,7 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-       /* try {
+ /* try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -297,7 +326,7 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(BusquedaAvanzadaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-        */
+         */
         //</editor-fold>
 
         /* Create and display the form */
@@ -311,8 +340,8 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnBuscar1;
-    public javax.swing.JButton btnBuscar2;
     public javax.swing.JButton btnBuscar3;
+    public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cbxModalidad;
     private javax.swing.JComboBox<String> cbxProvincias;
