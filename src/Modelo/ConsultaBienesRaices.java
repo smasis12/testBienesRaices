@@ -8,7 +8,10 @@ package Modelo;
 import static controlador.Conexion.getConexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -47,4 +50,23 @@ public class ConsultaBienesRaices {
     
         
     }
+        public List listarAgente(){
+            List<Agente> listaAgentes =  new ArrayList<>();
+            String query = "SELECT * FROM UsuarioAgente";
+            try{
+                PreparedStatement ps= null;
+                Connection con = getConexion();
+                ps= con.prepareStatement(query);
+                ResultSet rs= ps.executeQuery(query);
+                while(rs.next()){
+                      Agente agente= new Agente(rs.getInt("id"), rs.getString("nombre"),rs.getString("apellido"), rs.getString("correo"));
+                      listaAgentes.add(agente);
+
+            }}
+            catch(Exception e){
+                    System.out.println("");
+                    }
+            return listaAgentes;
+            
+        }
 }

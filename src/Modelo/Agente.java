@@ -31,6 +31,12 @@ public class Agente extends Usuario implements IPropiedad {
         this.apellido=pApellido;
         
     }
+    public Agente(int id, String nombre, String apellido, String correo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+    }
     /**
      * @param pTipo 
      * @return

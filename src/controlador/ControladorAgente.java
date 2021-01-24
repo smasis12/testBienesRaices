@@ -7,6 +7,7 @@ package controlador;
 
 import Modelo.Agente;
 import Modelo.ConsultaBienesRaices;
+import Vista.ConsultarAgentesFrame;
 import Vista.RegistrarAgenteFrame;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -19,6 +20,7 @@ import net.glxn.qrgen.image.ImageType;
 import controlador.Conexion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -29,23 +31,35 @@ public class ControladorAgente implements ActionListener {
     private Agente agente;
     private ConsultaBienesRaices consultas;
     private RegistrarAgenteFrame frmRegistrar;
+    private ConsultarAgentesFrame frmConsultar;
+    private DefaultTableModel modelo= new DefaultTableModel();
 
     public ControladorAgente() {
 
     }
 
-    public ControladorAgente(Agente agente, ConsultaBienesRaices consultas, RegistrarAgenteFrame frmRegistrar) {
+    public ControladorAgente(Agente agente, ConsultaBienesRaices consultas, RegistrarAgenteFrame frmRegistrar, ConsultarAgentesFrame frmConsultar) {
         this.agente = agente;
         this.consultas = consultas;
         this.frmRegistrar = frmRegistrar;
+        this.frmConsultar = frmConsultar; 
+        this.frmRegistrar.btnRegistrar.addActionListener(this);   
+        this.frmConsultar.btnMostrar.addActionListener(this);
         this.frmRegistrar.btnRegistrar.addActionListener(this);
     }
-
     public void Iniciar() {
 
         frmRegistrar.setTitle("Agente");
         frmRegistrar.setLocationRelativeTo(null);
     }
+        public void IniciarConsulta(){
+     
+        frmConsultar.setTitle("Agente");
+        frmConsultar.setLocationRelativeTo(null);
+        frmRegistrar.setTitle("Agente");
+        frmRegistrar.setLocationRelativeTo(null);
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -59,11 +73,29 @@ public class ControladorAgente implements ActionListener {
             if (consultas.registrarAgente(agente)) {
                 JOptionPane.showMessageDialog(null, "Registro Guardado");
             } else {
-                JOptionPane.showMessageDialog(null, "Registro Fallido");
+                JOptionPane.showMessageDialog(null, "Presione volver para regresar al menu anterior");
             }
         }
+     else if(e.getSource()== frmConsultar.btnMostrar){
+            listar(frmConsultar.tablaAgentes);
+            System.out.println("wsdfads");
+ 
+            }
     }
-
+    public void listar(JTable table){
+            modelo=(DefaultTableModel)table.getModel();
+            List<Agente>lista= consultas.listarAgente();
+            Object[]object=new Object[4];
+            for(int i=0; i < lista.size();i++){
+                object[0]=lista.get(i).getId();
+                object[1]=lista.get(i).getCorreo();
+                object[2]=lista.get(i).getNombre();
+                object[3]=lista.get(i).getApellido();
+                modelo.addRow(object);
+                
+            }
+            frmConsultar.tablaAgentes.setModel(modelo);
+    } 
     public void generarQr(String id, String nombre, String ap, String correo, String tel) {
 
         String pb = "Informacion del agente: " + nombre + ap + "\n" + "id: " + id + "\n" + "correo: " + correo + "\n" + "telefono: " + tel;
