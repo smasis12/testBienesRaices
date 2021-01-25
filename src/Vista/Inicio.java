@@ -1,6 +1,9 @@
 
 package Vista;
-
+import controlador.EmailReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 /**
  *
  * @author USUARIO
@@ -10,8 +13,10 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
-    public Inicio() {
+    public Inicio() throws MessagingException {
         initComponents();
+        EmailReader re = new EmailReader();
+        re.recibirMail("isamasis09@gmail.com","2017170050");
     }
 
     /**
@@ -120,7 +125,11 @@ public class Inicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                try {
+                    new Inicio().setVisible(true);
+                } catch (MessagingException ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -5,10 +5,15 @@
  */
 package Modelo;
 
+import controlador.Conexion;
 import static controlador.Conexion.getConexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,4 +52,31 @@ public class ConsultaBienesRaices {
     
         
     }
+        public List listarAgente(){
+            Conexion conect = new Conexion();
+            List<Agente> listaAgentes =  new ArrayList<>();
+            String sql = "SELECT * FROM UsuarioAgente";
+            PreparedStatement ps= null;
+            ResultSet rs=null; 
+            try {
+            ps = conect.getConexion().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Agente agente= new Agente();
+                agente.setNombre(rs.getString("nombre"));
+                agente.setApellido(rs.getString("apellido"));
+                agente.setId(rs.getInt("id"));
+                agente.setCorreo(rs.getString("correo"));
+                listaAgentes.add(agente);
+                System.out.println("hecho");
+            }
+
+        }   catch (Exception e) {
+                System.out.println("error");
+
+        }
+            return listaAgentes;
+            
+        }
 }

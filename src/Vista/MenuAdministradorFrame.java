@@ -118,8 +118,15 @@ public class MenuAdministradorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaAgentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaAgentesActionPerformed
-        ConsultarAgentesFrame ventana = new ConsultarAgentesFrame();
-        ventana.setVisible(true);
+       Agente agente= new Agente();
+       ConsultaBienesRaices consultas = new ConsultaBienesRaices();
+       RegistrarAgenteFrame frmRegistrar= new RegistrarAgenteFrame(); 
+       ConsultarAgentesFrame frmConsultar= new ConsultarAgentesFrame();
+       
+       
+       ControladorAgente ctrl = new ControladorAgente(agente, consultas, frmRegistrar, frmConsultar);
+       ctrl.IniciarConsulta();
+       frmConsultar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnConsultaAgentesActionPerformed
 
@@ -132,10 +139,11 @@ public class MenuAdministradorFrame extends javax.swing.JFrame {
     private void btnRegistroAgentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroAgentesActionPerformed
        Agente agente= new Agente();
        ConsultaBienesRaices consultas = new ConsultaBienesRaices();
-       RegistrarAgenteFrame frmRegistrar= new RegistrarAgenteFrame();
+       RegistrarAgenteFrame frmRegistrar= new RegistrarAgenteFrame(); 
+       ConsultarAgentesFrame frmConsultar= new ConsultarAgentesFrame();
        
        
-       ControladorAgente ctrl = new ControladorAgente(agente, consultas, frmRegistrar);
+       ControladorAgente ctrl = new ControladorAgente(agente, consultas, frmRegistrar, frmConsultar);
        ctrl.Iniciar();
        frmRegistrar.setVisible(true);
        

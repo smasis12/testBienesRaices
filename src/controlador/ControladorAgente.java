@@ -7,6 +7,7 @@ package controlador;
 
 import Modelo.Agente;
 import Modelo.ConsultaBienesRaices;
+import Vista.ConsultarAgentesFrame;
 import Vista.RegistrarAgenteFrame;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -19,6 +20,10 @@ import net.glxn.qrgen.image.ImageType;
 import controlador.Conexion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -29,23 +34,33 @@ public class ControladorAgente implements ActionListener {
     private Agente agente;
     private ConsultaBienesRaices consultas;
     private RegistrarAgenteFrame frmRegistrar;
+    private ConsultarAgentesFrame frmConsultar;
+    private DefaultTableModel modelo= new DefaultTableModel();
 
     public ControladorAgente() {
 
     }
 
-    public ControladorAgente(Agente agente, ConsultaBienesRaices consultas, RegistrarAgenteFrame frmRegistrar) {
+    public ControladorAgente(Agente agente, ConsultaBienesRaices consultas, RegistrarAgenteFrame frmRegistrar, ConsultarAgentesFrame frmConsultar) {
         this.agente = agente;
         this.consultas = consultas;
         this.frmRegistrar = frmRegistrar;
+        this.frmConsultar = frmConsultar; 
+        this.frmRegistrar.btnRegistrar.addActionListener(this);   
+        this.frmConsultar.btnMostrar.addActionListener(this);
         this.frmRegistrar.btnRegistrar.addActionListener(this);
     }
-
     public void Iniciar() {
 
         frmRegistrar.setTitle("Agente");
         frmRegistrar.setLocationRelativeTo(null);
     }
+        public void IniciarConsulta(){
+     
+        frmConsultar.setTitle("Agente");
+        frmConsultar.setLocationRelativeTo(null);
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -59,11 +74,65 @@ public class ControladorAgente implements ActionListener {
             if (consultas.registrarAgente(agente)) {
                 JOptionPane.showMessageDialog(null, "Registro Guardado");
             } else {
-                JOptionPane.showMessageDialog(null, "Registro Fallido");
+                JOptionPane.showMessageDialog(null, "Presione volver para regresar al menu anterior");
             }
+        }
+     else if(e.getSource()== frmConsultar.btnMostrar){
+            try {
+                listar(frmConsultar.tablaAgentes);
+            } catch (Exception ex) {
+                System.out.println("otro error");
+            }
+            System.out.println("wsdfads");
+ 
+            }
+    }
+    public void listar(JTable tabla) throws SQLException{
+        Conexion conec1 = new Conexion();
+        tabla.setDefaultRenderer(Object.class, new Render());
+        DefaultTableModel dt = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        dt.addColumn("Nombre");
+        dt.addColumn("Apellido");
+        dt.addColumn("Correo");
+        dt.addColumn("identificacion");       
+
+        String sql = "select * from UsuarioAgente";
+
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+
+        try {
+            ps = conec1.getConexion().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Object fila[] = new Object[4];
+                fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
+                fila[2] = rs.getString(3);
+                fila[3] = rs.getString(4);
+                dt.addRow(fila);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR EN LA OPERACION");
+
+        }
+        tabla.setModel(dt);
+        tabla.setRowHeight(60);
+        TableColumnModel columnModel = tabla.getColumnModel();
+        for (int i = 0; i < 3; i++) {
+            columnModel.getColumn(i).setPreferredWidth(400);
         }
     }
 
+ 
     public void generarQr(String id, String nombre, String ap, String correo, String tel) {
 
         String pb = "Informacion del agente: " + nombre + ap + "\n" + "id: " + id + "\n" + "correo: " + correo + "\n" + "telefono: " + tel;
