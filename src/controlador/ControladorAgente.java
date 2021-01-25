@@ -81,9 +81,8 @@ public class ControladorAgente implements ActionListener {
             System.out.println(e);
         }
     }
-    
-    
-        //Para Busqueda Avanzada por Precios
+
+    //Para Busqueda Avanzada por Precios
     public void visualizarBusquedaPrecios(JTable tabla, String precioDesde, String PrecioHasta) {
         Conexion conec1 = new Conexion();
 
@@ -230,10 +229,10 @@ public class ControladorAgente implements ActionListener {
                 tabla.setModel(dt);
                 tabla.setRowHeight(60);
                 columnModel = tabla.getColumnModel();
-            /*for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 5; i++) {
                     columnModel.getColumn(i).setPreferredWidth(400);
                 }
-                break; */
+                break;
             case 2:
                 System.out.println("entro en 2");
                 /*DefaultTableModel dt1 = new DefaultTableModel() {

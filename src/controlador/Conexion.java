@@ -25,7 +25,7 @@ public class Conexion {
                     "Error de Conexion", JOptionPane.ERROR_MESSAGE);
         }
 
-        String url = "jdbc:sqlserver://DESKTOP-N2DB42H\\ADMIN\\SQLEXPRESS:1433;databaseName=propiedades;user=admin;password=123";
+        String url = "jdbc:sqlserver://DESKTOP-N2DB42H\\ADMIN\\SQLEXPRESS:1433;databaseName=propiedades2;user=admin;password=123";
         //string
         //String url = "jdbc:sqlserver://DESKTOP-N2DB42H\\ADMIN\\SQLEXPRESS:1433;databaseName=propiedades;user=Sara;password=1234";
         try {
