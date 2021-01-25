@@ -86,6 +86,7 @@ public class ControladorAgente implements ActionListener {
             System.out.println("wsdfads");
  
             }
+
     }
     public void listar(JTable tabla) throws SQLException{
         Conexion conec1 = new Conexion();
@@ -96,11 +97,11 @@ public class ControladorAgente implements ActionListener {
                 return false;
             }
         };
-
+        dt.addColumn("identificacion");  
         dt.addColumn("Nombre");
         dt.addColumn("Apellido");
         dt.addColumn("Correo");
-        dt.addColumn("identificacion");       
+             
 
         String sql = "select * from UsuarioAgente";
 

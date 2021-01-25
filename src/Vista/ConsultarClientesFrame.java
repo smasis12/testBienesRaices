@@ -126,10 +126,10 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDescargar;
+    public javax.swing.JButton btnDescargar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitulos;
-    private javax.swing.JTable tablaClientes;
+    public javax.swing.JTable tablaClientes;
     // End of variables declaration//GEN-END:variables
 }
