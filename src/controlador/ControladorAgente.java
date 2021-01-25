@@ -20,7 +20,10 @@ import net.glxn.qrgen.image.ImageType;
 import controlador.Conexion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -56,8 +59,6 @@ public class ControladorAgente implements ActionListener {
      
         frmConsultar.setTitle("Agente");
         frmConsultar.setLocationRelativeTo(null);
-        frmRegistrar.setTitle("Agente");
-        frmRegistrar.setLocationRelativeTo(null);
     }
 
 
@@ -77,25 +78,61 @@ public class ControladorAgente implements ActionListener {
             }
         }
      else if(e.getSource()== frmConsultar.btnMostrar){
-            listar(frmConsultar.tablaAgentes);
+            try {
+                listar(frmConsultar.tablaAgentes);
+            } catch (Exception ex) {
+                System.out.println("otro error");
+            }
             System.out.println("wsdfads");
  
             }
     }
-    public void listar(JTable table){
-            modelo=(DefaultTableModel)table.getModel();
-            List<Agente>lista= consultas.listarAgente();
-            Object[]object=new Object[4];
-            for(int i=0; i < lista.size();i++){
-                object[0]=lista.get(i).getId();
-                object[1]=lista.get(i).getCorreo();
-                object[2]=lista.get(i).getNombre();
-                object[3]=lista.get(i).getApellido();
-                modelo.addRow(object);
-                
+    public void listar(JTable tabla) throws SQLException{
+        Conexion conec1 = new Conexion();
+        tabla.setDefaultRenderer(Object.class, new Render());
+        DefaultTableModel dt = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-            frmConsultar.tablaAgentes.setModel(modelo);
-    } 
+        };
+
+        dt.addColumn("Nombre");
+        dt.addColumn("Apellido");
+        dt.addColumn("Correo");
+        dt.addColumn("identificacion");       
+
+        String sql = "select * from UsuarioAgente";
+
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+
+        try {
+            ps = conec1.getConexion().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Object fila[] = new Object[4];
+                fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
+                fila[2] = rs.getString(3);
+                fila[3] = rs.getString(4);
+                dt.addRow(fila);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR EN LA OPERACION");
+
+        }
+        tabla.setModel(dt);
+        tabla.setRowHeight(60);
+        TableColumnModel columnModel = tabla.getColumnModel();
+        for (int i = 0; i < 3; i++) {
+            columnModel.getColumn(i).setPreferredWidth(400);
+        }
+    }
+
+ 
     public void generarQr(String id, String nombre, String ap, String correo, String tel) {
 
         String pb = "Informacion del agente: " + nombre + ap + "\n" + "id: " + id + "\n" + "correo: " + correo + "\n" + "telefono: " + tel;

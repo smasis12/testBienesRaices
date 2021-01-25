@@ -118,7 +118,7 @@ public class MenuAdministradorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaAgentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaAgentesActionPerformed
-        Agente agente= new Agente();
+       Agente agente= new Agente();
        ConsultaBienesRaices consultas = new ConsultaBienesRaices();
        RegistrarAgenteFrame frmRegistrar= new RegistrarAgenteFrame(); 
        ConsultarAgentesFrame frmConsultar= new ConsultarAgentesFrame();
