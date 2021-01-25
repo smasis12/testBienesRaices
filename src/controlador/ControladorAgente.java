@@ -265,8 +265,8 @@ public class ControladorAgente implements ActionListener {
         dt.addColumn("Num Finca");
         dt.addColumn("Valor Metro^2");
         dt.addColumn("Valor Fiscal");
-        dt.addColumn("Area Terreno");
-        dt.addColumn("Tipo de propiedad");
+        dt.addColumn("Area");
+        dt.addColumn("Tipo Propiedad");
 
         switch (TipoPropiedad) {
             case 0:
@@ -274,8 +274,7 @@ public class ControladorAgente implements ActionListener {
                 break;
             case 1:
                 System.out.println("entro");
-                String lbl = "Lote";
-                String sql = "select * from ConsultaPorTipoPropiedadLote ('" + TipoPropiedad + "')";
+                String sql = "select * from ConsultarPorTipoLote ('" + TipoPropiedad + "')";
 
                 try {
                     ps = Conexion.getConexion().prepareStatement(sql);
@@ -287,7 +286,7 @@ public class ControladorAgente implements ActionListener {
                         fila[1] = rs.getString(2);
                         fila[2] = rs.getString(3);
                         fila[3] = rs.getString(4);
-                        fila[4] = lbl;
+                        fila[4] = rs.getString(5);
                         dt.addRow(fila);
                     }
 
@@ -298,26 +297,12 @@ public class ControladorAgente implements ActionListener {
                 tabla.setModel(dt);
                 tabla.setRowHeight(60);
                 columnModel = tabla.getColumnModel();
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 4; i++) {
                     columnModel.getColumn(i).setPreferredWidth(400);
                 }
                 break;
             case 2:
-                System.out.println("entro en 2");
-                /*DefaultTableModel dt1 = new DefaultTableModel() {
-                    @Override
-                    public boolean isCellEditable(int row, int column) {
-                        return false;
-                    }
-                };
-                dt1.addColumn("Num Finca");
-                dt1.addColumn("Valor Metro^2");
-                dt1.addColumn("Valor Fiscal");
-                dt1.addColumn("Area Terreno");
-                dt1.addColumn("Tipo de propiedad"); */
-
-                String lbl1 = "Casa";
-                String sql1 = "select * from ConsultaPorTipoPropiedadCasa ('" + TipoPropiedad + "')";
+                String sql1 = "select * from ConsultarPorTipoCasa ('" + TipoPropiedad + "')";
 
                 try {
                     ps = conec1.getConexion().prepareStatement(sql1);
@@ -329,7 +314,7 @@ public class ControladorAgente implements ActionListener {
                         fila[1] = rs.getString(2);
                         fila[2] = rs.getString(3);
                         fila[3] = rs.getString(4);
-                        fila[4] = lbl1;
+                        fila[4] = rs.getString(5);
                         dt.addRow(fila);
                     }
 
@@ -345,20 +330,7 @@ public class ControladorAgente implements ActionListener {
                 }
                 break;
             case 3:
-                /*DefaultTableModel dt2 = new DefaultTableModel() {
-                    @Override
-                    public boolean isCellEditable(int row, int column) {
-                        return false;
-                    }
-                };
-                dt2.addColumn("Num Finca");
-                dt2.addColumn("Valor Metro^2");
-                dt2.addColumn("Valor Fiscal");
-                dt2.addColumn("Area Terreno");
-                dt2.addColumn("Tipo de propiedad"); */
-
-                String lbl2 = "Apartamento";
-                String sql2 = "select * from ConsultaPorTipoPropiedadLote ('" + TipoPropiedad + "')";
+                String sql2 = "select * from ConsultarPorTipoApartamento ('" + TipoPropiedad + "')";
 
                 try {
                     ps = conec1.getConexion().prepareStatement(sql2);
@@ -370,7 +342,7 @@ public class ControladorAgente implements ActionListener {
                         fila[1] = rs.getString(2);
                         fila[2] = rs.getString(3);
                         fila[3] = rs.getString(4);
-                        fila[4] = lbl2;
+                        fila[4] = rs.getString(5);
                         dt.addRow(fila);
                     }
 
@@ -386,9 +358,7 @@ public class ControladorAgente implements ActionListener {
                 }
                 break;
             case 4:
-                System.out.println("entro");
-                String lbl3 = "Centro Comercial";
-                String sql3 = "select * from ConsultaPorTipoPropiedadCentroComercial ('" + TipoPropiedad + "')";
+                String sql3 = "select * from ConsultarPorTipoCentroComercial ('" + TipoPropiedad + "')";
 
                 try {
                     ps = Conexion.getConexion().prepareStatement(sql3);
@@ -400,7 +370,7 @@ public class ControladorAgente implements ActionListener {
                         fila[1] = rs.getString(2);
                         fila[2] = rs.getString(3);
                         fila[3] = rs.getString(4);
-                        fila[4] = lbl3;
+                        fila[4] = rs.getString(5);
                         dt.addRow(fila);
                     }
 
