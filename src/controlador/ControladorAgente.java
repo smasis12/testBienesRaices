@@ -50,6 +50,7 @@ public class ControladorAgente implements ActionListener {
         this.frmConsultar.btnMostrar.addActionListener(this);
         this.frmRegistrar.btnRegistrar.addActionListener(this);
     }
+    
     public void Iniciar() {
 
         frmRegistrar.setTitle("Agente");
@@ -61,27 +62,38 @@ public class ControladorAgente implements ActionListener {
         frmConsultar.setLocationRelativeTo(null);
     }
 
-
+    private static boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
+}
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == frmRegistrar.btnRegistrar) {
-            agente.setCorreo(frmRegistrar.txtCorreo.getText());
-            agente.setApellido(frmRegistrar.txtApellido.getText());
-            agente.setNombre(frmRegistrar.txtNombre.getText());
-            agente.setTelefono(Integer.parseInt((frmRegistrar.txtNumTelefono.getText())));
-            agente.setId(Integer.parseInt((frmRegistrar.txtId.getText())));
-
+            if (ControladorAgente.isNumeric(frmRegistrar.txtId.getText()) && ControladorAgente.isNumeric(frmRegistrar.txtNumTelefono.getText()) ){
+                agente.setCorreo(frmRegistrar.txtCorreo.getText());
+                agente.setApellido(frmRegistrar.txtApellido.getText());
+                agente.setNombre(frmRegistrar.txtNombre.getText());
+                agente.setTelefono(Integer.parseInt((frmRegistrar.txtNumTelefono.getText())));
+                agente.setId(Integer.parseInt((frmRegistrar.txtId.getText())));
+            
             if (consultas.registrarAgente(agente)) {
                 JOptionPane.showMessageDialog(null, "Registro Guardado");
             } else {
                 JOptionPane.showMessageDialog(null, "Presione volver para regresar al menu anterior");
             }
         }
+            else{
+                JOptionPane.showMessageDialog(null, "Favor ingresar los datos correctos");
+            }}
      else if(e.getSource()== frmConsultar.btnMostrar){
             try {
                 listar(frmConsultar.tablaAgentes);
             } catch (Exception ex) {
-                System.out.println("otro error");
+                System.out.println("Por favor, ingrese los datos correctos");
             }
             System.out.println("wsdfads");
  
