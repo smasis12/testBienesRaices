@@ -46,10 +46,10 @@ public class ConsultaBienesRaices {
         catch (SQLException e){
                 System.err.println(e);
                 return false;
-        }
-        
-        
-    
+        }   
+              
+                
+            
         
     }
         public List listarAgente(){
@@ -79,4 +79,33 @@ public class ConsultaBienesRaices {
             return listaAgentes;
             
         }
+        
+        public boolean registrarCliente(Cliente cliente){
+        PreparedStatement ps= null;
+        Connection con = getConexion();
+        
+        String sql = "INSERT INTO Usuario(correo,telefono,clave) values(?,?,?) ; INSERT INTO UsuarioAgente(id,nombre,apellido,correo) values(?,?,?,?)";
+        
+        //aa
+        try{
+        
+                ps= con.prepareStatement(sql);
+                ps.setString(1, cliente.getCorreo());
+                ps.setInt(2, cliente.getTelefono());
+                ps.setString(3, "fasdfa");
+                
+                ps.setString(5, cliente.getNombre());
+                ps.setString(6, cliente.getApellido());
+                ps.setString(7, cliente.getCorreo());
+                ps.execute();
+                
+                return true;
+        }
+        
+        catch (SQLException e){
+                System.err.println(e);
+                return false;
+        }
+}
+        
 }

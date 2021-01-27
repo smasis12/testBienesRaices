@@ -41,6 +41,7 @@ public class Casa extends Propiedad {
     }
 
     /**
+     * Retorna una lista con objetos de tipo casa
      * @return
      */
     public String toString() {
