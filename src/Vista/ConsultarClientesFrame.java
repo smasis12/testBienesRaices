@@ -31,6 +31,7 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
         tablaClientes = new javax.swing.JTable();
         btnVolver = new javax.swing.JButton();
         btnDescargar = new javax.swing.JButton();
+        Excel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,9 +50,16 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
 
         btnVolver.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         btnDescargar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnDescargar.setText("Descargar tabla");
+        btnDescargar.setText("Mostrar");
+
+        Excel.setText("Excel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,6 +75,8 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Excel)
+                        .addGap(64, 64, 64)
                         .addComponent(btnDescargar)
                         .addGap(49, 49, 49)
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -82,12 +92,19 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVolver)
-                    .addComponent(btnDescargar))
-                .addGap(20, 20, 20))
+                    .addComponent(btnDescargar)
+                    .addComponent(Excel))
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuAdministradorFrame ventana = new MenuAdministradorFrame();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,10 +143,11 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDescargar;
+    public javax.swing.JButton Excel;
+    public javax.swing.JButton btnDescargar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitulos;
-    private javax.swing.JTable tablaClientes;
+    public javax.swing.JTable tablaClientes;
     // End of variables declaration//GEN-END:variables
 }

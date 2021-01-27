@@ -4,6 +4,7 @@ import Modelo.Agente;
 import Modelo.ConsultaBienesRaices;
 import static controlador.Conexion.getConexion;
 import controlador.ControladorAgente;
+import controlador.controladorCliente;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
@@ -132,6 +133,8 @@ public class MenuAdministradorFrame extends javax.swing.JFrame {
 
     private void btnConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClientesActionPerformed
         ConsultarClientesFrame ventana = new ConsultarClientesFrame();
+        controladorCliente ctrl= new controladorCliente(ventana);
+        ctrl.Iniciar();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnConsultaClientesActionPerformed
