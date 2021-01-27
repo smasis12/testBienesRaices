@@ -6,7 +6,7 @@
 package Modelo;
 
 import Vista.Inicio;
-import controlador.EmailReader;
+import Modelo.EmailReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,15 +15,19 @@ import javax.mail.MessagingException;
 public class Principal {
     
     public static void main(String[] args ) throws MessagingException{
-        try {
+        
             Inicio vent = new Inicio();
             vent.setVisible(true);
-            EmailReader e = new EmailReader();
-            e.recibirMail("isamasis09@gmail.com", "2017170050");
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+            EmailReader EmailReader = new EmailReader();
+            
+            //Llamado al método que lee NUEVOS mensajes al correo electronico de bienes raices
+            EmailReader.recibirMail("isamasis09@gmail.com", "2017170050");
+            //e.enviarMail("isamasis09@gmail.com"); 
+            
+            // EmailReader.enviarMailNuevaPassword("masissara12@gmail.com");
+            
+            
+    
     }
     
 }
