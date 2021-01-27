@@ -21,6 +21,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 
 import javax.mail.Authenticator;
+import javax.mail.BodyPart;
 import javax.mail.Flags;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -30,17 +31,18 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.mail.search.FlagTerm;
 
 public class EmailReader {
-    
+        
      private boolean textIsHtml = false;
     
     /*Obtiene los mensajes recibidos en la bandeja de entrada: Asunto y correo electronico
     */
-    public void recibirMail(String correo, String password) {
-        String subject;
-       Properties prop = new Properties();
+    public void recibirMail(String correo, String password) {       
+       // Se obtiene la Session
+        Properties prop = new Properties();
         prop.setProperty("mail.pop3.starttls.enable", "false");
         prop.setProperty(
             "mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -64,18 +66,15 @@ public class EmailReader {
 
             // Se escribe from y subject de cada mensaje
             for (int i = 0; i < mensajes.length; i++)
-            {   
-                String contenido;
-                
+            {
                 System.out.println(
                     "From:" + mensajes[i].getFrom()[0].toString());
                 System.out.println("Subject:" + mensajes[i].getSubject());
-                                              
-                // Se visualiza el contenido de cada mensaje
-                getText(mensajes[i]);
                 
+                // Se visualiza, si se sabe como, el contenido de cada mensaje
+                EmailReader content = new EmailReader();
+                System.out.println("el contenido del mensaje, explicitamente es: "+ content.analizaParteDeMensaje(mensajes[i]));                                                                           
                 
-             
             }
 
             folder.close(false);
@@ -84,67 +83,58 @@ public class EmailReader {
         catch (Exception e)
         {
             e.printStackTrace();
-        }       
-                           
+        }                                  
     }
+    
     
      /**
      * Obtiene el cuerpo del mensaje
      */
-    public static void getText(Part unaParte) throws MessagingException, IOException {
-         try
-        {
+    private String analizaParteDeMensaje(Part unaParte) {
+        String result="";
+        try{
           // Si es multipart, se analiza cada una de sus partes recursivamente.
             if (unaParte.isMimeType("multipart/*"))
             {
-                Multipart multi;
-                multi = (Multipart) unaParte.getContent();
+                MimeMultipart multi= (MimeMultipart) unaParte.getContent();
+                result= getTextFromMimeMultipart(multi);
 
-                for (int j = 0; j < multi.getCount(); j++)
-                {
-                    getText(multi.getBodyPart(j));
+                for (int j = 0; j < multi.getCount(); j++) {
+                    analizaParteDeMensaje(multi.getBodyPart(j));  
+                                   
                 }
-            }
-            else
-            {
+            }else {
               // Si es texto, se escribe el texto.
-                if (unaParte.isMimeType("text/*"))
-                {
-                    System.out.println("Texto " + unaParte.getContentType());
-                    System.out.println(unaParte.getContent());
-                    System.out.println("---------------------------------");
+                if (unaParte.isMimeType("text/*")) {
+                    result= unaParte.getContent().toString();
+                    //System.out.println("Texto " + unaParte.getContentType());
+                    //System.out.println(unaParte.getContent());
+                    //System.out.println("---------------------------------");
                 }
-                else
-                {
-                  // Si es imagen, se guarda en fichero y se visualiza en JFrame
-                    if (unaParte.isMimeType("image/*"))
-                    {
-                        System.out.println(
-                            "Imagen " + unaParte.getContentType());
-                        System.out.println("Fichero=" + unaParte.getFileName());
-                        System.out.println("---------------------------------");
-
-                        //salvaImagenEnFichero(unaParte);
-                        //visualizaImagenEnJFrame(unaParte);
-                    }
-                    else
-                    {
-                      // Si no es ninguna de las anteriores, se escribe en pantalla
-                      // el tipo.
-                        System.out.println(
-                            "Recibido " + unaParte.getContentType());
-                        System.out.println("---------------------------------");
-                    }
-                }
-            }
+          }
         }
         catch (Exception e)
         {
-            e.printStackTrace();
-        }
+            e.printStackTrace();            
+        } return result;
     }
     
+    private String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws MessagingException, IOException{
+        String result="";
+        int count = mimeMultipart.getCount();        
+        for(int i=0; i< count; i ++){
+            BodyPart bodyPart = mimeMultipart.getBodyPart(i);
+            if(bodyPart.isMimeType("text/plain")){
+                result= result + "\n"+ bodyPart.getContent();
+                break;
+            }else if(bodyPart.getContent() instanceof MimeMultipart){
+                result= result+ getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
+            }
+        }
+        return result;
+    }
     
+    //Invoca al metodo encargado de generar una contrasenna para enviarla al correo del usuario
      public String getPass(){
         String pass;
         pass= GenerarContraseña.getPassword();
@@ -152,10 +142,8 @@ public class EmailReader {
         return pass;
     }
      
-     public void enviarMailNuevaPassword(String destinatario){
-        
-         String passw= getPass();
-         
+     public void enviarMailNuevaPassword(String destinatario){        
+         String passw= getPass();         
         String host = "smtp.gmail.com";
         String port = "587";
         String mailFrom = "isamasis09@gmail.com";
@@ -170,25 +158,20 @@ public class EmailReader {
         message += "<b>Gracias por registrarse al sistema bienes raices!!</b><br>";
         message += "<font color=red>su contraseña de acceso es:</font>";
         message+= "<b><br>";
-        message+= passw;
- 
-        EmailReader mailer = new EmailReader();
- 
+        message+= passw; 
+        EmailReader mailer = new EmailReader(); 
         try {
-            mailer.sendHtmlEmail(host, port, mailFrom, password, mailTo,
-                    subject, message);
+            mailer.sendHtmlEmail(host, port, mailFrom, password, mailTo, subject, message);
             System.out.println("Email sent.");
         } catch (Exception ex) {
             System.out.println("Failed to sent email.");
             ex.printStackTrace();
-        }
-     
+        }     
      }
         
     
     
-    public void enviarMail(String destinatario){
-        
+    public void enviarMail(String destinatario){        
         String host = "smtp.gmail.com";
         String port = "587";
         String mailFrom = "isamasis09@gmail.com";
@@ -201,7 +184,7 @@ public class EmailReader {
         // message contains HTML markups
         String message = "<i>Greetings!</i><br>";
         message += "<b>Wish you a nice day!</b><br>";
-        message += "<font color=red>Duke</font>";
+        
  
         EmailReader mailer = new EmailReader();
  
@@ -212,21 +195,13 @@ public class EmailReader {
         } catch (Exception ex) {
             System.out.println("Failed to sent email.");
             ex.printStackTrace();
+        }      
         }
         
+             
         
         
-        
-    }
-        
-        
-        
-    
-    
-    
-    
-    
-    //Envia correo en formato html
+    //Envia correo en formato html 
     
     
     public void sendHtmlEmail(String host, String port,final String userName, final String password, String toAddress,
@@ -257,8 +232,7 @@ public class EmailReader {
         msg.setSubject(subject);
         msg.setSentDate(new Date());
         // set plain text message
-        msg.setContent(message, "text/html");
- 
+        msg.setContent(message, "text/html"); 
         // sends the e-mail
         Transport.send(msg);
  
@@ -279,6 +253,21 @@ public class EmailReader {
         
     
 }
+    
+    public void validarAsunto(String from, String asunto, String cuerpomsg){
+        String partesmsg[]= cuerpomsg.split(",");
+        
+        
+        if(asunto == "nuevo usuario"){
+            
+            System.out.println(partesmsg[0]);            
+            
+            
+        }
+        
+        
+        
+    }
 
    
     
