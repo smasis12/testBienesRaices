@@ -104,6 +104,8 @@ public class ConsultaBienes extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         btnDetallesPropiedad = new javax.swing.JButton();
         btnBuscarPropiedades = new javax.swing.JButton();
+        btnFicha = new javax.swing.JButton();
+        btnMostrarInteres = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,6 +213,20 @@ public class ConsultaBienes extends javax.swing.JFrame {
             }
         });
 
+        btnFicha.setText("Solicitar Ficha de Propiedad");
+        btnFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFichaActionPerformed(evt);
+            }
+        });
+
+        btnMostrarInteres.setText("Me interesa esta propiedad");
+        btnMostrarInteres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarInteresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -263,8 +279,15 @@ public class ConsultaBienes extends javax.swing.JFrame {
                         .addGap(213, 213, 213))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnBuscarPropiedades)
-                .addGap(71, 71, 71))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnBuscarPropiedades)
+                        .addGap(71, 71, 71))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnMostrarInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(269, 269, 269))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,8 +321,12 @@ public class ConsultaBienes extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(btnBuscarPropiedades)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(btnFicha)
+                .addGap(36, 36, 36)
+                .addComponent(btnMostrarInteres)
+                .addGap(89, 89, 89)
                 .addComponent(btnDetallesPropiedad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(btnVolver)
@@ -369,6 +396,14 @@ public class ConsultaBienes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarPropiedadesActionPerformed
 
+    private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFichaActionPerformed
+
+    private void btnMostrarInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarInteresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarInteresActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -407,6 +442,8 @@ public class ConsultaBienes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscarPropiedades;
     public javax.swing.JButton btnDetallesPropiedad;
+    private javax.swing.JButton btnFicha;
+    private javax.swing.JButton btnMostrarInteres;
     private javax.swing.JButton btnVolver;
     public javax.swing.JComboBox<String> cboxModalidad;
     public javax.swing.JComboBox<String> cboxProvincia;

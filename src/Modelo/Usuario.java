@@ -3,7 +3,7 @@ package Modelo;
 import java.util.*;
 
 public abstract class Usuario {
-    protected String correoUsuario;
+    protected String correo;
     protected int telefono;
     protected String clave;
     
@@ -18,7 +18,7 @@ public abstract class Usuario {
      * @param pTelefono
      */
     public Usuario(String pCorreo, int pTelefono) {
-        this.correoUsuario= pCorreo;
+        this.correo= pCorreo;
         this.telefono=pTelefono;
     }
 
@@ -39,12 +39,12 @@ public abstract class Usuario {
     }
     
     
-    public String getCorreoUsuario() {
-        return correoUsuario;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCorreoUsuario(String correoUsuario) {
-        this.correoUsuario = correoUsuario;
+    public void setCorreo(String correoUsuario) {
+        this.correo = correoUsuario;
     }
 
     public int getTelefono() {

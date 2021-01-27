@@ -1,6 +1,6 @@
 
 package Vista;
-//import controlador.EmailReader;
+import Modelo.EmailReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
@@ -15,8 +15,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() throws MessagingException {
         initComponents();
-        //EmailReader re = new EmailReader();
-        //re.recibirMail("isamasis09@gmail.com","2017170050");
+        
     }
 
     /**
