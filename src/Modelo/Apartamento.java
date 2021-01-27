@@ -7,10 +7,10 @@ import java.util.*;
  */
 public class Apartamento extends Propiedad {
 
-    private String areaConstruccion;
+    private int areaConstruccion;
     private String estiloConstruccion;
     private int altura;
-    private boolean piscina;
+    private String piscina;
     private int espaciosParqueo;
     
     /**
@@ -34,8 +34,8 @@ public class Apartamento extends Propiedad {
      * @param pPiscina 
      * @param pParqueo
      */
-    public Apartamento(int pFinca, int pAreaTerreno, int pValorMetro, int pFiscal, String pUbicacion, String pDireccion, String pModalidad, String pArea, String pEstilo, int pAltura, boolean pPiscina, int pParqueo) {
-        super(pFinca, pAreaTerreno, pValorMetro, pFiscal, pUbicacion, pDireccion, pModalidad);
+    public Apartamento(int pFinca, int pAreaTerreno, int pValorMetro, int pFiscal, String pUbicacion, String pDireccion, int pModalidad, int pArea, String pEstilo, int pAltura, String pPiscina, int pParqueo, int pProvincia, int pCanton, int pDistrito, int pAgente, int pPropiedad) {
+        super(pFinca, pAreaTerreno, pValorMetro, pFiscal, pUbicacion, pDireccion, pModalidad, pProvincia,pCanton, pDistrito, pAgente,pPropiedad);
         this.areaConstruccion= pArea;
         this.estiloConstruccion=pEstilo;
         this.altura=pAltura;
@@ -51,11 +51,11 @@ public class Apartamento extends Propiedad {
         return "";
     }
     
-    public String getAreaConstruccion() {
+    public int getAreaConstruccion() {
         return areaConstruccion;
     }
 
-    public void setAreaConstruccion(String areaConstruccion) {
+    public void setAreaConstruccion(int areaConstruccion) {
         this.areaConstruccion = areaConstruccion;
     }
 
@@ -75,12 +75,16 @@ public class Apartamento extends Propiedad {
         this.altura = altura;
     }
 
-    public boolean isPiscina() {
+    public String isPiscina() {
         return piscina;
     }
 
-    public void setPiscina(boolean piscina) {
+    public void setPiscina(String piscina) {
         this.piscina = piscina;
+    }
+    
+    public String getPiscina(){
+        return piscina;
     }
 
     public int getEspaciosParqueo() {

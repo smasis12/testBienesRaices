@@ -1,6 +1,13 @@
 
 package Vista;
 
+import Modelo.Apartamento;
+import Modelo.Casa;
+import Modelo.CentroComercial;
+import Modelo.Lote;
+import Modelo.Nivel;
+import controlador.ControladorPropiedad;
+
 /**
  *
  * @author USUARIO
@@ -28,26 +35,26 @@ public class tipoPropiedadFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnSeleccionar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         cbxTipoPropiedad = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton2.setText("Seleccionar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSeleccionarActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton5.setText("Volver");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -69,9 +76,9 @@ public class tipoPropiedadFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2)
+                        .addComponent(btnSeleccionar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5))
+                        .addComponent(btnVolver))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -92,48 +99,60 @@ public class tipoPropiedadFrame extends javax.swing.JFrame {
                 .addComponent(cbxTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton2))
+                    .addComponent(btnVolver)
+                    .addComponent(btnSeleccionar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         MenuAgentesFrame ventana = new MenuAgentesFrame();
         ventana.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void cbxTipoPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoPropiedadActionPerformed
         // TODO add your handling code here:
         int selection = cbxTipoPropiedad.getSelectedIndex();
+        Lote lote = new Lote();
+        Casa casa = new Casa();
+        Apartamento aparta = new Apartamento();
+        Nivel nivel = new Nivel();
+        CentroComercial cc = new CentroComercial();
+        
+        RegistrarNuevoLoteFrame frmRegistrarLote = new RegistrarNuevoLoteFrame();
+        RegistrarNuevaCasaFrame frmRegistrarCasa = new RegistrarNuevaCasaFrame();
+        RegistrarNuevoApartamento frmRegistrarApartamento = new RegistrarNuevoApartamento();
+        RegistrarNuevoCentroComercial frmRegistrarCentroC = new RegistrarNuevoCentroComercial();
+        RegistrarNuevoNivelApartamento frmRegistrarNivelAparta = new RegistrarNuevoNivelApartamento();
+        
             switch (selection) {
                 case 0:
                    break;
                 case 1:
-                    RegistrarNuevoLoteFrame ventLote = new RegistrarNuevoLoteFrame();
-                    ventLote.setVisible(true);
+                    ControladorPropiedad controladorL = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    frmRegistrarLote.setVisible(true);
                     this.dispose();
                     break;
                 case 2: 
-                    RegistrarNuevaCasaFrame ventCasa= new RegistrarNuevaCasaFrame();
-                    ventCasa.setVisible(true);
+                    ControladorPropiedad controladorC = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    frmRegistrarCasa.setVisible(true);
                     this.dispose();
                     break;
                 case 3:
-                    RegistrarNuevoApartamento ventAp = new RegistrarNuevoApartamento();
-                    ventAp.setVisible(true);
+                    ControladorPropiedad controladorA = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    frmRegistrarApartamento.setVisible(true);
                     this.dispose();
                     break;
                 case 4:
-                    RegistrarNuevoCentroComercial ventC = new RegistrarNuevoCentroComercial();
-                    ventC.setVisible(true);
+                    ControladorPropiedad controladorCC = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    frmRegistrarCentroC.setVisible(true);
                     this.dispose();
                     break;    
                     
@@ -180,9 +199,9 @@ public class tipoPropiedadFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnSeleccionar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cbxTipoPropiedad;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

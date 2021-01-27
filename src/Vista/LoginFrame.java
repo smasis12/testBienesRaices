@@ -1,5 +1,12 @@
 package Vista;
 
+
+import controlador.ControladorLogin;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USUARIO
@@ -138,50 +145,62 @@ public class LoginFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCancelarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarLoginActionPerformed
-        Inicio ventana = new Inicio();
-        ventana.setVisible(true);
+
+        try {
+            Inicio ventana = new Inicio();
+            ventana.setVisible(true);
+        } catch (MessagingException ex) {
+            Logger.getLogger(LoginFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         this.dispose();
     }//GEN-LAST:event_btCancelarLoginActionPerformed
 
     private void btIniciarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarLoginActionPerformed
-        /*String busquedaAdministrador = metodos.buscarUsuarioRegistrado(txtNombreUsuario.getText(), txtContrasena.getText());
-        String busquedaProveedor = metodos.buscarProveedorRegistrado(txtNombreUsuario.getText(), txtContrasena.getText());
-        String busquedaCliente = metodos.buscarClienteRegistrado(txtNombreUsuario.getText(), txtContrasena.getText());
+        ControladorLogin ca = new ControladorLogin();
+        
+        String busquedaAdministrador = ca.buscarAdminRegistrado(txtCorreo.getText(), txtContrasena.getText());
+        String busquedaAgente = ca.buscarAgenteRegistrado(txtCorreo.getText(), txtContrasena.getText());
+        String busquedaCliente = ca.buscarClienteRegistrado(txtCorreo.getText(), txtContrasena.getText());
+        
         switch (cbxTipoRol.getSelectedIndex()) {
             case 0:
-            if (busquedaAdministrador.equals("Usuario encontrado")) { //Verifica si existe el usuario, en la clase MetodoLogin
-                JOptionPane.showMessageDialog(this, "Bienvenido! " + txtNombreUsuario.getText());
-                MenuAdministradorFrame ventana = new MenuAdministradorFrame();
-                ventana.lblNombreSesion.setText(txtNombreUsuario.getText());
-                ventana.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Usuario no registrado, favor registrarse");
-            }   break;
+                if (busquedaAdministrador.equals("Usuario encontrado")) { //Verifica si existe el usuario, en la clase MetodoLogin
+                    JOptionPane.showMessageDialog(this, "Bienvenido! ");
+                    MenuAdministradorFrame ventana = new MenuAdministradorFrame();
+                    //ventana.lblNombreSesion.setText(txtNombreUsuario.getText());
+                    ventana.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Usuario no registrado, favor registrarse");
+                }
+                break;
             case 1:
-            if (busquedaProveedor.equals("Usuario encontrado")) {
-                JOptionPane.showMessageDialog(this, "Bienvenido! " + txtNombreUsuario.getText());
-                MenuProveedorFrame ventana = new MenuProveedorFrame();
-                ventana.setVisible(true);
-                ventana.lblNombre.setText(txtNombreUsuario.getText());
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Usuario no registrado, favor registrarse");
-            }   break;
+                if (busquedaAgente.equals("Usuario encontrado")) {
+                    JOptionPane.showMessageDialog(this, "Bienvenido! ");
+                    MenuAgentesFrame ventana = new MenuAgentesFrame();
+                    ventana.setVisible(true);
+                    //ventana.lblNombre.setText(txtNombreUsuario.getText());
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Usuario no registrado, favor registrarse");
+                }
+                break;
             case 2:
-            if (busquedaCliente.equals("Usuario encontrado")) {
-                JOptionPane.showMessageDialog(this, "Bienvenido! " + txtNombreUsuario.getText());
-                MenuClientesFrame ventana = new MenuClientesFrame();
-                ventana.lblNombre.setText(txtNombreUsuario.getText());
-                ventana.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Usuario no registrado, favor registrarse");
-            }   break;
+                if (busquedaCliente.equals("Usuario encontrado")) {
+                    JOptionPane.showMessageDialog(this, "Bienvenido! ");
+                    ConsultaBienes ventana = new ConsultaBienes();
+                    //ventana.lblNombre.setText(txtNombreUsuario.getText());
+                    ventana.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Usuario no registrado, favor registrarse");
+                }
+                break;
             default:
-            JOptionPane.showMessageDialog(this, "Seleccione correctamente el Rol");
-            break;
-        }*/
+                JOptionPane.showMessageDialog(this, "Seleccione correctamente el Rol");
+                break;
+        }
     }//GEN-LAST:event_btIniciarLoginActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

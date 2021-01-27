@@ -5,6 +5,13 @@
  */
 package Vista;
 
+import Modelo.Apartamento;
+import Modelo.Casa;
+import Modelo.CentroComercial;
+import Modelo.Lote;
+import Modelo.Nivel;
+import controlador.ControladorPropiedad;
+
 /**
  *
  * @author USUARIO
@@ -24,7 +31,7 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
         cbxProvincias.addItem("Cartago");
         cbxProvincias.addItem("Alajuela");
         cbxProvincias.addItem("Heredia");
-        cbxProvincias.addItem("Pintarenas");
+        cbxProvincias.addItem("Puntarenas");
         cbxProvincias.addItem("Guanacaste");
         cbxProvincias.addItem("Limon");
         
@@ -36,6 +43,16 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
         
         cbxPiscina.addItem("Si");
         cbxPiscina.addItem("No");
+        
+        cbxTipoNivel.addItem("Comercial");
+        cbxTipoNivel.addItem("Residencial");
+        
+        
+    }
+    
+    void limpiar(){
+        txtCantidadResidencias.setText("");
+        txtEspaciosZonasC.setText("");
     }
 
     /**
@@ -75,29 +92,46 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
         cbxEstilo = new javax.swing.JComboBox<>();
         btnVolver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtUbicacion = new javax.swing.JTextArea();
-        btnSiguiente = new javax.swing.JButton();
+        txtUbicacionMapas = new javax.swing.JTextArea();
+        btnRegistrar = new javax.swing.JButton();
         lblModalidad = new javax.swing.JLabel();
         cbxModalidad = new javax.swing.JComboBox<>();
+        lblUbicacion1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDireccion = new javax.swing.JTextArea();
+        lblCantResid = new javax.swing.JLabel();
+        txtCantidadResidencias = new javax.swing.JTextField();
+        lblTipoNivel = new javax.swing.JLabel();
+        cbxTipoNivel = new javax.swing.JComboBox<>();
+        lblEspacios = new javax.swing.JLabel();
+        txtEspaciosZonasC = new javax.swing.JTextField();
+        btnAgregarNivel = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusable(false);
 
         lblTitulo.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
         lblTitulo.setText("Registro de Nuevo Apartamento");
 
-        lblNumFinca.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNumFinca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblNumFinca.setText("Numero de Finca");
 
-        lblAreaTerreno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAreaTerreno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblAreaTerreno.setText("Area del Terreno");
 
-        lblValorMetro2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblValorMetro2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblValorMetro2.setText("Valor por metro cuadrado");
 
-        lblValorFiscal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblValorFiscal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblValorFiscal.setText("Valor Fiscal");
 
         txtNumFinca.setToolTipText("");
+        txtNumFinca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumFincaActionPerformed(evt);
+            }
+        });
 
         txtValorMetro2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -105,23 +139,28 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
 
         txtValorFiscal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        lblAreaConstruccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAreaConstruccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblAreaConstruccion.setText("Area de Construccion");
 
-        lblProvincias.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblProvincias.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblProvincias.setText("Provincia");
 
-        lblDistrito.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblDistrito.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblDistrito.setText("Distrito");
 
-        lblCanton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCanton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCanton.setText("Canton");
 
         txtParqueo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtParqueo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtParqueoActionPerformed(evt);
+            }
+        });
 
         txtDistrito.setToolTipText("");
 
-        lblEstilo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEstilo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblEstilo.setText("Estilo de Construccion");
 
         cbxPiscina.addActionListener(new java.awt.event.ActionListener() {
@@ -143,18 +182,23 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
             }
         });
 
-        lblAltura.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAltura.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblAltura.setText("Altura");
 
-        lblUbicacion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblUbicacion.setText("Ubicacion Exacta");
+        lblUbicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblUbicacion.setText("Direccion Exacta");
 
         lblParqueo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblParqueo.setText("Cantidad de espacios para parqueo");
 
         txtAreaConstruccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAreaConstruccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAreaConstruccionActionPerformed(evt);
+            }
+        });
 
-        lblPiscina.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPiscina.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblPiscina.setText("Piscina");
 
         btnVolver.setText("Volver");
@@ -164,18 +208,18 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
             }
         });
 
-        txtUbicacion.setColumns(20);
-        txtUbicacion.setRows(5);
-        jScrollPane2.setViewportView(txtUbicacion);
+        txtUbicacionMapas.setColumns(20);
+        txtUbicacionMapas.setRows(5);
+        jScrollPane2.setViewportView(txtUbicacionMapas);
 
-        btnSiguiente.setText("Siguiente");
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
 
-        lblModalidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblModalidad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblModalidad.setText("Modalidad");
 
         cbxModalidad.addActionListener(new java.awt.event.ActionListener() {
@@ -184,166 +228,251 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
             }
         });
 
+        lblUbicacion1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblUbicacion1.setText("Ubicacion (Mapas)");
+
+        txtDireccion.setColumns(20);
+        txtDireccion.setRows(5);
+        jScrollPane3.setViewportView(txtDireccion);
+
+        lblCantResid.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCantResid.setText("Cantidad Residencias");
+
+        txtCantidadResidencias.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantidadResidencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadResidenciasActionPerformed(evt);
+            }
+        });
+
+        lblTipoNivel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblTipoNivel.setText("Tipo Nivel");
+
+        lblEspacios.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblEspacios.setText("Espacios para Zonas Comunes");
+
+        txtEspaciosZonasC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEspaciosZonasC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEspaciosZonasCActionPerformed(evt);
+            }
+        });
+
+        btnAgregarNivel.setText("Agregar nivel");
+        btnAgregarNivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarNivelActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(lblNumFinca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(306, 306, 306))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 309, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblProvincias)
-                                .addGap(120, 120, 120))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAreaTerreno)
-                                .addGap(96, 96, 96))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblValorMetro2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblValorFiscal)
-                        .addGap(62, 62, 62))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(lblCanton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblDistrito)
-                                .addGap(60, 60, 60))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtAltura, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCanton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDistrito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtParqueo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(16, 16, 16))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblEstilo)
-                .addGap(161, 161, 161)
-                .addComponent(lblPiscina)
-                .addGap(185, 185, 185)
-                .addComponent(lblAltura)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblParqueo))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(lblAreaConstruccion)
-                .addGap(102, 102, 102)
-                .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblModalidad)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addComponent(txtCanton)
+                                                                .addComponent(lblNumFinca, javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(txtNumFinca, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                                                            .addGap(68, 68, 68))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                            .addGap(34, 34, 34)
+                                                            .addComponent(lblCanton)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(lblAreaTerreno)
+                                                        .addComponent(txtAreaTerreno, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                                        .addComponent(txtDistrito)))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblEstilo))
+                                                .addGap(80, 80, 80)
+                                                .addComponent(lblAltura)))
+                                        .addGap(62, 62, 62)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lblAreaConstruccion)
+                                                        .addComponent(txtAreaConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(52, 52, 52)
+                                                            .addComponent(lblPiscina)))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(52, 52, 52)
+                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                    .addGroup(layout.createSequentialGroup()
+                                                                        .addGap(12, 12, 12)
+                                                                        .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addGap(67, 67, 67)
+                                                                        .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addGap(66, 66, 66)
+                                                                        .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addGroup(layout.createSequentialGroup()
+                                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                            .addComponent(lblCantResid)
+                                                                            .addComponent(lblValorMetro2))
+                                                                        .addGap(58, 58, 58)
+                                                                        .addComponent(lblValorFiscal)
+                                                                        .addGap(116, 116, 116)
+                                                                        .addComponent(lblProvincias)))))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(330, 330, 330)
+                                                            .addComponent(lblUbicacion1))))
+                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                    .addGap(23, 23, 23)
+                                                    .addComponent(cbxPiscina, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtCantidadResidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(99, 99, 99)
+                                                    .addComponent(lblParqueo)
+                                                    .addGap(25, 25, 25)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(btnAgregarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtParqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(77, 77, 77))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addComponent(lblTipoNivel)
+                                        .addGap(109, 109, 109)
+                                        .addComponent(lblEspacios)
+                                        .addGap(99, 99, 99)
+                                        .addComponent(lblModalidad))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cbxTipoNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(114, 114, 114)
+                                        .addComponent(txtEspaciosZonasC, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(113, 113, 113)
+                                        .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(81, 81, 81)
+                                        .addComponent(btnAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(381, 381, 381)
+                                .addComponent(lblTitulo)))
+                        .addGap(0, 35, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74)
-                                .addComponent(btnAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)))
-                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtAreaConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblUbicacion)))
-                                .addGap(105, 105, 105)
-                                .addComponent(cbxPiscina, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(251, 251, 251)
+                .addComponent(lblDistrito)
+                .addGap(191, 191, 191)
+                .addComponent(lblUbicacion)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(lblTitulo)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblAreaConstruccion)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAreaConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAreaTerreno)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblValorMetro2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblValorFiscal)
+                                        .addComponent(lblProvincias)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtValorMetro2, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                                    .addComponent(txtValorFiscal))))
+                        .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNumFinca)
-                            .addComponent(lblAreaTerreno)
-                            .addComponent(lblValorMetro2)
-                            .addComponent(lblValorFiscal))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAreaConstruccion)
-                            .addComponent(lblProvincias)
                             .addComponent(lblDistrito)
-                            .addComponent(lblCanton))
+                            .addComponent(lblUbicacion)
+                            .addComponent(lblUbicacion1))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAreaConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEstilo)
-                            .addComponent(lblAltura)
-                            .addComponent(lblParqueo)
-                            .addComponent(lblPiscina))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtParqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxPiscina, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addComponent(lblUbicacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(lblModalidad)
-                        .addGap(42, 42, 42))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lblCanton)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(27, 27, 27))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblNumFinca)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(152, 152, 152))))
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58))
+                    .addComponent(lblEstilo)
+                    .addComponent(lblAltura)
+                    .addComponent(lblPiscina)
+                    .addComponent(lblParqueo)
+                    .addComponent(lblCantResid))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtParqueo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxPiscina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCantidadResidencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoNivel)
+                    .addComponent(lblEspacios)
+                    .addComponent(lblModalidad))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxTipoNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEspaciosZonasC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarImagen)
+                    .addComponent(btnAgregarNivel))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLimpiar)
+                .addGap(54, 54, 54))
         );
 
         pack();
@@ -365,17 +494,58 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxModalidadActionPerformed
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        RegistrarNuevoNivelApartamento ventana = new RegistrarNuevoNivelApartamento();
-        ventana.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+       
+       /* Lote lote = new Lote();
+        Casa casa = new Casa();
+        Apartamento aparta = new Apartamento();
+        Nivel nivel = new Nivel();
+        CentroComercial cc = new CentroComercial();
+        
+        RegistrarNuevoLoteFrame frmRegistrarLote = new RegistrarNuevoLoteFrame();
+        RegistrarNuevaCasaFrame frmRegistrarCasa = new RegistrarNuevaCasaFrame();
+        RegistrarNuevoApartamento frmRegistrarApartamento = new RegistrarNuevoApartamento();
+        RegistrarNuevoCentroComercial frmRegistrarCentroC = new RegistrarNuevoCentroComercial();
+        RegistrarNuevoNivelApartamento frmRegistrarNivelAparta = new RegistrarNuevoNivelApartamento();
+        
+        ControladorPropiedad controladorA = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+        frmRegistrarNivelAparta.setVisible(true);
+        this.dispose(); */
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         tipoPropiedadFrame ventana = new tipoPropiedadFrame();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txtNumFincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFincaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumFincaActionPerformed
+
+    private void txtAreaConstruccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaConstruccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAreaConstruccionActionPerformed
+
+    private void txtParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParqueoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtParqueoActionPerformed
+
+    private void txtCantidadResidenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadResidenciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadResidenciasActionPerformed
+
+    private void txtEspaciosZonasCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspaciosZonasCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEspaciosZonasCActionPerformed
+
+    private void btnAgregarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarNivelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarNivelActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,38 +583,49 @@ public class RegistrarNuevoApartamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarImagen;
-    private javax.swing.JButton btnSiguiente;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox<String> cbxEstilo;
-    private javax.swing.JComboBox<String> cbxModalidad;
-    private javax.swing.JComboBox<String> cbxPiscina;
-    private javax.swing.JComboBox<String> cbxProvincias;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblAltura;
-    private javax.swing.JLabel lblAreaConstruccion;
-    private javax.swing.JLabel lblAreaTerreno;
-    private javax.swing.JLabel lblCanton;
-    private javax.swing.JLabel lblDistrito;
-    private javax.swing.JLabel lblEstilo;
-    private javax.swing.JLabel lblModalidad;
-    private javax.swing.JLabel lblNumFinca;
-    private javax.swing.JLabel lblParqueo;
-    private javax.swing.JLabel lblPiscina;
-    private javax.swing.JLabel lblProvincias;
+    public javax.swing.JButton btnAgregarImagen;
+    public javax.swing.JButton btnAgregarNivel;
+    public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnRegistrar;
+    public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> cbxEstilo;
+    public javax.swing.JComboBox<String> cbxModalidad;
+    public javax.swing.JComboBox<String> cbxPiscina;
+    public javax.swing.JComboBox<String> cbxProvincias;
+    public javax.swing.JComboBox<String> cbxTipoNivel;
+    public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JLabel lblAltura;
+    public javax.swing.JLabel lblAreaConstruccion;
+    public javax.swing.JLabel lblAreaTerreno;
+    public javax.swing.JLabel lblCantResid;
+    public javax.swing.JLabel lblCanton;
+    public javax.swing.JLabel lblDistrito;
+    public javax.swing.JLabel lblEspacios;
+    public javax.swing.JLabel lblEstilo;
+    public javax.swing.JLabel lblModalidad;
+    public javax.swing.JLabel lblNumFinca;
+    public javax.swing.JLabel lblParqueo;
+    public javax.swing.JLabel lblPiscina;
+    public javax.swing.JLabel lblProvincias;
+    public javax.swing.JLabel lblTipoNivel;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblUbicacion;
-    private javax.swing.JLabel lblValorFiscal;
-    private javax.swing.JLabel lblValorMetro2;
-    private javax.swing.JTextField txtAltura;
-    private javax.swing.JTextField txtAreaConstruccion;
-    private javax.swing.JTextField txtAreaTerreno;
-    private javax.swing.JTextField txtCanton;
-    private javax.swing.JTextField txtDistrito;
-    private javax.swing.JTextField txtNumFinca;
-    private javax.swing.JTextField txtParqueo;
-    private javax.swing.JTextArea txtUbicacion;
-    private javax.swing.JTextField txtValorFiscal;
-    private javax.swing.JTextField txtValorMetro2;
+    public javax.swing.JLabel lblUbicacion;
+    public javax.swing.JLabel lblUbicacion1;
+    public javax.swing.JLabel lblValorFiscal;
+    public javax.swing.JLabel lblValorMetro2;
+    public javax.swing.JTextField txtAltura;
+    public javax.swing.JTextField txtAreaConstruccion;
+    public javax.swing.JTextField txtAreaTerreno;
+    public javax.swing.JTextField txtCantidadResidencias;
+    public javax.swing.JTextField txtCanton;
+    public javax.swing.JTextArea txtDireccion;
+    public javax.swing.JTextField txtDistrito;
+    public javax.swing.JTextField txtEspaciosZonasC;
+    public javax.swing.JTextField txtNumFinca;
+    public javax.swing.JTextField txtParqueo;
+    public javax.swing.JTextArea txtUbicacionMapas;
+    public javax.swing.JTextField txtValorFiscal;
+    public javax.swing.JTextField txtValorMetro2;
     // End of variables declaration//GEN-END:variables
 }

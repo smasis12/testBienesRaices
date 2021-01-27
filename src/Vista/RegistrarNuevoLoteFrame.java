@@ -18,7 +18,7 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
         cbxProvincias.addItem("Cartago");
         cbxProvincias.addItem("Alajuela");
         cbxProvincias.addItem("Heredia");
-        cbxProvincias.addItem("Pintarenas");
+        cbxProvincias.addItem("Puntarenas");
         cbxProvincias.addItem("Guanacaste");
         cbxProvincias.addItem("Limon");
     }
@@ -32,7 +32,6 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbltitulo2 = new javax.swing.JLabel();
         lblNumFinca = new javax.swing.JLabel();
         lblValorMetro2 = new javax.swing.JLabel();
         lblAreaTerreno = new javax.swing.JLabel();
@@ -57,12 +56,12 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
         txtDistrito = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtUbicacionExacta = new javax.swing.JTextArea();
+        lblUbicacion1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtUbicacion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-
-        lbltitulo2.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        lbltitulo2.setText("Direccion");
 
         lblNumFinca.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNumFinca.setText("Numero de Finca");
@@ -77,7 +76,7 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
         lblValorFiscal.setText("Valor Fiscal");
 
         lblUbicacion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblUbicacion.setText("Ubicacion Exacta ");
+        lblUbicacion.setText("Direccion Exacta ");
 
         lblProvincia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblProvincia.setText("Provincia");
@@ -101,6 +100,11 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
 
         btnRegistrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         btnVolver.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnVolver.setText("Volver");
@@ -121,54 +125,51 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
         txtUbicacionExacta.setRows(5);
         jScrollPane1.setViewportView(txtUbicacionExacta);
 
+        lblUbicacion1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblUbicacion1.setText("Ubicacion (mapas)");
+
+        txtUbicacion.setColumns(20);
+        txtUbicacion.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
+        txtUbicacion.setRows(5);
+        jScrollPane2.setViewportView(txtUbicacion);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblNumFinca)
+                        .addGap(103, 717, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNumFinca)
-                            .addComponent(lblProvincia))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblDistrito)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblCanton)
-                        .addGap(76, 76, 76))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblValorFiscal)
                                 .addGap(269, 269, 269)
-                                .addComponent(lblModalidad))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(308, 308, 308)
-                                .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblImagen)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
-                                .addComponent(lblAreaTerreno)
-                                .addGap(182, 182, 182))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(147, 147, 147)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblValorMetro2))))
-                .addGap(27, 27, 27))
+                                .addComponent(lblModalidad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                                .addComponent(lblImagen))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
+                                        .addComponent(lblAreaTerreno)
+                                        .addGap(182, 182, 182))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(147, 147, 147)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblValorMetro2))))
+                        .addGap(27, 27, 27))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 815, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUbicacion1)
                     .addComponent(lblUbicacion)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -179,17 +180,33 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
                             .addComponent(btnVolver)
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(lbltitulo2)
-                            .addGap(771, 771, 771))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(158, 158, 158)
-                            .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(22, 22, 22)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblProvincia)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblDistrito)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblCanton)
+                                            .addGap(63, 63, 63))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(308, 308, 308)
+                                            .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(643, 643, 643))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(158, 158, 158)
+                                    .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(41, 41, 41)))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -210,7 +227,7 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
                     .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValorFiscal)
                     .addComponent(lblModalidad)
@@ -221,9 +238,7 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(53, 53, 53)
-                .addComponent(lbltitulo2)
-                .addGap(20, 20, 20)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProvincia)
                     .addComponent(lblDistrito)
@@ -233,7 +248,11 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
                     .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxProvincias, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addGap(33, 33, 33)
+                .addComponent(lblUbicacion1)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(lblUbicacion)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -260,6 +279,10 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,12 +320,13 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarImagen;
-    private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox<String> cbxModalidad;
-    private javax.swing.JComboBox<String> cbxProvincias;
+    public javax.swing.JButton btnAgregarImagen;
+    public javax.swing.JButton btnRegistrar;
+    public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> cbxModalidad;
+    public javax.swing.JComboBox<String> cbxProvincias;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAreaTerreno;
     private javax.swing.JLabel lblCanton;
     private javax.swing.JLabel lblDistrito;
@@ -312,16 +336,17 @@ public class RegistrarNuevoLoteFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblProvincia;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUbicacion;
+    private javax.swing.JLabel lblUbicacion1;
     private javax.swing.JLabel lblValorFiscal;
     private javax.swing.JLabel lblValorMetro2;
-    private javax.swing.JLabel lbltitulo2;
-    private javax.swing.JTextField txtAreaTerreno;
-    private javax.swing.JTextField txtCanton;
-    private javax.swing.JTextField txtDistrito;
-    private javax.swing.JTextField txtNumFinca;
-    private javax.swing.JTextArea txtUbicacionExacta;
-    private javax.swing.JTextField txtValorFiscal;
-    private javax.swing.JTextField txtValorMetro2;
+    public javax.swing.JTextField txtAreaTerreno;
+    public javax.swing.JTextField txtCanton;
+    public javax.swing.JTextField txtDistrito;
+    public javax.swing.JTextField txtNumFinca;
+    public javax.swing.JTextArea txtUbicacion;
+    public javax.swing.JTextArea txtUbicacionExacta;
+    public javax.swing.JTextField txtValorFiscal;
+    public javax.swing.JTextField txtValorMetro2;
     // End of variables declaration//GEN-END:variables
 
 }

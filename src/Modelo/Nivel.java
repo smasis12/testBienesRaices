@@ -6,8 +6,9 @@ import java.util.*;
  * 
  */
 public class Nivel {
+    private int numFinca;
     private int cantidadResidencias;
-    private boolean tipoNivel;
+    private String tipoNivel;
     private int areaZonasComunes;
     /**
      * Default constructor
@@ -15,7 +16,7 @@ public class Nivel {
     public Nivel() {
     }
     
-    public Nivel(int pResidencias, boolean pTipoNivel, int pAreasComunes){
+    public Nivel(int pResidencias, String pTipoNivel, int pAreasComunes){
         this.cantidadResidencias= pResidencias;
         this.tipoNivel= pTipoNivel;
         this.areaZonasComunes= pAreasComunes;
@@ -30,11 +31,11 @@ public class Nivel {
         this.cantidadResidencias = cantidadResidencias;
     }
 
-    public boolean getTipoNivel() {
+    public String getTipoNivel() {
         return tipoNivel;
     }
 
-    public void setTipoNivel(boolean tipoNivel) {
+    public void setTipoNivel(String tipoNivel) {
         this.tipoNivel = tipoNivel;
     }
 
@@ -46,7 +47,15 @@ public class Nivel {
         this.areaZonasComunes = areaZonasComunes;
     }
 
- 
+    public int getNumFinca() {
+        return numFinca;
+    }
+
+    public void setNumFinca(int numFinca) {
+        this.numFinca = numFinca;
+    }
+
+    
     
     
 

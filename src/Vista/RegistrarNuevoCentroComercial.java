@@ -77,14 +77,17 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
         cbxEstilo = new javax.swing.JComboBox<>();
         btnVolver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtUbicacion = new javax.swing.JTextArea();
-        btnSiguiente = new javax.swing.JButton();
+        txtUbicacionExacta = new javax.swing.JTextArea();
+        btnRegistrar = new javax.swing.JButton();
         lblModalidad = new javax.swing.JLabel();
         cbxModalidad = new javax.swing.JComboBox<>();
         lblCantHotspot = new javax.swing.JLabel();
         txtCantidadEscaleras = new javax.swing.JTextField();
         lblCantEscaleras = new javax.swing.JLabel();
         txtCantidadHotspot = new javax.swing.JTextField();
+        lblUbicacion1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtUbicacionmapas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,7 +156,7 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
         lblCadenaCines.setText("Cadena de Cines");
 
         lblUbicacion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblUbicacion.setText("Ubicacion Exacta");
+        lblUbicacion.setText("Direccion Exacta");
 
         lblZonasPersonasReducidas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblZonasPersonasReducidas.setText("Espacios para personas con movilidad reducida");
@@ -167,14 +170,14 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
             }
         });
 
-        txtUbicacion.setColumns(20);
-        txtUbicacion.setRows(5);
-        jScrollPane2.setViewportView(txtUbicacion);
+        txtUbicacionExacta.setColumns(20);
+        txtUbicacionExacta.setRows(5);
+        jScrollPane2.setViewportView(txtUbicacionExacta);
 
-        btnSiguiente.setText("Registrar");
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
 
@@ -207,6 +210,14 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
             }
         });
 
+        lblUbicacion1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblUbicacion1.setText("Ubicacion (mapas)");
+
+        txtUbicacionmapas.setColumns(20);
+        txtUbicacionmapas.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
+        txtUbicacionmapas.setRows(5);
+        jScrollPane3.setViewportView(txtUbicacionmapas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,94 +226,6 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitulo)
                 .addGap(306, 306, 306))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lblAreaConstruccion)
-                        .addGap(143, 143, 143)
-                        .addComponent(lblProvincias)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(lblNumFinca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAreaTerreno)
-                        .addGap(82, 82, 82)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblValorMetro2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblValorFiscal)
-                        .addGap(62, 62, 62))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(37, 37, 37)
-                                    .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(54, 54, 54)
-                                    .addComponent(lblCanton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblDistrito)
-                                    .addGap(60, 60, 60))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(txtCantidadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(37, 37, 37)
-                                    .addComponent(txtCadenaCines)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCantCine)
-                                .addGap(72, 72, 72)
-                                .addComponent(lblCadenaCines)
-                                .addGap(26, 26, 26)))
-                        .addGap(16, 16, 16))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(lblEstilo)
-                        .addGap(103, 103, 103)
-                        .addComponent(lblCantTiendas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtAreaConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblUbicacion))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtCantidadTiendas, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxProvincias, javax.swing.GroupLayout.Alignment.LEADING, 0, 172, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblZonasPersonasReducidas)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCantHotspot)
-                        .addGap(56, 56, 56)
-                        .addComponent(lblCantEscaleras)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblModalidad)
-                        .addGap(64, 64, 64))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -316,12 +239,104 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
                         .addComponent(txtCantidadEscaleras, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblZonasPersonasReducidas)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCantHotspot)
+                        .addGap(56, 56, 56)
+                        .addComponent(lblCantEscaleras)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblModalidad)
+                        .addGap(64, 64, 64))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(txtAreaTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(lblNumFinca)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblAreaTerreno)
+                        .addGap(82, 82, 82))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(lblAreaConstruccion)
+                                .addGap(143, 143, 143)
+                                .addComponent(lblProvincias))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(lblEstilo)
+                                .addGap(103, 103, 103)
+                                .addComponent(lblCantTiendas))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtAreaConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblUbicacion))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(289, 289, 289)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtCantidadTiendas, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbxProvincias, javax.swing.GroupLayout.Alignment.LEADING, 0, 172, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblUbicacion1)
+                        .addGap(279, 279, 279))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblValorMetro2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblValorFiscal)
+                            .addGap(62, 62, 62))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblCantCine)
+                                    .addGap(72, 72, 72)
+                                    .addComponent(lblCadenaCines)
+                                    .addGap(26, 26, 26))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtValorMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(txtValorFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(54, 54, 54)
+                                        .addComponent(lblCanton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblDistrito)
+                                        .addGap(60, 60, 60))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtCantidadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(txtCadenaCines)))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(16, 16, 16)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,9 +380,13 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
                     .addComponent(txtCantidadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
-                .addComponent(lblUbicacion)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUbicacion)
+                    .addComponent(lblUbicacion1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblZonasPersonasReducidas)
@@ -382,7 +401,7 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
                     .addComponent(txtCantidadHotspot, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58))
@@ -403,11 +422,9 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxModalidadActionPerformed
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        RegistrarNuevoNivelApartamento ventana = new RegistrarNuevoNivelApartamento();
-        ventana.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtCantidadEscalerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadEscalerasActionPerformed
         // TODO add your handling code here:
@@ -460,44 +477,47 @@ public class RegistrarNuevoCentroComercial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarImagen;
-    private javax.swing.JButton btnSiguiente;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox<String> cbxEstilo;
-    private javax.swing.JComboBox<String> cbxModalidad;
-    private javax.swing.JComboBox<String> cbxProvincias;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblAreaConstruccion;
-    private javax.swing.JLabel lblAreaTerreno;
-    private javax.swing.JLabel lblCadenaCines;
-    private javax.swing.JLabel lblCantCine;
-    private javax.swing.JLabel lblCantEscaleras;
-    private javax.swing.JLabel lblCantHotspot;
-    private javax.swing.JLabel lblCantTiendas;
-    private javax.swing.JLabel lblCanton;
-    private javax.swing.JLabel lblDistrito;
-    private javax.swing.JLabel lblEstilo;
-    private javax.swing.JLabel lblModalidad;
-    private javax.swing.JLabel lblNumFinca;
-    private javax.swing.JLabel lblProvincias;
+    public javax.swing.JButton btnAgregarImagen;
+    public javax.swing.JButton btnRegistrar;
+    public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> cbxEstilo;
+    public javax.swing.JComboBox<String> cbxModalidad;
+    public javax.swing.JComboBox<String> cbxProvincias;
+    public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JLabel lblAreaConstruccion;
+    public javax.swing.JLabel lblAreaTerreno;
+    public javax.swing.JLabel lblCadenaCines;
+    public javax.swing.JLabel lblCantCine;
+    public javax.swing.JLabel lblCantEscaleras;
+    public javax.swing.JLabel lblCantHotspot;
+    public javax.swing.JLabel lblCantTiendas;
+    public javax.swing.JLabel lblCanton;
+    public javax.swing.JLabel lblDistrito;
+    public javax.swing.JLabel lblEstilo;
+    public javax.swing.JLabel lblModalidad;
+    public javax.swing.JLabel lblNumFinca;
+    public javax.swing.JLabel lblProvincias;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblUbicacion;
+    public javax.swing.JLabel lblUbicacion;
+    public javax.swing.JLabel lblUbicacion1;
     private javax.swing.JLabel lblValorFiscal;
-    private javax.swing.JLabel lblValorMetro2;
-    private javax.swing.JLabel lblZonasPersonasReducidas;
-    private javax.swing.JTextField txtAreaConstruccion;
-    private javax.swing.JTextField txtAreaTerreno;
-    private javax.swing.JTextField txtCadenaCines;
-    private javax.swing.JTextField txtCantidadEscaleras;
-    private javax.swing.JTextField txtCantidadHotspot;
-    private javax.swing.JTextField txtCantidadSalas;
-    private javax.swing.JTextField txtCantidadTiendas;
-    private javax.swing.JTextField txtCanton;
-    private javax.swing.JTextField txtDistrito;
-    private javax.swing.JTextField txtNumFinca;
-    private javax.swing.JTextArea txtUbicacion;
-    private javax.swing.JTextField txtValorFiscal;
-    private javax.swing.JTextField txtValorMetro2;
-    private javax.swing.JTextField txtlZonasPersonasReducidas;
+    public javax.swing.JLabel lblValorMetro2;
+    public javax.swing.JLabel lblZonasPersonasReducidas;
+    public javax.swing.JTextField txtAreaConstruccion;
+    public javax.swing.JTextField txtAreaTerreno;
+    public javax.swing.JTextField txtCadenaCines;
+    public javax.swing.JTextField txtCantidadEscaleras;
+    public javax.swing.JTextField txtCantidadHotspot;
+    public javax.swing.JTextField txtCantidadSalas;
+    public javax.swing.JTextField txtCantidadTiendas;
+    public javax.swing.JTextField txtCanton;
+    public javax.swing.JTextField txtDistrito;
+    public javax.swing.JTextField txtNumFinca;
+    public javax.swing.JTextArea txtUbicacionExacta;
+    public javax.swing.JTextArea txtUbicacionmapas;
+    public javax.swing.JTextField txtValorFiscal;
+    public javax.swing.JTextField txtValorMetro2;
+    public javax.swing.JTextField txtlZonasPersonasReducidas;
     // End of variables declaration//GEN-END:variables
 }

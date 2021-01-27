@@ -31,8 +31,8 @@ public class Casa extends Propiedad {
      * @param pColor 
      * @param pAnio
      */
-    public Casa(int pFinca, int pAreaTerreno, int pValorMetro, int pFiscal, String pUbicacion, String pDireccion, String pModalidad, String pAConstruccion, String pEstilo, int pNiveles, String pColor, int pAnio) {
-        super(pFinca, pAreaTerreno, pValorMetro, pFiscal, pUbicacion, pDireccion, pModalidad);
+    public Casa(int pFinca, int pAreaTerreno, int pValorMetro, int pFiscal, String pUbicacion, String pDireccion, int pModalidad, String pAConstruccion, String pEstilo, int pNiveles, String pColor, int pAnio, int pProvincia, int pCanton, int pDistrito, int pAgente, int pPropiedad) {
+        super(pFinca, pAreaTerreno, pValorMetro, pFiscal, pUbicacion, pDireccion, pModalidad, pProvincia, pCanton, pDistrito, pAgente, pPropiedad);
         this.areaConstruccion= pAConstruccion;
         this.estiloConstruccion=pEstilo;
         this.cantidadNiveles=pNiveles;

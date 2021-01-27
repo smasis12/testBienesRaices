@@ -6,6 +6,7 @@
 package Vista;
 
 import controlador.ControladorAgente;
+import controlador.ControladorLogin;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,9 +20,10 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
      */
     public BusquedaAvanzadaFrame() {
         initComponents();
+        //System.out.println(ControladorLogin.ag.getCorreo());
 
-        cbxModalidad.addItem("Venta");
-        cbxModalidad.addItem("Alquiler");
+        cbxModalidad.addItem("venta");
+        cbxModalidad.addItem("alquiler");
 
         cbxProvincias.addItem("San Jose");
         cbxProvincias.addItem("Cartago");
@@ -35,10 +37,9 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
         cbxTipoPropiedad.addItem("Casa");
         cbxTipoPropiedad.addItem("Apartamento");
         cbxTipoPropiedad.addItem("Centro Comercial");
-        cbxTipoPropiedad.addItem("Todos");
     }
-    
-    public void limpiarTabla(){
+
+    public void limpiarTabla() {
         tablaConsultas.removeAll();
     }
 
@@ -64,7 +65,6 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaConsultas = new javax.swing.JTable();
         btnBuscar1 = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnBuscar3 = new javax.swing.JButton();
         cbxTipoPropiedad = new javax.swing.JComboBox<>();
@@ -124,14 +124,6 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
         btnBuscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscar1ActionPerformed(evt);
-            }
-        });
-
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnLimpiar.setText("limpiar");
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
             }
         });
 
@@ -202,8 +194,7 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnLimpiar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnBuscar3)
                                 .addGap(35, 35, 35)
                                 .addComponent(btnBuscar1))
@@ -247,7 +238,6 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar1)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnVolver)
@@ -268,15 +258,20 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
             tabla_consulta1_agente.visualizarBusquedaPrecios(tablaConsultas, txtPrecioDesde.getText(), txtPrecioHasta.getText() /*idTienda*/);
         } else {
             //JOptionPane.showMessageDialog(null, "Ingrese los precios de forma completa");
-        
+
             if (cbxProvincias.getSelectedIndex() != 0) {
-            ControladorAgente tabla_consultaProvincia_agente = new ControladorAgente();
-            tabla_consultaProvincia_agente.visualizarBusquedaProvincia(tablaConsultas, cbxProvincias.getSelectedIndex());
-        } else {
-                if (cbxTipoPropiedad.getSelectedIndex() != 0){
+                ControladorAgente tabla_consultaProvincia_agente = new ControladorAgente();
+                tabla_consultaProvincia_agente.visualizarBusquedaProvincia(tablaConsultas, cbxProvincias.getSelectedIndex());
+            } else {
+                if (cbxTipoPropiedad.getSelectedIndex() != 0) {
                     ControladorAgente tabla_consultaTipoPropiedad_agente = new ControladorAgente();
                     tabla_consultaTipoPropiedad_agente.visualizarBusquedaTipoPropiedad(tablaConsultas, cbxTipoPropiedad.getSelectedIndex());
-                    
+
+                } else {
+                    if (cbxModalidad.getSelectedItem().equals("venta") || cbxModalidad.getSelectedItem().equals("alquiler")) {
+                        ControladorAgente tabla_consultaTipoModalidad = new ControladorAgente();
+                        tabla_consultaTipoModalidad.visualizarBusquedaPorModalidad(tablaConsultas, cbxModalidad.getSelectedIndex());
+                    }
                 }
             }
         }
@@ -287,13 +282,10 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        limpiarTabla();
-        
-    }//GEN-LAST:event_btnLimpiarActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
+        MenuAgentesFrame ventana = new MenuAgentesFrame();
+        ventana.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar3ActionPerformed
@@ -341,7 +333,6 @@ public class BusquedaAvanzadaFrame extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnBuscar1;
     public javax.swing.JButton btnBuscar3;
-    public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cbxModalidad;
     private javax.swing.JComboBox<String> cbxProvincias;

@@ -58,6 +58,11 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
 
         btnVolver.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         btnBuscarClientesInteresados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBuscarClientesInteresados.setText("Buscar Clientes Interesados");
@@ -113,6 +118,12 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuAgentesFrame ventana = new MenuAgentesFrame();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments

@@ -171,6 +171,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCuerpo">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAsuntoEjemplo">
       <Properties>
@@ -181,6 +184,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAsunto">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAviso">
       <Properties>
@@ -208,6 +214,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Enviar Correo Electr&#xf3;nico"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCuerpoEjemplo">
       <Properties>
@@ -231,6 +240,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCorreo">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCorreoEjemplo">
       <Properties>
