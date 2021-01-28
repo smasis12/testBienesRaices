@@ -246,12 +246,38 @@ public class EmailReader {
  
     }
     
-    
-    public void CrearUsuarioCliente() {
-        //funcion que monitorea
+    //Esta funcion se llama desde el main y permanece monitoreando los correos recibidos cada 9 segundos
+    public void MonitorearNuevoCliente() {
+        //funcion que llama al reader con el hilo 
         
         String correo, nombre, contrasena ;
         int tel;
+        
+        Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				// Esto se ejecuta en segundo plano una única vez
+				while (true) {
+					// hacemos un ciclo infinito
+					try {
+						// En él, hacemos que el hilo duerma
+						Thread.sleep(9000);
+						// Y después realizamos las operaciones
+						System.out.println("9 segundos pasaron, leyendo el correo nuevamente");
+                                                recibirMail("isamasis09@gmail.com","2017170050");
+						// Así, se da la impresión de que se ejecuta cada cierto tiempo
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+		// Creamos un hilo y le pasamos el runnable
+		Thread hilo = new Thread(runnable);
+		hilo.start();
+
+		// Y aquí podemos hacer cualquier cosa, en el hilo principal del programa
+		System.out.println("Yo imprimo en el hilo principal");
         
         
         
@@ -271,7 +297,9 @@ public class EmailReader {
         
             
             System.out.println("Correo"+ correoUsuario+"\nASUNTO:"+asuntoMail+
-                    "\nNombre del nuevo usuario: " + partesmsg[0]+ "Apellido del nuevo usuario" + partesmsg[1]);                 
+                    "\nNombre del nuevo usuario: " + partesmsg[0]+ "Apellido del nuevo usuario\n" + partesmsg[1]+ "numero telefonico:\n"+ partesmsg[2]);   
+            
+            enviarMailNuevaPassword(correoUsuario);
             
     }
     
