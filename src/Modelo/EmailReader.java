@@ -7,6 +7,7 @@
 package Modelo;
 import java.io.*;
 import static java.lang.Boolean.FALSE;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -37,6 +38,7 @@ import javax.mail.search.FlagTerm;
 public class EmailReader {
         
      private boolean textIsHtml = false;
+    // private static ArrayList<Cliente> ClientesNuevos = new ArrayList();
     
     /*Obtiene los mensajes recibidos en la bandeja de entrada: Asunto y correo electronico
     */
@@ -66,14 +68,21 @@ public class EmailReader {
 
             // Se escribe from y subject de cada mensaje
             for (int i = 0; i < mensajes.length; i++)
-            {
-                System.out.println(
-                    "From:" + mensajes[i].getFrom()[0].toString());
-                System.out.println("Subject:" + mensajes[i].getSubject());
+            {   
+                String from= mensajes[i].getFrom()[0].toString() ;
                 
-                // Se visualiza, si se sabe como, el contenido de cada mensaje
+                //System.out.println("From:" + mensajes[i].getFrom()[0].toString());
+                
+                String subject= mensajes[i].getSubject();
+                //System.out.println("Subject:" + mensajes[i].getSubject());
+                
+                // Se visualiza el contenido de cada mensaje
                 EmailReader content = new EmailReader();
-                System.out.println("el contenido del mensaje, explicitamente es: "+ content.analizaParteDeMensaje(mensajes[i]));                                                                           
+                String cuerpomsg=content.analizaParteDeMensaje(mensajes[i]) ;
+                //System.out.println("el contenido del mensaje, explicitamente es: "+ content.analizaParteDeMensaje(mensajes[i]));   
+                
+                validarAsunto(from, subject, cuerpomsg );
+                
                 
             }
 
@@ -100,8 +109,7 @@ public class EmailReader {
                 result= getTextFromMimeMultipart(multi);
 
                 for (int j = 0; j < multi.getCount(); j++) {
-                    analizaParteDeMensaje(multi.getBodyPart(j));  
-                                   
+                    analizaParteDeMensaje(multi.getBodyPart(j));                                     
                 }
             }else {
               // Si es texto, se escribe el texto.
@@ -240,6 +248,7 @@ public class EmailReader {
     
     
     public void CrearUsuarioCliente() {
+        //funcion que monitorea
         
         String correo, nombre, contrasena ;
         int tel;
@@ -255,18 +264,26 @@ public class EmailReader {
 }
     
     public void validarAsunto(String from, String asunto, String cuerpomsg){
-        String partesmsg[]= cuerpomsg.split(",");
+        String partesmsg[]= cuerpomsg.split(",");       
+        String correoUsuario= parseandoCorreo(from);
+        String asuntoMail = asunto;   
         
         
-        if(asunto == "nuevo usuario"){
             
-            System.out.println(partesmsg[0]);            
+            System.out.println("Correo"+ correoUsuario+"\nASUNTO:"+asuntoMail+
+                    "\nNombre del nuevo usuario: " + partesmsg[0]+ "Apellido del nuevo usuario" + partesmsg[1]);                 
             
-            
-        }
+    }
+    
+    public String parseandoCorreo(String correoContenido){
+        String correo= correoContenido;
+        String getCorreo="";
+        System.out.println("el primer corchete esta en el index: "+ correo.indexOf("<"));
+        int indexBracket= correo.indexOf("<");
+        System.out.println("el correo es: " + correo.substring(indexBracket+1, correo.length()-1));
+        getCorreo= correo.substring(indexBracket+1, correo.length()-1);
         
-        
-        
+        return getCorreo;
     }
 
    
