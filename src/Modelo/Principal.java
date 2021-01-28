@@ -21,7 +21,7 @@ public class Principal {
             EmailReader EmailReader = new EmailReader();
             
             //Llamado al método que lee NUEVOS mensajes al correo electronico de bienes raices
-            EmailReader.recibirMail("isamasis09@gmail.com", "2017170050");
+            EmailReader.MonitorearNuevoCliente();
             //e.enviarMail("isamasis09@gmail.com"); 
             
             // EmailReader.enviarMailNuevaPassword("masissara12@gmail.com");
