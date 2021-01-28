@@ -58,6 +58,11 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
 
         btnDescargar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnDescargar.setText("Mostrar");
+        btnDescargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescargarActionPerformed(evt);
+            }
+        });
 
         Excel.setText("Excel");
 
@@ -105,6 +110,10 @@ public class ConsultarClientesFrame extends javax.swing.JFrame {
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnDescargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDescargarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -21,7 +21,6 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
         cbxTipoPropiedad.addItem("Casa");
         cbxTipoPropiedad.addItem("Apartamento");
         cbxTipoPropiedad.addItem("Centro Comercial");
-        cbxTipoPropiedad.addItem("Todos");        
     }
 
     /**
@@ -33,10 +32,10 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitulos = new javax.swing.JLabel();
+        btnMostrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaClientes = new javax.swing.JTable();
         btnVolver = new javax.swing.JButton();
-        btnBuscarClientesInteresados = new javax.swing.JButton();
         lblTituloPropiedad = new javax.swing.JLabel();
         cbxTipoPropiedad = new javax.swing.JComboBox<>();
         btnLimpiarTabla = new javax.swing.JButton();
@@ -45,6 +44,9 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
 
         lblTitulos.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
         lblTitulos.setText("Consulta de Clientes");
+
+        btnMostrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnMostrar.setText("Mostrar");
 
         tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,9 +65,6 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-
-        btnBuscarClientesInteresados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBuscarClientesInteresados.setText("Buscar Clientes Interesados");
 
         lblTituloPropiedad.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
         lblTituloPropiedad.setText("Seleccione el tipo de propiedad");
@@ -93,8 +92,9 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
                         .addComponent(lblTituloPropiedad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cbxTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(153, 153, 153)
-                        .addComponent(btnBuscarClientesInteresados)))
+                        .addGap(236, 236, 236)
+                        .addComponent(btnMostrar)
+                        .addGap(37, 37, 37)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -104,9 +104,9 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
                 .addComponent(lblTitulos)
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscarClientesInteresados)
                     .addComponent(lblTituloPropiedad)
-                    .addComponent(cbxTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMostrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -164,13 +164,13 @@ public class ConsultarClientesInteresadosFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarClientesInteresados;
-    private javax.swing.JButton btnLimpiarTabla;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox<String> cbxTipoPropiedad;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblTituloPropiedad;
-    private javax.swing.JLabel lblTitulos;
-    private javax.swing.JTable tablaClientes;
+    public javax.swing.JButton btnLimpiarTabla;
+    public javax.swing.JButton btnMostrar;
+    public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> cbxTipoPropiedad;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel lblTituloPropiedad;
+    public javax.swing.JLabel lblTitulos;
+    public javax.swing.JTable tablaClientes;
     // End of variables declaration//GEN-END:variables
 }

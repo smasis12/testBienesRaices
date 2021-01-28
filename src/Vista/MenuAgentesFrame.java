@@ -1,5 +1,6 @@
 package Vista;
 
+import controlador.controladorCliente;
 import javax.swing.JOptionPane;
 
 
@@ -117,8 +118,11 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionCatalogoActionPerformed
 
     private void btnConsultaClientesInteresadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClientesInteresadosActionPerformed
-        ConsultarClientesInteresadosFrame ventana = new ConsultarClientesInteresadosFrame();
-        ventana.setVisible(true);
+        ConsultarClientesFrame ventana = new ConsultarClientesFrame();
+        ConsultarClientesInteresadosFrame ventana2 = new ConsultarClientesInteresadosFrame();
+        controladorCliente ctrl= new controladorCliente(ventana,ventana2);
+        ctrl.IniciarInteresados();
+        ventana2.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnConsultaClientesInteresadosActionPerformed
 

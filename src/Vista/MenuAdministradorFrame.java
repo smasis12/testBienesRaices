@@ -133,7 +133,8 @@ public class MenuAdministradorFrame extends javax.swing.JFrame {
 
     private void btnConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClientesActionPerformed
         ConsultarClientesFrame ventana = new ConsultarClientesFrame();
-        controladorCliente ctrl= new controladorCliente(ventana);
+        ConsultarClientesInteresadosFrame ventana2 = new ConsultarClientesInteresadosFrame();
+        controladorCliente ctrl= new controladorCliente(ventana,ventana2);
         ctrl.Iniciar();
         ventana.setVisible(true);
         this.dispose();

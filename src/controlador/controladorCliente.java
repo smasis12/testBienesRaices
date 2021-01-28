@@ -6,6 +6,7 @@
 package controlador;
 
 import Vista.ConsultarClientesFrame;
+import Vista.ConsultarClientesInteresadosFrame;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,40 +37,60 @@ import org.apache.poi.ss.usermodel.Workbook;
  *
  * @author Usuario
  */
-public class controladorCliente implements ActionListener{
-    private ConsultarClientesFrame frmCliente= new ConsultarClientesFrame();
+public class controladorCliente implements ActionListener {
 
-    public controladorCliente(ConsultarClientesFrame frmCliente) {
-        this.frmCliente= frmCliente;
+    private ConsultarClientesFrame frmCliente = new ConsultarClientesFrame();
+    private ConsultarClientesInteresadosFrame frmClientesInteresados = new ConsultarClientesInteresadosFrame();
+
+    public controladorCliente(ConsultarClientesFrame frmCliente, ConsultarClientesInteresadosFrame frmClientesInteresados) {
+        this.frmCliente = frmCliente;
         this.frmCliente.btnDescargar.addActionListener(this);
         this.frmCliente.Excel.addActionListener(this);
+        this.frmClientesInteresados = frmClientesInteresados;
+        this.frmClientesInteresados.btnMostrar.addActionListener(this);
     }
+
     public void Iniciar() {
 
         frmCliente.setTitle("Agente");
         frmCliente.setLocationRelativeTo(null);
     }
+    
+    public void IniciarInteresados() {
+
+        frmClientesInteresados.setTitle("Clientes interesados");
+        frmClientesInteresados.setLocationRelativeTo(null);
+    }
+
     @Override
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource()== frmCliente.btnDescargar){
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == frmCliente.btnDescargar) {
             try {
                 listar(frmCliente.tablaClientes);
                 System.out.println("lol");
             } catch (Exception ex) {
                 System.out.println("otro error");
             }
-            System.out.println("wsdfads");}
-        if (e.getSource()==frmCliente.Excel){
+            System.out.println("wsdfads");
+        }
+        if (e.getSource() == frmCliente.Excel) {
             try {
                 exportarExcel(frmCliente.tablaClientes);
             } catch (IOException ex) {
                 System.out.println("ërror");
             }
         }
- 
+        if (e.getSource() == frmClientesInteresados.btnMostrar) {
+            try {
+                ConsultarClientesInteresados(frmClientesInteresados.tablaClientes);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"No se ha podido mostrar la informacion");
             }
-    
-    public void listar(JTable tabla) throws SQLException{
+        }
+
+    }
+
+    public void listar(JTable tabla) throws SQLException {
         Conexion conec1 = new Conexion();
         tabla.setDefaultRenderer(Object.class, new Render());
         DefaultTableModel dt = new DefaultTableModel() {
@@ -78,9 +99,8 @@ public class controladorCliente implements ActionListener{
                 return false;
             }
         };
-        
+
         dt.addColumn("Correo");
-             
 
         String sql = "select * from UsuarioCliente";
 
@@ -109,7 +129,6 @@ public class controladorCliente implements ActionListener{
         }
     }
 
- 
     public void generarQr(String id, String nombre, String ap, String correo, String tel) {
 
         String pb = "Informacion del agente: " + nombre + ap + "\n" + "id: " + id + "\n" + "correo: " + correo + "\n" + "telefono: " + tel;
@@ -127,7 +146,8 @@ public class controladorCliente implements ActionListener{
             System.out.println(e);
         }
     }
- public void exportarExcel(JTable t) throws IOException {
+
+    public void exportarExcel(JTable t) throws IOException {
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de excel", "xls");
         chooser.setFileFilter(filter);
@@ -175,6 +195,55 @@ public class controladorCliente implements ActionListener{
             } catch (IOException | NumberFormatException e) {
                 throw e;
             }
+        }
+    }
+    
+    
+    public void ConsultarClientesInteresados(JTable tabla) throws SQLException{
+        Conexion conec1 = new Conexion();
+        tabla.setDefaultRenderer(Object.class, new Render());
+        DefaultTableModel dt = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        dt.addColumn("idInteres");
+        dt.addColumn("Correo");
+        dt.addColumn("Telefono");
+        dt.addColumn("numFinca");
+        dt.addColumn("Tipo Propiedad");
+        
+        int tipoPropiedad = frmClientesInteresados.cbxTipoPropiedad.getSelectedIndex()+1;
+
+        String sql = "select * from ConsultarClientesInteresados ('" + tipoPropiedad + "', '" + ControladorLogin.ag.getId() + "')";
+
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+
+        try {
+            ps = conec1.getConexion().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Object fila[] = new Object[5];
+                fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
+                fila[2] = rs.getString(3);
+                fila[3] = rs.getString(4);
+                fila[4] = rs.getString(5);
+                dt.addRow(fila);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR EN LA OPERACION");
+
+        }
+        tabla.setModel(dt);
+        tabla.setRowHeight(60);
+        TableColumnModel columnModel = tabla.getColumnModel();
+        for (int i = 0; i < 5; i++) {
+            columnModel.getColumn(i).setPreferredWidth(400);
         }
     }
 

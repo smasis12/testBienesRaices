@@ -8,6 +8,7 @@ package controlador;
 import Modelo.Agente;
 import Modelo.ConsultaBienesRaices;
 import Vista.ConsultarAgentesFrame;
+import Vista.ConsultarClientesInteresadosFrame;
 import Vista.RegistrarAgenteFrame;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -36,6 +37,7 @@ public class ControladorAgente implements ActionListener {
     private ConsultaBienesRaices consultas;
     private RegistrarAgenteFrame frmRegistrar;
     private ConsultarAgentesFrame frmConsultar;
+    private ConsultarClientesInteresadosFrame frmClientesInteresados;
     private DefaultTableModel modelo = new DefaultTableModel();
 
     public ControladorAgente() {
@@ -533,5 +535,4 @@ public class ControladorAgente implements ActionListener {
                 break;
         } 
     }
-
 }
