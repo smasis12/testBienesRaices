@@ -38,6 +38,7 @@ import javax.mail.search.FlagTerm;
 public class EmailReader {
         
      private boolean textIsHtml = false;
+     //Cliente cliente = new Cliente();
     // private static ArrayList<Cliente> ClientesNuevos = new ArrayList();
     
     /*Obtiene los mensajes recibidos en la bandeja de entrada: Asunto y correo electronico
@@ -144,7 +145,7 @@ public class EmailReader {
         return pass;
     }
      //Metodo que envia la contrasenna que utilizara el nuevo usuario
-     public void enviarMailNuevaPassword(String destinatario){        
+     public String enviarMailNuevaPassword(String destinatario){        
          String passw= getPass();         
         String host = "smtp.gmail.com";
         String port = "587";
@@ -164,11 +165,12 @@ public class EmailReader {
         EmailReader mailer = new EmailReader(); 
         try {
             mailer.sendHtmlEmail(host, port, mailFrom, password, mailTo, subject, message);
-            System.out.println("Email sent.");
+            System.out.println("Se envio la contraseña "+ passw +"al correo "+ mailTo);
         } catch (Exception ex) {
             System.out.println("Failed to sent email.");
             ex.printStackTrace();
-        }     
+        }
+        return passw;
      }
         
     
@@ -265,7 +267,7 @@ public class EmailReader {
 		hilo.start();
 
 		// Y aquí podemos hacer cualquier cosa, en el hilo principal del programa
-		System.out.println("Yo imprimo en el hilo principal");      
+		//System.out.println("Yo imprimo en el hilo principal");      
         
         
         //validar datos 
@@ -276,16 +278,44 @@ public class EmailReader {
 }
     //metodo invocado por el metodo recibirMail principalmente para separar el contenido del correo con los datos del usuario
     public void validarAsunto(String from, String asunto, String cuerpomsg){
-        String partesmsg[]= cuerpomsg.split(",");       
+        String partesmsg[]= cuerpomsg.split(",");    // divide la informacion del cuerpo del correo en cada ,
+        String nombre= partesmsg[0];
+        String apellido= partesmsg[1];
+        
+        //convirtiendo el telefono a int        
+        String tel = partesmsg[2];
+        //int itel= Integer.parseInt(tel);
+        
+        String Sid= partesmsg[3];
+       // int id= Integer.parseInt(Sid);
+        
         String correoUsuario= parseandoCorreo(from);
         String asuntoMail = asunto;   
+        String clave = enviarMailNuevaPassword(correoUsuario);
+        
+      /**  Cliente cliente = new Cliente();
         
         //aqui se debe validar el asunto (nuevo usuario) y hacer el insert a la base de datos y al xml
+        cliente.setId(Sid);
+        cliente.setNombre(nombre);
+        cliente.setApellido(apellido);
+        cliente.setCorreo(correoUsuario);
+        cliente.setTelefono(tel);
+        cliente.setClave(clave); **/
+        
+        System.out.println("REGISTRANDO USUARIO.\nCorreo  "+ correoUsuario+"\nASUNTO: "+asuntoMail+
+                    "\nNombre:" + nombre+ "\nApellido  " + apellido+ "\ntelefono:  "+ tel);  
+        
+        //Registrando cliente en la base de datos
+       // ConsultaBienesRaices c = new ConsultaBienesRaices();
+       // c.registrarCliente(cliente);
+        
+        //creando el usuario en 
+        new XML(correoUsuario,clave);
+        
+        
             
-            System.out.println("Correo"+ correoUsuario+"\nASUNTO:"+asuntoMail+
-                    "\nNombre del nuevo usuario: " + partesmsg[0]+ "Apellido del nuevo usuario\n" + partesmsg[1]+ "numero telefonico:\n"+ partesmsg[2]);   
-            
-            enviarMailNuevaPassword(correoUsuario);            
+                        
     }
     //metodo que limpia etiquetas que no sean parte del correo electronico del usuario solicitante
     public String parseandoCorreo(String correoContenido){

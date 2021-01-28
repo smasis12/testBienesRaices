@@ -47,6 +47,34 @@ public class ConsultaBienesRaices {
         }
 
     }
+    
+    
+    public boolean registrarCliente(Cliente pCliente) {
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+
+        String sql = "INSERT INTO Usuario(correo,telefono,clave) values(?,?,?) ; INSERT INTO UsuarioCliente(id,nombre,apellido,correo) values(?,?,?,?)";
+
+        //aa
+        try {
+
+            ps = con.prepareStatement(sql);
+            ps.setString(1, pCliente.getCorreo());
+            ps.setInt(2, pCliente.getTelefono());
+            ps.setString(3, pCliente.getClave());
+            ps.setInt(4, pCliente.getId());
+            ps.setString(5, pCliente.getNombre());
+            ps.setString(6, pCliente.getApellido());
+            ps.setString(7, pCliente.getCorreo());
+            ps.execute();
+
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+
+    }
 
     public List listarAgente() {
         Conexion conect = new Conexion();
