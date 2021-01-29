@@ -32,6 +32,14 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     public int cantNiveles;
     public String estiloC;
     public String color;
+    public String piscina;
+    public int areaParqueo;
+    public String cadenaCines;
+    public int cantTiendas;
+    public int cantSalasCine;
+    public int cantHotspot;
+    public int cantEscaleras;
+    public int cantEspaciosE;
 
     public static ResultSet resultado;
 
@@ -50,7 +58,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         cbxEstiloCasas.addItem("barroco");
         cbxEstiloCasas.addItem("modernista");
         cbxEstiloCasas.addItem("art-deco");
-        
+
         //APARTAMENTOS
         cbxModalidadApartamentos.addItem("venta");
         cbxModalidadApartamentos.addItem("alquiler");
@@ -62,6 +70,14 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         cbxPiscina.addItem("si");
         cbxPiscina.addItem("no");
 
+        //CentroComercial
+        cbxModalidadCentroC.addItem("venta");
+        cbxModalidadCentroC.addItem("alquiler");
+        cbxEstiloCentroC.addItem("gotico");
+        cbxEstiloCentroC.addItem("contemporaneo");
+        cbxEstiloCentroC.addItem("barroco");
+        cbxEstiloCentroC.addItem("modernista");
+        cbxEstiloCentroC.addItem("art-deco");
     }
 
     void limpiarLotes() {
@@ -938,7 +954,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
             txtAreaConstruccionGestionCasas1.setText(tablaApartamentos.getValueAt(fila, 2).toString());
             txtValorMetro2GestionCasas1.setText(tablaApartamentos.getValueAt(fila, 3).toString());
             txtValorFiscalGestionCasas1.setText(tablaApartamentos.getValueAt(fila, 4).toString());
-            txtParqueoAparta.setText(tablaApartamentos.getValueAt(fila, 5).toString());
+            txtParqueoAparta.setText(tablaApartamentos.getValueAt(fila, 6).toString());
 
         } else {
             JOptionPane.showMessageDialog(this, "Fila no seleccionada");
@@ -947,11 +963,41 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSeleccionarGestionApartamentosActionPerformed
 
     private void btnModificarGestionApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarGestionApartamentosActionPerformed
-        // TODO add your handling code here:
+        Statement st;
+
+        numFinca = Integer.parseInt(txtNumFincaGestionCasas1.getText().trim());
+        areaT = Integer.parseInt(txtAreaTerrenoGestionCasas1.getText().trim());
+        valorMetro = Integer.parseInt(txtValorMetro2GestionCasas1.getText().trim());
+        valorFiscal = Integer.parseInt(txtValorFiscalGestionCasas1.getText().trim());
+        modalidad = cbxModalidadApartamentos.getSelectedIndex() + 1;
+        areaC = Integer.parseInt(txtAreaConstruccionGestionCasas1.getText().trim());
+        piscina = cbxPiscina.getSelectedItem().toString();
+        estiloC = cbxEstiloApartamentos.getSelectedItem().toString();
+        areaParqueo = Integer.parseInt(txtParqueoAparta.getText().trim());
+        try {
+            st = Conexion.getConexion().createStatement();
+            String sql = "UPDATE Propiedad SET areaTerreno= '" + areaT + "', valorMetro= '" + valorMetro + "', valorFiscal = '" + valorFiscal + "', idModalidad = '" + modalidad + "' WHERE numFinca = '" + numFinca + "'";
+            String sql1 = "UPDATE apartamentos SET piscina= '" + piscina + "', areaConstruccion= '" + areaC + "', estiloConstruccion = '" + estiloC + "', areaParqueo = '" + areaParqueo + "' WHERE numFinca = '" + numFinca + "'";
+            st.executeUpdate(sql);
+            st.executeUpdate(sql1);
+            JOptionPane.showMessageDialog(null, "Exito");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error");
+        }
     }//GEN-LAST:event_btnModificarGestionApartamentosActionPerformed
 
     private void btnEliminarGestionApartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarGestionApartamentosActionPerformed
-        // TODO add your handling code here:
+        Statement st;
+        numFinca = Integer.parseInt(txtNumFincaGestionCasas1.getText());
+        try {
+            st = Conexion.getConexion().createStatement();
+            String sql = "DELETE FROM Propiedad WHERE numFinca = '" + numFinca + "'";
+
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Exito");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error");
+        }
     }//GEN-LAST:event_btnEliminarGestionApartamentosActionPerformed
 
     private void txtAreaConstruccionGestionCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaConstruccionGestionCCActionPerformed
@@ -1011,8 +1057,6 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
             txtCantidadHotspot.setText(tablaCentrosComerciales.getValueAt(fila, 8).toString());
             txtCantidadEscaleras.setText(tablaCentrosComerciales.getValueAt(fila, 9).toString());
             txtEspaciosGestionCC.setText(tablaCentrosComerciales.getValueAt(fila, 10).toString());
-            
-            
 
         } else {
             JOptionPane.showMessageDialog(this, "Fila no seleccionada");
@@ -1021,11 +1065,46 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSeleccionarGestionCCActionPerformed
 
     private void btnModificarGestionCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarGestionCCActionPerformed
-        // TODO add your handling code here:
+        Statement st;
+
+        numFinca = Integer.parseInt(txtNumFincaGestionCC.getText().trim());
+        areaT = Integer.parseInt(txtAreaTerrenoGestionCC.getText().trim());
+        valorMetro = Integer.parseInt(txtValorMetro2GestionCC.getText().trim());
+        valorFiscal = Integer.parseInt(txtValorFiscalGestionCC.getText().trim());
+        modalidad = cbxModalidadCentroC.getSelectedIndex() + 1;
+        areaC = Integer.parseInt(txtAreaConstruccionGestionCC.getText().trim());
+        cadenaCines = txtCadenaCine.getText().trim();
+        estiloC = cbxEstiloCentroC.getSelectedItem().toString();
+        cantSalasCine = Integer.parseInt(txtCantidadSalasCines.getText().trim());
+        cantHotspot = Integer.parseInt(txtCantidadHotspot.getText().trim());
+        cantEscaleras = Integer.parseInt(txtCantidadEscaleras.getText().trim());
+        cantTiendas = Integer.parseInt(txtCantidadTiendas.getText().trim());
+        cantEspaciosE = Integer.parseInt(txtEspaciosGestionCC.getText().trim());
+
+        try {
+            st = Conexion.getConexion().createStatement();
+            String sql = "UPDATE Propiedad SET areaTerreno= '" + areaT + "', valorMetro= '" + valorMetro + "', valorFiscal = '" + valorFiscal + "', idModalidad = '" + modalidad + "' WHERE numFinca = '" + numFinca + "'";
+            String sql1 = "UPDATE centroComercial SET cadenaCine= '" + cadenaCines + "', areaConstruccion= '" + areaC + "', estiloConstruccion = '" + estiloC + "', cantidadTiendas = '" + cantTiendas + "', cantidadSalasCine = '" + cantSalasCine + "', cantidadHotspot = '" + cantHotspot + "' , cantidadEscaleras = '" + cantEscaleras + "' , cantEspaciosEspecial = '" + cantEspaciosE + "'WHERE numFinca = '" + numFinca + "'";
+            st.executeUpdate(sql);
+            st.executeUpdate(sql1);
+            JOptionPane.showMessageDialog(null, "Exito");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error");
+        }
     }//GEN-LAST:event_btnModificarGestionCCActionPerformed
 
     private void btnEliminarGestionCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarGestionCCActionPerformed
-        // TODO add your handling code here:
+        Statement st;
+        numFinca = Integer.parseInt(txtNumFincaGestionCC.getText());
+        try {
+            st = Conexion.getConexion().createStatement();
+            String sql = "DELETE FROM Propiedad WHERE numFinca = '" + numFinca + "'";
+
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Exito");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error");
+        }
     }//GEN-LAST:event_btnEliminarGestionCCActionPerformed
 
     private void btnSeleccionarGestionLotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarGestionLotesActionPerformed
@@ -1113,7 +1192,7 @@ public class GestionCatalogoFrame extends javax.swing.JFrame {
         valorMetro = Integer.parseInt(txtValorMetro2GestionCasas.getText().trim());
         valorFiscal = Integer.parseInt(txtValorFiscalGestionCasas.getText().trim());
         modalidad = cbxModalidadGestionCasas.getSelectedIndex() + 1;
-        areaC = Integer.parseInt(txtNumFincaGestionCasas.getText().trim());
+        areaC = Integer.parseInt(txtAreaConstruccionGestionCasas.getText().trim());
         cantNiveles = Integer.parseInt(txtCantidadNivelesGestionCasas.getText().trim());
         estiloC = cbxEstiloCasas.getSelectedItem().toString();
         color = txtColorGestionCasas.getText();
