@@ -7,6 +7,7 @@ package Vista;
 
 import Modelo.Lote;
 import Modelo.Propiedad;
+import controlador.ControladorAgente;
 import controlador.ControladorPropiedad;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -89,14 +90,12 @@ public class ConsultaBienes extends javax.swing.JFrame {
         jTable_Display_Propiedad = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        cboxProvincia = new javax.swing.JComboBox<>();
-        cboxTipo = new javax.swing.JComboBox<>();
-        cboxModalidad = new javax.swing.JComboBox<>();
+        cboxProvincia = new javax.swing.JComboBox<String>();
+        cboxTipo = new javax.swing.JComboBox<String>();
+        cboxModalidad = new javax.swing.JComboBox<String>();
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        sliderMinimo = new javax.swing.JSlider();
-        sliderMaximo = new javax.swing.JSlider();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtMin = new javax.swing.JLabel();
@@ -106,6 +105,8 @@ public class ConsultaBienes extends javax.swing.JFrame {
         btnBuscarPropiedades = new javax.swing.JButton();
         btnFicha = new javax.swing.JButton();
         btnMostrarInteres = new javax.swing.JButton();
+        PrecioMinimo = new javax.swing.JTextField();
+        PrecioMaximo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,10 +134,10 @@ public class ConsultaBienes extends javax.swing.JFrame {
         });
 
         cboxProvincia.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cboxProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Provincia", "Alajuela", "Cartago", "Guanacaste", "Heredia", "Limon", "Puntarenas", "San Jose" }));
+        cboxProvincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provincia", "Alajuela", "Cartago", "Guanacaste", "Heredia", "Limon", "Puntarenas", "San Jose" }));
 
         cboxTipo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cboxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Apartamento", "Casa", "Centro Comercial", "Lote", "" }));
+        cboxTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tipo", "Apartamento", "Casa", "Centro Comercial", "Lote", "" }));
         cboxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxTipoActionPerformed(evt);
@@ -144,7 +145,7 @@ public class ConsultaBienes extends javax.swing.JFrame {
         });
 
         cboxModalidad.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cboxModalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Modalidad", "Venta", "Alquiler" }));
+        cboxModalidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Modalidad", "Venta", "Alquiler" }));
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jTextField3.setText("Rango de precio");
@@ -160,30 +161,6 @@ public class ConsultaBienes extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Maximo");
-
-        sliderMinimo.setMajorTickSpacing(5000);
-        sliderMinimo.setMaximum(20000);
-        sliderMinimo.setMinimum(5000);
-        sliderMinimo.setMinorTickSpacing(1000);
-        sliderMinimo.setPaintLabels(true);
-        sliderMinimo.setPaintTicks(true);
-        sliderMinimo.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                sliderMinimoStateChanged(evt);
-            }
-        });
-
-        sliderMaximo.setMajorTickSpacing(20000);
-        sliderMaximo.setMaximum(150000);
-        sliderMaximo.setMinimum(30000);
-        sliderMaximo.setMinorTickSpacing(10000);
-        sliderMaximo.setPaintLabels(true);
-        sliderMaximo.setPaintTicks(true);
-        sliderMaximo.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                sliderMaximoStateChanged(evt);
-            }
-        });
 
         jLabel6.setText("Desde:");
 
@@ -232,30 +209,6 @@ public class ConsultaBienes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(174, 174, 174)
-                                .addComponent(jLabel4)))
-                        .addGap(209, 209, 209)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnVolver)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(sliderMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(190, 190, 190)
-                                .addComponent(sliderMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnDetallesPropiedad)
-                                .addGap(37, 37, 37)))))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,6 +241,36 @@ public class ConsultaBienes extends javax.swing.JFrame {
                             .addComponent(btnMostrarInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(269, 269, 269))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVolver)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnDetallesPropiedad)
+                                .addGap(37, 37, 37)))))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(174, 174, 174)
+                                .addComponent(jLabel4))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(209, 209, 209))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(PrecioMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(222, 222, 222)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PrecioMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(326, 326, 326))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,11 +297,11 @@ public class ConsultaBienes extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel6)
                                 .addComponent(txtMax, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(1, 1, 1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sliderMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sliderMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PrecioMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PrecioMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(btnBuscarPropiedades)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,42 +325,34 @@ public class ConsultaBienes extends javax.swing.JFrame {
 
     private void btnBuscarPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPropiedadesActionPerformed
         // TODO add your handling code here:
-        txtMin.setText("$"+ sliderMinimo.getValue());
-        txtMax.setText("$"+ sliderMaximo.getValue());
-        
-        int precioMax= sliderMaximo.getValue();
-        int precioMin= sliderMinimo.getValue();
-        
-        int ProvinciaID = cboxProvincia.getSelectedIndex();
-        
-        int ModalidadID= cboxModalidad.getSelectedIndex();
-        int TipoID= cboxTipo.getSelectedIndex();    
-        String modalidad= cboxModalidad.getSelectedItem().toString();
-        String tipo = cboxTipo.getSelectedItem().toString();  
-                 
-        if (ProvinciaID != 0 && ModalidadID != 0 && TipoID!= 0){            
-            //         
-            ControladorPropiedad con = new ControladorPropiedad();
-            
-            //con.consultarPropiedades(ProvinciaID, tipo, modalidad, precioMin, precioMax);
-            
-            
-            System.out.println("buscar id provincia= " + ProvinciaID+ "precio minimo= "+ precioMin + "PrecioMax= " + precioMax);
+       
+  
+        if (PrecioMinimo.getText().equals("") == false || PrecioMaximo.getText().equals("") == false) {
+            controlador.ControladorAgente tabla_consulta1_agente = new ControladorAgente();
+            tabla_consulta1_agente.visualizarBusquedaPrecios(jTable_Display_Propiedad, PrecioMinimo.getText(), PrecioMaximo.getText() /*idTienda*/);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese los precios de forma completa");
+
+            if (cboxProvincia.getSelectedIndex() != 0) {
+                ControladorAgente tabla_consultaProvincia_agente = new ControladorAgente();
+                tabla_consultaProvincia_agente.visualizarBusquedaProvincia(jTable_Display_Propiedad, cboxProvincia.getSelectedIndex());
+            } else {
+                if (cboxTipo.getSelectedIndex() != 0) {
+                    ControladorAgente tabla_consultaTipoPropiedad_agente = new ControladorAgente();
+                    tabla_consultaTipoPropiedad_agente.visualizarBusquedaTipoPropiedad(jTable_Display_Propiedad, cboxTipo.getSelectedIndex());
+
+                } else {
+                    if (cboxModalidad.getSelectedItem().equals("venta") || cboxModalidad.getSelectedItem().equals("alquiler")) {
+                        ControladorAgente tabla_consultaTipoModalidad = new ControladorAgente();
+                        tabla_consultaTipoModalidad.visualizarBusquedaPorModalidad(jTable_Display_Propiedad, cboxModalidad.getSelectedIndex());
+                    }
+                }
+            }
         }
-        else{
-            
-            JOptionPane.showMessageDialog(null, "Seleccione los criterios de busqueda!",
-      "Hey!", JOptionPane.ERROR_MESSAGE);
-            
-        }
+
+
         
     }//GEN-LAST:event_btnBuscarPropiedadesActionPerformed
-
-    private void sliderMinimoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderMinimoStateChanged
-        // TODO add your handling code here:
-        txtMin.setText("$"+ sliderMinimo.getValue());
-
-    }//GEN-LAST:event_sliderMinimoStateChanged
 
     private void btnMostrarInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarInteresActionPerformed
         // TODO add your handling code here:
@@ -398,11 +373,6 @@ public class ConsultaBienes extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void sliderMaximoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderMaximoStateChanged
-        // TODO add your handling code here:
-        txtMax.setText("$"+ sliderMaximo.getValue());
-    }//GEN-LAST:event_sliderMaximoStateChanged
 
     /**
      * @param args the command line arguments
@@ -440,25 +410,25 @@ public class ConsultaBienes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField PrecioMaximo;
+    private javax.swing.JTextField PrecioMinimo;
     public javax.swing.JButton btnBuscarPropiedades;
     public javax.swing.JButton btnDetallesPropiedad;
     private javax.swing.JButton btnFicha;
     private javax.swing.JButton btnMostrarInteres;
     private javax.swing.JButton btnVolver;
     public javax.swing.JComboBox<String> cboxModalidad;
-    private javax.swing.JComboBox<String> cboxProvincia;
-    private javax.swing.JComboBox<String> cboxTipo;
+    public javax.swing.JComboBox<String> cboxProvincia;
+    public javax.swing.JComboBox<String> cboxTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable_Display_Propiedad;
+    public javax.swing.JTable jTable_Display_Propiedad;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JSlider sliderMaximo;
-    private javax.swing.JSlider sliderMinimo;
     private javax.swing.JLabel txtMax;
     private javax.swing.JLabel txtMin;
     // End of variables declaration//GEN-END:variables

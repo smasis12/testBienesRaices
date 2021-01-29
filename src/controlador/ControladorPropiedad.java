@@ -6,6 +6,7 @@ import Modelo.CentroComercial;
 import Modelo.ConsultaBienesRaices;
 import Modelo.Lote;
 import Modelo.Nivel;
+import Vista.ConsultaBienes;
 import Vista.GestionCatalogoFrame;
 import Vista.RegistrarNuevaCasaFrame;
 import Vista.RegistrarNuevoApartamento;
@@ -31,13 +32,14 @@ public class ControladorPropiedad implements ActionListener {
     RegistrarNuevoApartamento frmRegistrarAparta = new RegistrarNuevoApartamento();
     RegistrarNuevoCentroComercial frmRegistrarCentroC = new RegistrarNuevoCentroComercial();
     RegistrarNuevoNivelApartamento frmRegistrarNivelApartamento = new RegistrarNuevoNivelApartamento();
+    ConsultaBienes consulta = new ConsultaBienes();
 
     public ControladorPropiedad() {
     }
 
     public ControladorPropiedad(Lote pLote, Casa pCasa, Apartamento pAparta, CentroComercial pCentroC,
             RegistrarNuevoLoteFrame pNuevoLote, RegistrarNuevaCasaFrame pNuevaCasa, RegistrarNuevoApartamento pNuevoAparta,
-            RegistrarNuevoCentroComercial pNuevoCentroC, RegistrarNuevoNivelApartamento pNuevoNivelApartamento, Nivel pNivel) {
+            RegistrarNuevoCentroComercial pNuevoCentroC, RegistrarNuevoNivelApartamento pNuevoNivelApartamento, Nivel pNivel, ConsultaBienes pConsulta) {
 
         this.lote = pLote;
         this.casa = pCasa;
@@ -49,7 +51,7 @@ public class ControladorPropiedad implements ActionListener {
         this.frmRegistrarCasa = pNuevaCasa;
         this.frmRegistrarAparta = pNuevoAparta;
         this.frmRegistrarCentroC = pNuevoCentroC;
-
+        this.consulta= pConsulta;
         this.frmRegistrarLote.btnRegistrar.addActionListener(this);
         this.frmRegistrarCasa.btnRegistrar.addActionListener(this);
         this.frmRegistrarAparta.btnRegistrar.addActionListener(this);
