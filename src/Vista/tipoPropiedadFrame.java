@@ -131,27 +131,28 @@ public class tipoPropiedadFrame extends javax.swing.JFrame {
         RegistrarNuevoApartamento frmRegistrarApartamento = new RegistrarNuevoApartamento();
         RegistrarNuevoCentroComercial frmRegistrarCentroC = new RegistrarNuevoCentroComercial();
         RegistrarNuevoNivelApartamento frmRegistrarNivelAparta = new RegistrarNuevoNivelApartamento();
+        ConsultaBienes consulta = new ConsultaBienes();
         
             switch (selection) {
                 case 0:
                    break;
                 case 1:
-                    ControladorPropiedad controladorL = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    ControladorPropiedad controladorL = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel, consulta);
                     frmRegistrarLote.setVisible(true);
                     this.dispose();
                     break;
                 case 2: 
-                    ControladorPropiedad controladorC = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    ControladorPropiedad controladorC = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel, consulta);
                     frmRegistrarCasa.setVisible(true);
                     this.dispose();
                     break;
                 case 3:
-                    ControladorPropiedad controladorA = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    ControladorPropiedad controladorA = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel, consulta);
                     frmRegistrarApartamento.setVisible(true);
                     this.dispose();
                     break;
                 case 4:
-                    ControladorPropiedad controladorCC = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel);
+                    ControladorPropiedad controladorCC = new ControladorPropiedad(lote, casa, aparta, cc, frmRegistrarLote, frmRegistrarCasa, frmRegistrarApartamento, frmRegistrarCentroC, frmRegistrarNivelAparta,nivel, consulta);
                     frmRegistrarCentroC.setVisible(true);
                     this.dispose();
                     break;    
