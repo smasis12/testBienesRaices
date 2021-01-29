@@ -7,13 +7,19 @@ package Vista;
 
 import Modelo.Lote;
 import Modelo.Propiedad;
+import static controlador.Conexion.getConexion;
 import controlador.ControladorAgente;
+import controlador.ControladorLogin;
 import controlador.ControladorPropiedad;
+import controlador.controladorCliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -90,9 +96,9 @@ public class ConsultaBienes extends javax.swing.JFrame {
         jTable_Display_Propiedad = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        cboxProvincia = new javax.swing.JComboBox<String>();
-        cboxTipo = new javax.swing.JComboBox<String>();
-        cboxModalidad = new javax.swing.JComboBox<String>();
+        cboxProvincia = new javax.swing.JComboBox<>();
+        cboxTipo = new javax.swing.JComboBox<>();
+        cboxModalidad = new javax.swing.JComboBox<>();
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -107,6 +113,9 @@ public class ConsultaBienes extends javax.swing.JFrame {
         btnMostrarInteres = new javax.swing.JButton();
         PrecioMinimo = new javax.swing.JTextField();
         PrecioMaximo = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtNumFinca = new javax.swing.JTextField();
+        btnSeleccionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,10 +143,10 @@ public class ConsultaBienes extends javax.swing.JFrame {
         });
 
         cboxProvincia.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cboxProvincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provincia", "Alajuela", "Cartago", "Guanacaste", "Heredia", "Limon", "Puntarenas", "San Jose" }));
+        cboxProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Provincia", "Alajuela", "Cartago", "Guanacaste", "Heredia", "Limon", "Puntarenas", "San Jose" }));
 
         cboxTipo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cboxTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tipo", "Apartamento", "Casa", "Centro Comercial", "Lote", "" }));
+        cboxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Apartamento", "Casa", "Centro Comercial", "Lote", "" }));
         cboxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxTipoActionPerformed(evt);
@@ -145,7 +154,7 @@ public class ConsultaBienes extends javax.swing.JFrame {
         });
 
         cboxModalidad.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cboxModalidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Modalidad", "Venta", "Alquiler" }));
+        cboxModalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Modalidad", "Venta", "Alquiler" }));
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jTextField3.setText("Rango de precio");
@@ -204,6 +213,16 @@ public class ConsultaBienes extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel8.setText("Numero de finca seleccionado:");
+
+        btnSeleccionar.setText("Seleccionar Propiedad");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -231,16 +250,20 @@ public class ConsultaBienes extends javax.swing.JFrame {
                         .addComponent(cboxModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(213, 213, 213))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(121, 121, 121)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnBuscarPropiedades)
                         .addGap(71, 71, 71))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnMostrarInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(269, 269, 269))))
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMostrarInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -258,19 +281,24 @@ public class ConsultaBienes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(174, 174, 174)
-                                .addComponent(jLabel4))
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(209, 209, 209))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(PrecioMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(222, 222, 222)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PrecioMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(326, 326, 326))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(174, 174, 174)
+                                        .addComponent(jLabel4))
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(209, 209, 209))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(PrecioMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(222, 222, 222)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(PrecioMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(326, 326, 326))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,12 +334,18 @@ public class ConsultaBienes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(btnFicha)
-                .addGap(36, 36, 36)
-                .addComponent(btnMostrarInteres)
-                .addGap(89, 89, 89)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnFicha)
+                        .addComponent(btnMostrarInteres))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtNumFinca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnSeleccionar)
+                .addGap(104, 104, 104)
                 .addComponent(btnDetallesPropiedad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(btnVolver)
                 .addContainerGap())
         );
@@ -324,12 +358,14 @@ public class ConsultaBienes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDetallesPropiedadActionPerformed
 
     private void btnBuscarPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPropiedadesActionPerformed
-        // TODO add your handling code here:
+        ConsultarClientesFrame frmConsultaCliente = new ConsultarClientesFrame();
+        ConsultarClientesInteresadosFrame frmClientesInteresados = new ConsultarClientesInteresadosFrame();
+        
        
   
         if (PrecioMinimo.getText().equals("") == false || PrecioMaximo.getText().equals("") == false) {
-            controlador.ControladorAgente tabla_consulta1_agente = new ControladorAgente();
-            tabla_consulta1_agente.visualizarBusquedaPrecios(jTable_Display_Propiedad, PrecioMinimo.getText(), PrecioMaximo.getText() /*idTienda*/);
+            controlador.controladorCliente tabla_consulta1_cliente = new controladorCliente(frmConsultaCliente, frmClientesInteresados);
+            tabla_consulta1_cliente.visualizarBusquedaPrecios(jTable_Display_Propiedad, PrecioMinimo.getText(), PrecioMaximo.getText() /*idTienda*/);
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese los precios de forma completa");
 
@@ -355,7 +391,25 @@ public class ConsultaBienes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarPropiedadesActionPerformed
 
     private void btnMostrarInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarInteresActionPerformed
-        // TODO add your handling code here:
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+
+        String sql = "INSERT INTO InteresCliente(idInteres, correoCliente, idPropiedad) values(?,?,?)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, controladorCliente.idInteres);
+            ps.setString(2, ControladorLogin.cliente.getCorreo());
+            ps.setInt(3, Integer.parseInt(txtNumFinca.getText()));
+
+            ps.execute();
+            controladorCliente.idInteres ++;  
+            JOptionPane.showMessageDialog(this, "Se ha agregado el interes de la propiedad seleccionada");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error en la funcion");
+            System.err.println(e);
+
+        }
     }//GEN-LAST:event_btnMostrarInteresActionPerformed
 
     private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
@@ -373,6 +427,18 @@ public class ConsultaBienes extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        int fila = jTable_Display_Propiedad.getSelectedRow();
+
+        if (fila >= 0) {
+            txtNumFinca.setText(jTable_Display_Propiedad.getValueAt(fila, 0).toString());
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Fila no seleccionada");
+        }
+        txtNumFinca.setEditable(false);
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -416,6 +482,7 @@ public class ConsultaBienes extends javax.swing.JFrame {
     public javax.swing.JButton btnDetallesPropiedad;
     private javax.swing.JButton btnFicha;
     private javax.swing.JButton btnMostrarInteres;
+    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JButton btnVolver;
     public javax.swing.JComboBox<String> cboxModalidad;
     public javax.swing.JComboBox<String> cboxProvincia;
@@ -425,11 +492,13 @@ public class ConsultaBienes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable_Display_Propiedad;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel txtMax;
     private javax.swing.JLabel txtMin;
+    private javax.swing.JTextField txtNumFinca;
     // End of variables declaration//GEN-END:variables
 }

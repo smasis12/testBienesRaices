@@ -41,6 +41,7 @@ public class controladorCliente implements ActionListener {
 
     private ConsultarClientesFrame frmCliente = new ConsultarClientesFrame();
     private ConsultarClientesInteresadosFrame frmClientesInteresados = new ConsultarClientesInteresadosFrame();
+    public static int idInteres = 1;
 
     public controladorCliente(ConsultarClientesFrame frmCliente, ConsultarClientesInteresadosFrame frmClientesInteresados) {
         this.frmCliente = frmCliente;
@@ -245,6 +246,52 @@ public class controladorCliente implements ActionListener {
         tabla.setRowHeight(60);
         TableColumnModel columnModel = tabla.getColumnModel();
         for (int i = 0; i < 5; i++) {
+            columnModel.getColumn(i).setPreferredWidth(400);
+        }
+    }
+    
+    
+    public void visualizarBusquedaPrecios(JTable tabla, String precioDesde, String PrecioHasta) {
+        Conexion conec1 = new Conexion();
+
+        tabla.setDefaultRenderer(Object.class, new Render());
+        DefaultTableModel dt = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        dt.addColumn("Num Finca");
+        dt.addColumn("Valor Metro^2");
+        dt.addColumn("Valor Fiscal");
+        //dt.addColumn("Modalidad");       
+
+        String sql = "select * from ConsultaRangoPreciosClientes ('" + precioDesde + "', '" + PrecioHasta + "')";
+
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+
+        try {
+            ps = conec1.getConexion().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Object fila[] = new Object[3];
+                fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
+                fila[2] = rs.getString(3);
+                dt.addRow(fila);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR EN LA OPERACION");
+
+        }
+        tabla.setModel(dt);
+        tabla.setRowHeight(60);
+        TableColumnModel columnModel = tabla.getColumnModel();
+        for (int i = 0; i < 3; i++) {
             columnModel.getColumn(i).setPreferredWidth(400);
         }
     }
