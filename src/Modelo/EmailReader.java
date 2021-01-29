@@ -7,6 +7,7 @@
 package Modelo;
 import java.io.*;
 import static java.lang.Boolean.FALSE;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -37,6 +38,8 @@ import javax.mail.search.FlagTerm;
 public class EmailReader {
         
      private boolean textIsHtml = false;
+     //Cliente cliente = new Cliente();
+    // private static ArrayList<Cliente> ClientesNuevos = new ArrayList();
     
     /*Obtiene los mensajes recibidos en la bandeja de entrada: Asunto y correo electronico
     */
@@ -66,22 +69,25 @@ public class EmailReader {
 
             // Se escribe from y subject de cada mensaje
             for (int i = 0; i < mensajes.length; i++)
-            {
-                System.out.println(
-                    "From:" + mensajes[i].getFrom()[0].toString());
-                System.out.println("Subject:" + mensajes[i].getSubject());
+            {   
+                String from= mensajes[i].getFrom()[0].toString() ;
                 
-                // Se visualiza, si se sabe como, el contenido de cada mensaje
+                //System.out.println("From:" + mensajes[i].getFrom()[0].toString());
+                
+                String subject= mensajes[i].getSubject();
+                //System.out.println("Subject:" + mensajes[i].getSubject());
+                
+                // Se visualiza el contenido de cada mensaje
                 EmailReader content = new EmailReader();
-                System.out.println("el contenido del mensaje, explicitamente es: "+ content.analizaParteDeMensaje(mensajes[i]));                                                                           
+                String cuerpomsg=content.analizaParteDeMensaje(mensajes[i]) ;
+                //System.out.println("el contenido del mensaje, explicitamente es: "+ content.analizaParteDeMensaje(mensajes[i]));   
                 
-            }
-
-            folder.close(false);
+               
+                validarAsunto(from, subject, cuerpomsg );            
+                
+            }folder.close(false);
             store.close();
-        }
-        catch (Exception e)
-        {
+        }catch (Exception e){
             e.printStackTrace();
         }                                  
     }
@@ -100,8 +106,7 @@ public class EmailReader {
                 result= getTextFromMimeMultipart(multi);
 
                 for (int j = 0; j < multi.getCount(); j++) {
-                    analizaParteDeMensaje(multi.getBodyPart(j));  
-                                   
+                    analizaParteDeMensaje(multi.getBodyPart(j));                                     
                 }
             }else {
               // Si es texto, se escribe el texto.
@@ -113,12 +118,11 @@ public class EmailReader {
                 }
           }
         }
-        catch (Exception e)
-        {
+        catch (Exception e){
             e.printStackTrace();            
         } return result;
     }
-    
+    //metodo requerido por el metodo "analizar parte del mensaje, convierte el contenido a string"
     private String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws MessagingException, IOException{
         String result="";
         int count = mimeMultipart.getCount();        
@@ -129,20 +133,19 @@ public class EmailReader {
                 break;
             }else if(bodyPart.getContent() instanceof MimeMultipart){
                 result= result+ getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
-            }
-        }
+            } }
         return result;
     }
     
-    //Invoca al metodo encargado de generar una contrasenna para enviarla al correo del usuario
+    //Invoca a la clase Generar contrasenna con metodo encargado de generar una contrasenna para enviarla al correo del nuevo usuario
      public String getPass(){
         String pass;
         pass= GenerarContraseña.getPassword();
         System.out.println(pass);
         return pass;
     }
-     
-     public void enviarMailNuevaPassword(String destinatario){        
+     //Metodo que envia la contrasenna que utilizara el nuevo usuario
+     public String enviarMailNuevaPassword(String destinatario){        
          String passw= getPass();         
         String host = "smtp.gmail.com";
         String port = "587";
@@ -162,15 +165,16 @@ public class EmailReader {
         EmailReader mailer = new EmailReader(); 
         try {
             mailer.sendHtmlEmail(host, port, mailFrom, password, mailTo, subject, message);
-            System.out.println("Email sent.");
+            System.out.println("Se envio la contraseña "+ passw +"al correo "+ mailTo);
         } catch (Exception ex) {
             System.out.println("Failed to sent email.");
             ex.printStackTrace();
-        }     
+        }
+        return passw;
      }
         
     
-    
+    //metodo que envia el correo con la informacion de la propiedad que haya solicitado el cliente (no terminado)
     public void enviarMail(String destinatario){        
         String host = "smtp.gmail.com";
         String port = "587";
@@ -201,19 +205,16 @@ public class EmailReader {
              
         
         
-    //Envia correo en formato html 
-    
+    //metodo utilizado por el metodo enviarMail, este Envia correo en formato html    
     
     public void sendHtmlEmail(String host, String port,final String userName, final String password, String toAddress,
-            String subject, String message) throws AddressException, MessagingException {
- 
+            String subject, String message) throws AddressException, MessagingException { 
         // sets SMTP server properties
         Properties properties = new Properties();
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.port", port);
         properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
- 
+        properties.put("mail.smtp.starttls.enable", "true"); 
         // creates a new session with an authenticator
         Authenticator auth = new Authenticator() {
             public PasswordAuthentication getPasswordAuthentication() {
@@ -221,8 +222,7 @@ public class EmailReader {
             }
         };
  
-        Session session = Session.getInstance(properties, auth);
- 
+        Session session = Session.getInstance(properties, auth); 
         // creates a new e-mail message
         Message msg = new MimeMessage(session);
  
@@ -234,44 +234,99 @@ public class EmailReader {
         // set plain text message
         msg.setContent(message, "text/html"); 
         // sends the e-mail
-        Transport.send(msg);
- 
+        Transport.send(msg); 
     }
     
-    
-    public void CrearUsuarioCliente() {
+    //Esta funcion se llama desde el main y permanece monitoreando los correos recibidos cada 9 segundos
+    public void MonitorearNuevoCliente() { 
         
         String correo, nombre, contrasena ;
         int tel;
         
+        Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				// Esto se ejecuta en segundo plano una única vez
+				while (true) {
+					// hacemos un ciclo infinito
+					try {
+						// En él, hacemos que el hilo duerma
+						Thread.sleep(9000);
+						// Y después realizamos las operaciones
+						System.out.println("9 segundos pasaron, leyendo el correo nuevamente");
+                                                recibirMail("isamasis09@gmail.com","2017170050");
+						// Así, se da la impresión de que se ejecuta cada cierto tiempo
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+		// Creamos un hilo y le pasamos el runnable
+		Thread hilo = new Thread(runnable);
+		hilo.start();
+
+		// Y aquí podemos hacer cualquier cosa, en el hilo principal del programa
+		//System.out.println("Yo imprimo en el hilo principal");      
         
         
         //validar datos 
-        //realizar insert a la tabla usuario cliente 
-        
+        //realizar insert a la tabla usuario cliente  
         
         
     
 }
-    
+    //metodo invocado por el metodo recibirMail principalmente para separar el contenido del correo con los datos del usuario
     public void validarAsunto(String from, String asunto, String cuerpomsg){
-        String partesmsg[]= cuerpomsg.split(",");
+        String partesmsg[]= cuerpomsg.split(",");    // divide la informacion del cuerpo del correo en cada ,
+        String nombre= partesmsg[0];
+        String apellido= partesmsg[1];
+        
+        //convirtiendo el telefono a int        
+        String tel = partesmsg[2];
+        //int itel= Integer.parseInt(tel);
+        
+        String Sid= partesmsg[3];
+       // int id= Integer.parseInt(Sid);
+        
+        String correoUsuario= parseandoCorreo(from);
+        String asuntoMail = asunto;   
+        String clave = enviarMailNuevaPassword(correoUsuario);
+        
+      /**  Cliente cliente = new Cliente();
+        
+        //aqui se debe validar el asunto (nuevo usuario) y hacer el insert a la base de datos y al xml
+        cliente.setId(Sid);
+        cliente.setNombre(nombre);
+        cliente.setApellido(apellido);
+        cliente.setCorreo(correoUsuario);
+        cliente.setTelefono(tel);
+        cliente.setClave(clave); **/
+        
+        System.out.println("REGISTRANDO USUARIO.\nCorreo  "+ correoUsuario+"\nASUNTO: "+asuntoMail+
+                    "\nNombre:" + nombre+ "\nApellido  " + apellido+ "\ntelefono:  "+ tel);  
+        
+        //Registrando cliente en la base de datos
+       // ConsultaBienesRaices c = new ConsultaBienesRaices();
+       // c.registrarCliente(cliente);
+        
+        //creando el usuario en 
+        new XML(correoUsuario,clave);
         
         
-        if(asunto == "nuevo usuario"){
             
-            System.out.println(partesmsg[0]);            
-            
-            
-        }
-        
-        
-        
+                        
     }
-
-   
-    
-    
-    
+    //metodo que limpia etiquetas que no sean parte del correo electronico del usuario solicitante
+    public String parseandoCorreo(String correoContenido){
+        String correo= correoContenido;
+        String getCorreo="";
+        System.out.println("el primer corchete esta en el index: "+ correo.indexOf("<"));
+        int indexBracket= correo.indexOf("<");
+        System.out.println("el correo es: " + correo.substring(indexBracket+1, correo.length()-1));
+        getCorreo= correo.substring(indexBracket+1, correo.length()-1);
+        
+        return getCorreo;
+    }   
     
 }

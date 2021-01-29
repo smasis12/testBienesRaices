@@ -6,7 +6,7 @@ import java.util.*;
  * 
  */
 public class Cliente extends Usuario {
-    
+    private int id;
     private String nombre;
     private String apellido;
 
@@ -98,6 +98,14 @@ public class Cliente extends Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    int getId() {
+        return id;
+    }
+    public void setId(int id){
+        
+        
     }
 
 }
