@@ -129,9 +129,9 @@ public class controladorCliente implements ActionListener {
         }
     }
 
-    public void generarQr(String id, String nombre, String ap, String correo, String tel) {
+    public void generarQr(String id, String nombre, String apellido, String correo, String tel) {
 
-        String pb = "Informacion del agente: " + nombre + ap + "\n" + "id: " + id + "\n" + "correo: " + correo + "\n" + "telefono: " + tel;
+        String pb = "Informacion del agente: " + nombre + apellido + "\n" + "id: " + id + "\n" + "correo: " + correo + "\n" + "telefono: " + tel;
 
         try {
             ByteArrayOutputStream out = QRCode.from(pb).to(ImageType.PNG).stream();

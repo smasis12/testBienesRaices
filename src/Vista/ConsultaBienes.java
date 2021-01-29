@@ -336,29 +336,6 @@ public class ConsultaBienes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void cboxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxTipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboxTipoActionPerformed
-
-    private void sliderMinimoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderMinimoStateChanged
-        // TODO add your handling code here:
-        txtMin.setText("$"+ sliderMinimo.getValue());
-        
-    }//GEN-LAST:event_sliderMinimoStateChanged
-
-    private void sliderMaximoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderMaximoStateChanged
-        // TODO add your handling code here:
-        txtMax.setText("$"+ sliderMaximo.getValue());
-    }//GEN-LAST:event_sliderMaximoStateChanged
-
     private void btnDetallesPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetallesPropiedadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDetallesPropiedadActionPerformed
@@ -396,13 +373,36 @@ public class ConsultaBienes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarPropiedadesActionPerformed
 
-    private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
+    private void sliderMinimoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderMinimoStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFichaActionPerformed
+        txtMin.setText("$"+ sliderMinimo.getValue());
+
+    }//GEN-LAST:event_sliderMinimoStateChanged
 
     private void btnMostrarInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarInteresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMostrarInteresActionPerformed
+
+    private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFichaActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void cboxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxTipoActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void sliderMaximoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderMaximoStateChanged
+        // TODO add your handling code here:
+        txtMax.setText("$"+ sliderMaximo.getValue());
+    }//GEN-LAST:event_sliderMaximoStateChanged
 
     /**
      * @param args the command line arguments
@@ -446,19 +446,19 @@ public class ConsultaBienes extends javax.swing.JFrame {
     private javax.swing.JButton btnMostrarInteres;
     private javax.swing.JButton btnVolver;
     public javax.swing.JComboBox<String> cboxModalidad;
-    public javax.swing.JComboBox<String> cboxProvincia;
-    public javax.swing.JComboBox<String> cboxTipo;
+    private javax.swing.JComboBox<String> cboxProvincia;
+    private javax.swing.JComboBox<String> cboxTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable_Display_Propiedad;
+    private javax.swing.JTable jTable_Display_Propiedad;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
-    public javax.swing.JSlider sliderMaximo;
-    public javax.swing.JSlider sliderMinimo;
+    private javax.swing.JSlider sliderMaximo;
+    private javax.swing.JSlider sliderMinimo;
     private javax.swing.JLabel txtMax;
     private javax.swing.JLabel txtMin;
     // End of variables declaration//GEN-END:variables
