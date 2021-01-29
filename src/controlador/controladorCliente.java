@@ -55,7 +55,7 @@ public class controladorCliente implements ActionListener {
         frmCliente.setTitle("Agente");
         frmCliente.setLocationRelativeTo(null);
     }
-    
+
     public void IniciarInteresados() {
 
         frmClientesInteresados.setTitle("Clientes interesados");
@@ -84,7 +84,7 @@ public class controladorCliente implements ActionListener {
             try {
                 ConsultarClientesInteresados(frmClientesInteresados.tablaClientes);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null,"No se ha podido mostrar la informacion");
+                JOptionPane.showMessageDialog(null, "No se ha podido mostrar la informacion");
             }
         }
 
@@ -101,8 +101,10 @@ public class controladorCliente implements ActionListener {
         };
 
         dt.addColumn("Correo");
+        dt.addColumn("Telefono");
 
-        String sql = "select * from UsuarioCliente";
+        String sql = "select u.correo, u.telefono\n"
+                + "from UsuarioCliente uc join Usuario u on uc.correo = u.correo";
 
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -112,8 +114,9 @@ public class controladorCliente implements ActionListener {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Object fila[] = new Object[1];
+                Object fila[] = new Object[2];
                 fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
                 dt.addRow(fila);
             }
 
@@ -197,9 +200,8 @@ public class controladorCliente implements ActionListener {
             }
         }
     }
-    
-    
-    public void ConsultarClientesInteresados(JTable tabla) throws SQLException{
+
+    public void ConsultarClientesInteresados(JTable tabla) throws SQLException {
         Conexion conec1 = new Conexion();
         tabla.setDefaultRenderer(Object.class, new Render());
         DefaultTableModel dt = new DefaultTableModel() {
@@ -213,8 +215,8 @@ public class controladorCliente implements ActionListener {
         dt.addColumn("Telefono");
         dt.addColumn("numFinca");
         dt.addColumn("Tipo Propiedad");
-        
-        int tipoPropiedad = frmClientesInteresados.cbxTipoPropiedad.getSelectedIndex()+1;
+
+        int tipoPropiedad = frmClientesInteresados.cbxTipoPropiedad.getSelectedIndex() + 1;
 
         String sql = "select * from ConsultarClientesInteresados ('" + tipoPropiedad + "', '" + ControladorLogin.ag.getId() + "')";
 

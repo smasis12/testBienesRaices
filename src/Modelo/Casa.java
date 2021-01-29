@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Casa extends Propiedad {
   
-    private String areaConstruccion;
+    private int areaConstruccion;
     private String estiloConstruccion;
     private int cantidadNiveles;
     private String color;
@@ -31,7 +31,7 @@ public class Casa extends Propiedad {
      * @param pColor 
      * @param pAnio
      */
-    public Casa(int pFinca, int pAreaTerreno, int pValorMetro, int pFiscal, String pUbicacion, String pDireccion, int pModalidad, String pAConstruccion, String pEstilo, int pNiveles, String pColor, int pAnio, int pProvincia, int pCanton, int pDistrito, int pAgente, int pPropiedad) {
+    public Casa(int pFinca, int pAreaTerreno, int pValorMetro, int pFiscal, String pUbicacion, String pDireccion, int pModalidad, int pAConstruccion, String pEstilo, int pNiveles, String pColor, int pAnio, int pProvincia, int pCanton, int pDistrito, int pAgente, int pPropiedad) {
         super(pFinca, pAreaTerreno, pValorMetro, pFiscal, pUbicacion, pDireccion, pModalidad, pProvincia, pCanton, pDistrito, pAgente, pPropiedad);
         this.areaConstruccion= pAConstruccion;
         this.estiloConstruccion=pEstilo;
@@ -71,11 +71,11 @@ public class Casa extends Propiedad {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-     public String getAreaConstruccion() {
+     public int getAreaConstruccion() {
         return areaConstruccion;
     }
 
-    public void setAreaConstruccion(String areaConstruccion) {
+    public void setAreaConstruccion(int areaConstruccion) {
         this.areaConstruccion = areaConstruccion;
     }
 

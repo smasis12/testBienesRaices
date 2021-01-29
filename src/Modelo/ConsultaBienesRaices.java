@@ -5,14 +5,19 @@
  */
 package Modelo;
 
+import Vista.GestionCatalogoFrame;
 import controlador.Conexion;
 import static controlador.Conexion.getConexion;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,7 +26,9 @@ import javax.swing.JOptionPane;
  */
 public class ConsultaBienesRaices {
 
-    public boolean registrarAgente(Agente ag) {
+    GestionCatalogoFrame frmGestionCatalogo = new GestionCatalogoFrame();
+
+    public boolean registrarAgente(Agente ag) throws NoSuchAlgorithmException {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
@@ -33,7 +40,7 @@ public class ConsultaBienesRaices {
             ps = con.prepareStatement(sql);
             ps.setString(1, ag.getCorreo());
             ps.setInt(2, ag.getTelefono());
-            ps.setString(3, "fasdfa");
+            ps.setString(3, randomPassword());
             ps.setInt(4, ag.getId());
             ps.setString(5, ag.getNombre());
             ps.setString(6, ag.getApellido());
@@ -120,7 +127,7 @@ public class ConsultaBienesRaices {
         String sql = "INSERT INTO Propiedad(numFinca, areaTerreno, valorMetro, valorFiscal, ubicacion,"
                 + "idProvincia, idCanton, idDistrito, senas, idAgente, idPropiedad, idModalidad) "
                 + "values(?,?,?,?,?,?,?,?,?,?,?,?) ; "
-                + "INSERT INTO casas(numFinca, cantidadNiveles, estiloConstruccion, color, anioConstruccion) values(?,?,?,?,?)";
+                + "INSERT INTO casas(numFinca, areaConstruccion, cantidadNiveles, estiloConstruccion, color, anioConstruccion) values(?,?,?,?,?,?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, casa.getNumFinca());
@@ -136,10 +143,11 @@ public class ConsultaBienesRaices {
             ps.setInt(11, casa.getIdPropiedad());
             ps.setInt(12, casa.getModalidad());
             ps.setInt(13, casa.getNumFinca());
-            ps.setInt(14, casa.getCantidadNiveles());
-            ps.setString(15, casa.getEstiloConstruccion());
-            ps.setString(16, casa.getColor());
-            ps.setInt(17, casa.getAnioConstruccion());
+            ps.setInt(14, casa.getAreaConstruccion());
+            ps.setInt(15, casa.getCantidadNiveles());
+            ps.setString(16, casa.getEstiloConstruccion());
+            ps.setString(17, casa.getColor());
+            ps.setInt(18, casa.getAnioConstruccion());
 
             ps.execute();
 
@@ -201,8 +209,7 @@ public class ConsultaBienesRaices {
             ps.setInt(2, nivel.getCantidadResidencias());
             ps.setString(3, nivel.getTipoNivel());
             ps.setInt(4, nivel.getAreaZonasComunes());
- 
-            
+
             ps.execute();
 
             return true;
@@ -255,4 +262,21 @@ public class ConsultaBienesRaices {
             return false;
         }
     }
+
+    public String randomPassword() throws NoSuchAlgorithmException {
+        String[] symbols = {"0", "1", "-", "*", "%", "$", "a", "b", "c"};
+        int length = 10;
+        Random random;
+
+        random = SecureRandom.getInstanceStrong();
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            int indexRandom = random.nextInt(symbols.length);
+            sb.append(symbols[indexRandom]);
+        }
+        String password = sb.toString();
+        return password;
+
+    }
+
 }

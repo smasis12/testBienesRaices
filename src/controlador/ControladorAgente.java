@@ -21,6 +21,7 @@ import net.glxn.qrgen.image.ImageType;
 import controlador.Conexion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -53,7 +54,7 @@ public class ControladorAgente implements ActionListener {
         this.frmConsultar.btnMostrar.addActionListener(this);
         this.frmRegistrar.btnRegistrar.addActionListener(this);
     }
-    
+
     public void Iniciar() {
 
         frmRegistrar.setTitle("Agente");
@@ -66,41 +67,45 @@ public class ControladorAgente implements ActionListener {
         frmConsultar.setLocationRelativeTo(null);
     }
 
-    private static boolean isNumeric(String cadena){
-	try {
-		Integer.parseInt(cadena);
-		return true;
-	} catch (NumberFormatException nfe){
-		return false;
-	}
-}
+    private static boolean isNumeric(String cadena) {
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == frmRegistrar.btnRegistrar) {
-            if (ControladorAgente.isNumeric(frmRegistrar.txtId.getText()) && ControladorAgente.isNumeric(frmRegistrar.txtNumTelefono.getText()) ){
+            if (ControladorAgente.isNumeric(frmRegistrar.txtId.getText()) && ControladorAgente.isNumeric(frmRegistrar.txtNumTelefono.getText())) {
                 agente.setCorreo(frmRegistrar.txtCorreo.getText());
                 agente.setApellido(frmRegistrar.txtApellido.getText());
                 agente.setNombre(frmRegistrar.txtNombre.getText());
                 agente.setTelefono(Integer.parseInt((frmRegistrar.txtNumTelefono.getText())));
                 agente.setId(Integer.parseInt((frmRegistrar.txtId.getText())));
-            
-            if (consultas.registrarAgente(agente)) {
-                JOptionPane.showMessageDialog(null, "Registro Guardado");
-            } else {
-                JOptionPane.showMessageDialog(null, "Presione volver para regresar al menu anterior");
+
+                try {
+                    if (consultas.registrarAgente(agente)) {
+                        JOptionPane.showMessageDialog(null, "Registro Guardado");
+                    }
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(ControladorAgente.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        } else if (e.getSource() == frmConsultar.btnMostrar) {
+        }
+        if (e.getSource() == frmConsultar.btnMostrar) {
             try {
+
                 listar(frmConsultar.tablaAgentes);
-            } catch (Exception ex) {
-                System.out.println("Por favor, ingrese los datos correctos");
-            }
-            System.out.println("wsdfads");
- 
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se ha podido mostrar");
             }
 
         }
     }
+
     public void listar(JTable tabla) throws SQLException {
         Conexion conec1 = new Conexion();
         tabla.setDefaultRenderer(Object.class, new Render());
@@ -110,11 +115,10 @@ public class ControladorAgente implements ActionListener {
                 return false;
             }
         };
-        dt.addColumn("identificacion");  
+        dt.addColumn("identificacion");
         dt.addColumn("Nombre");
         dt.addColumn("Apellido");
         dt.addColumn("Correo");
-             
 
         String sql = "select * from UsuarioAgente";
 
@@ -444,7 +448,7 @@ public class ControladorAgente implements ActionListener {
 
     public void visualizarBusquedaPorModalidad(JTable tabla, int modalidad) {
         Conexion conec1 = new Conexion();
-        
+
         ResultSet rs = null;
         PreparedStatement ps = null;
 
@@ -474,7 +478,7 @@ public class ControladorAgente implements ActionListener {
             case 1:
                 String sql = "select * from ConsultaPorModalidadVenta ('" + ControladorLogin.ag.getCorreo() + "')";
 
-                 try {
+                try {
                     ps = conec1.getConexion().prepareStatement(sql);
                     rs = ps.executeQuery();
 
@@ -533,6 +537,6 @@ public class ControladorAgente implements ActionListener {
             default:
                 JOptionPane.showMessageDialog(null, "Elija una opcion");
                 break;
-        } 
+        }
     }
 }

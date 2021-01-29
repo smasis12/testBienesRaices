@@ -6,6 +6,7 @@ import Modelo.CentroComercial;
 import Modelo.ConsultaBienesRaices;
 import Modelo.Lote;
 import Modelo.Nivel;
+import Vista.GestionCatalogoFrame;
 import Vista.RegistrarNuevaCasaFrame;
 import Vista.RegistrarNuevoApartamento;
 import Vista.RegistrarNuevoCentroComercial;
@@ -116,6 +117,7 @@ public class ControladorPropiedad implements ActionListener {
             casa.setIdAgente(ControladorLogin.ag.getId());
             casa.setIdPropiedad(2);
             casa.setModalidad(frmRegistrarCasa.cbxModalidad.getSelectedIndex() + 1);
+            casa.setAreaConstruccion(Integer.parseInt(frmRegistrarCasa.txtAreaConstruccion.getText()));
             casa.setUbicacion(frmRegistrarCasa.txtUbicacion.getText());
             casa.setCantidadNiveles(Integer.parseInt(frmRegistrarCasa.txtCantidadNiveles.getText()));
             casa.setEstiloConstruccion(String.valueOf(frmRegistrarCasa.cbxEstilo.getSelectedItem()));

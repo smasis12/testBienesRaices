@@ -1,8 +1,13 @@
 package Vista;
 
+import Modelo.Apartamento;
+import Modelo.Casa;
+import Modelo.CentroComercial;
+import Modelo.ConsultaBienesRaices;
+import Modelo.Lote;
+import controlador.ControladorCatalogo;
 import controlador.controladorCliente;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -10,7 +15,6 @@ import javax.swing.JOptionPane;
  */
 public class MenuAgentesFrame extends javax.swing.JFrame {
 
-    
     public MenuAgentesFrame() {
         initComponents();
         setLocationRelativeTo(null);
@@ -113,6 +117,12 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
 
     private void btnGestionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionCatalogoActionPerformed
         GestionCatalogoFrame ventana = new GestionCatalogoFrame();
+        Lote lote = new Lote();
+        Casa casa = new Casa();
+        Apartamento apartamento = new Apartamento();
+        CentroComercial centroC = new CentroComercial();
+        ConsultaBienesRaices consultasBienesRaices = new ConsultaBienesRaices();
+        ControladorCatalogo controladorCatalogo = new ControladorCatalogo(lote, casa, apartamento, centroC, consultasBienesRaices, ventana);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGestionCatalogoActionPerformed
@@ -120,7 +130,7 @@ public class MenuAgentesFrame extends javax.swing.JFrame {
     private void btnConsultaClientesInteresadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClientesInteresadosActionPerformed
         ConsultarClientesFrame ventana = new ConsultarClientesFrame();
         ConsultarClientesInteresadosFrame ventana2 = new ConsultarClientesInteresadosFrame();
-        controladorCliente ctrl= new controladorCliente(ventana,ventana2);
+        controladorCliente ctrl = new controladorCliente(ventana, ventana2);
         ctrl.IniciarInteresados();
         ventana2.setVisible(true);
         this.dispose();
