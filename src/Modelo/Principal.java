@@ -25,7 +25,7 @@ public class Principal {
             //e.enviarMail("isamasis09@gmail.com"); 
             
             // EmailReader.enviarMailNuevaPassword("masissara12@gmail.com");
-            
+            //EmailReader.enviarMailFicha("masissara12@gmail.com", "sara");
             
     
     }

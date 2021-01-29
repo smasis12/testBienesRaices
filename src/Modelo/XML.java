@@ -2,6 +2,7 @@
 package Modelo;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
@@ -18,11 +19,14 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
+import org.xml.sax.SAXException;
 
 public class XML {
     
-    public XML(String pcorreo, String pclave){
+    public void XMLwrite(String pcorreo, String pclave){
          
         try {
             DocumentBuilderFactory factory= DocumentBuilderFactory.newInstance();
@@ -66,6 +70,45 @@ public class XML {
             System.out.println(ex.getMessage());
         }
         
+        
+    }
+
+    XML() {
+        
+    }
+    
+    public void xmlRead(){
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            
+            
+            
+            Document documento = builder.parse(new File("usuarios.xml"));
+            
+            NodeList listaUsuarios = documento.getElementsByTagName("cliente");
+            
+            for(int i =0; i< listaUsuarios.getLength(); i++){
+                Node nodo= listaUsuarios.item(i);
+                if(nodo.getNodeType()== Node.ELEMENT_NODE){
+                    Element e = (Element) nodo;
+                    NodeList hijos = e.getChildNodes();
+                    
+                    for(int j= 0; j<hijos.getLength(); j++){
+                        Node hijo= hijos.item(j);
+                        if(hijo.getNodeType()==Node.ELEMENT_NODE){
+                            Element eHijo= (Element) hijo;
+                            System.out.println("Propiedad: "+ hijo.getNodeName()+" Valor: "+ hijo.getTextContent());
+                        }
+                    }
+                }System.out.println("");
+            }
+            
+            
+            
+        } catch (SAXException | IOException | ParserConfigurationException ex) {
+            System.out.println(ex.getMessage());
+        }       
         
     }
     

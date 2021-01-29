@@ -12,6 +12,9 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -31,6 +34,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.search.FlagTerm;
@@ -175,7 +179,9 @@ public class EmailReader {
         
     
     //metodo que envia el correo con la informacion de la propiedad que haya solicitado el cliente (no terminado)
-    public void enviarMail(String destinatario){        
+    public void enviarMailFicha(String destinatario, String nombreAgente){   
+        String agente= nombreAgente;
+        
         String host = "smtp.gmail.com";
         String port = "587";
         String mailFrom = "isamasis09@gmail.com";
@@ -183,7 +189,8 @@ public class EmailReader {
  
         // outgoing message information
         String mailTo = destinatario;
-        String subject = "CONTRASEÑA DE REGISTRO AL SISTEMA BIENES RAÍCES";
+        
+        String subject = "Ficha informativa de propiedad";
  
         // message contains HTML markups
         String message = "<i>Greetings!</i><br>";
@@ -193,14 +200,16 @@ public class EmailReader {
         EmailReader mailer = new EmailReader();
  
         try {
-            mailer.sendHtmlEmail(host, port, mailFrom, password, mailTo,
-                    subject, message);
+            mailer.sendHtmlEmailFicha(host, port, mailFrom, password, mailTo,
+                    subject, message, agente);
             System.out.println("Email sent.");
         } catch (Exception ex) {
             System.out.println("Failed to sent email.");
             ex.printStackTrace();
         }      
         }
+    
+    //crear metodo de consulta del bien  y llamarlo desde enviar mail ficha para agregarlo al cuerpo del mensaje
         
              
         
@@ -237,6 +246,71 @@ public class EmailReader {
         Transport.send(msg); 
     }
     
+    
+    public void sendHtmlEmailFicha(String host, String port,final String userName, final String password, String toAddress,
+            String subject, String message, String nombreAgente) throws AddressException, MessagingException { 
+        
+        String f_name = nombreAgente;  //guarda el codigo qr con el nombre del agente 
+        String Path_name = "C:\\QR\\";
+        
+        // sets SMTP server properties
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true"); 
+        // creates a new session with an authenticator
+        Authenticator auth = new Authenticator() {
+            public PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(userName, password);
+            }
+        };
+ 
+        Session session = Session.getInstance(properties, auth); 
+        // creates a new e-mail message
+        Message msg = new MimeMessage(session);
+ 
+        msg.setFrom(new InternetAddress(userName));
+        InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
+        msg.setRecipients(Message.RecipientType.TO, toAddresses);
+        msg.setSubject(subject);
+        msg.setSentDate(new Date());
+        // set plain text message
+       // msg.setContent(message, "text/html");
+        
+        //////////////////////probando  // Specify the cid of the image to include in the email
+        MimeMultipart multipart = new MimeMultipart("related");
+
+         // first part (the html)
+         BodyPart messageBodyPart = new MimeBodyPart();
+         
+         //EN ESTE STRING SE AGREGAN LA INFO DE LA PROPIEDAD
+         String htmlText = "<H1>Hello</H1><img src=\"cid:image\">";
+         messageBodyPart.setContent(htmlText, "text/html");
+         // add it
+         multipart.addBodyPart(messageBodyPart);
+
+         // second part (the image)
+         messageBodyPart = new MimeBodyPart();
+         DataSource fds = new FileDataSource(Path_name+f_name+".PNG");
+
+         messageBodyPart.setDataHandler(new DataHandler(fds));
+         messageBodyPart.setHeader("Content-ID", "<image>");
+
+         // add image to the multipart
+         multipart.addBodyPart(messageBodyPart);
+
+         // put everything together
+         msg.setContent(multipart);
+         // Send message
+         
+
+         System.out.println("Sent message successfully....");
+        
+        // sends the e-mail
+        Transport.send(msg); 
+    }
+    
     //Esta funcion se llama desde el main y permanece monitoreando los correos recibidos cada 9 segundos
     public void MonitorearNuevoCliente() { 
         
@@ -253,7 +327,7 @@ public class EmailReader {
 						// En él, hacemos que el hilo duerma
 						Thread.sleep(9000);
 						// Y después realizamos las operaciones
-						System.out.println("9 segundos pasaron, leyendo el correo nuevamente");
+						System.out.println("Verificando nuevos registros");
                                                 recibirMail("isamasis09@gmail.com","2017170050");
 						// Así, se da la impresión de que se ejecuta cada cierto tiempo
 					} catch (InterruptedException e) {
@@ -293,15 +367,7 @@ public class EmailReader {
         String asuntoMail = asunto;   
         String clave = enviarMailNuevaPassword(correoUsuario);
         
-      /**  Cliente cliente = new Cliente();
-        
-        //aqui se debe validar el asunto (nuevo usuario) y hacer el insert a la base de datos y al xml
-        cliente.setId(Sid);
-        cliente.setNombre(nombre);
-        cliente.setApellido(apellido);
-        cliente.setCorreo(correoUsuario);
-        cliente.setTelefono(tel);
-        cliente.setClave(clave); **/
+  
         
         System.out.println("REGISTRANDO USUARIO.\nCorreo  "+ correoUsuario+"\nASUNTO: "+asuntoMail+
                     "\nNombre:" + nombre+ "\nApellido  " + apellido+ "\ntelefono:  "+ tel);  
@@ -311,7 +377,9 @@ public class EmailReader {
        // c.registrarCliente(cliente);
         
         //creando el usuario en 
-        new XML(correoUsuario,clave);
+        XML x = new XML();
+        x.xmlRead();
+        x.XMLwrite(correoUsuario, clave);
         
         
             
